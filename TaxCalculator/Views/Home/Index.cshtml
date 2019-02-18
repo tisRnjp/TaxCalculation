@@ -1,0 +1,21 @@
+﻿@model TaxCalculator.Models.SearchCitizenViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Details", "Home", FormMethod.Get))
+                {
+            <div class="form-group">
+                <label for="CitizenSearchString">नागरिकता नं.</label>
+                @*<input type="number" class="form-control" id="CitizenSearchString" placeholder="नागरिकता नं. राख्नुहोस्।"/>*@
+                @Html.TextBoxFor(m => m.citizenID, new { @class = "form-control", placeholder = "नागरिकता नं. राख्नुहोस्।" })
+            </div>
+                <input type="submit" class="btn btn-primary" value="खोजी गर्नुहोस्।" />
+            }
+        </section>
+    </div>
+</div>
