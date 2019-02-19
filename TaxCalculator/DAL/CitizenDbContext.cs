@@ -6,10 +6,10 @@ namespace TaxCalculator.DAL
 {
     public class CitizenDbContext : DbContext
     {
-        //public CitizenDbContext() : base("CitizenDbContext")
-        //{
+        public CitizenDbContext() : base("CitizenDbContext")
+        {
 
-        //}
+        }
 
         public DbSet<Citizen> Citizens { get; set; }
         public DbSet<CitizenProperty> CitizenProperties { get; set; }

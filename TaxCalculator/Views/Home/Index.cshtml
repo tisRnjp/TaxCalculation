@@ -1,5 +1,6 @@
 ﻿@model TaxCalculator.Models.SearchCitizenViewModel
 
+
 @{
     ViewBag.Title = "Home Page";
 }
@@ -8,14 +9,63 @@
     <div class="col-md-8">
         <section id="loginForm">
             @using (Html.BeginForm("Details", "Home", FormMethod.Get))
-                {
-            <div class="form-group">
-                <label for="CitizenSearchString">नागरिकता नं.</label>
-                @*<input type="number" class="form-control" id="CitizenSearchString" placeholder="नागरिकता नं. राख्नुहोस्।"/>*@
-                @Html.TextBoxFor(m => m.citizenID, new { @class = "form-control", placeholder = "नागरिकता नं. राख्नुहोस्।" })
-            </div>
+            {
+                <div class="form-group">
+                    <label for="CitizenSearchString">नागरिकता नं.</label>
+                    @*<input type="number" class="form-control" id="CitizenSearchString" placeholder="नागरिकता नं. राख्नुहोस्।"/>*@
+                    @Html.TextBoxFor(m => m.citizenID, new { @class = "form-control", placeholder = "नागरिकता नं. राख्नुहोस्।" })
+                </div>
                 <input type="submit" class="btn btn-primary" value="खोजी गर्नुहोस्।" />
             }
+
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Search Name: @Html.TextBox("Search_Data")
+                    <input class="btn btn-primary"  type="submit" value="खोजी गर्नुहोस्।"/>
+                </p>
+
+            }
         </section>
+
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Zone</th>
+                    <th scope="col">District</th>
+                    <th scope="col">StreetName</th>
+                    <th scope="col">WardNo</th>
+                    <th scope="col">Municipality</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var citizen in Model.Citizens){
+                    <tr>
+                        <th scope="row">@citizen.CitizenId</th>
+                        <td>@citizen.FirstName</td>
+                        <td>@citizen.LastName</td>
+                        <td>@citizen.Zone</td>
+                        <td>@citizen.District</td>
+                        <td>@citizen.StreetName</td>
+                        <td>@citizen.Wardno</td>
+                        <td>@citizen.Municipality</td>
+                        <td>
+                            @Html.ActionLink("Detail", "Detail", new { citizenID = citizen.CitizenId }) /
+                            @Html.ActionLink("Edit", "Edit", new { citizenID = citizen.CitizenId }) /
+                            @Html.ActionLink("Detail", "Detail", new { citizenID = citizen.CitizenId })
+
+                        </td>
+                    </tr>  
+
+                  }
+
+            </tbody>
+        </table>
+
+
     </div>
 </div>
