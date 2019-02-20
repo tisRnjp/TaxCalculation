@@ -7,9 +7,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>New Citizens</h2>
+<h2>Citizens Form</h2>
 
-@using (Html.BeginForm("Create", "Home"))
+@using (Html.BeginForm("Save", "Home"))
 {
 
 
@@ -51,6 +51,8 @@
         @Html.LabelFor(m => m.Citizen.Municipality)
         @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
     </div>
+
+    @Html.HiddenFor(m => m.Citizen.CitizenId)
     <button type="submit" class="btn btn-primary"> Save</button>
 
 }

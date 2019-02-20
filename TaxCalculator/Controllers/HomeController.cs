@@ -53,13 +53,30 @@ namespace TaxCalculator.Controllers
         {
             var viewModel = new CitizenViewModel();
             
-            return View(viewModel);
+            return View("CitizenForm",viewModel);
         }
 
         [HttpPost]
-        public ActionResult Create(CitizenViewModel viewModel)
+        public ActionResult Save(CitizenViewModel viewModel) 
         {
-            db.Citizens.Add(viewModel.Citizen);
+
+            if (viewModel.Citizen.CitizenId == 0)
+            {
+                db.Citizens.Add(viewModel.Citizen);
+            }
+            else
+            {
+                var citizenInDB = db.Citizens.Single(c => c.CitizenId == viewModel.Citizen.CitizenId);
+                citizenInDB.FirstName = viewModel.Citizen.FirstName;
+                citizenInDB.LastName = viewModel.Citizen.LastName;
+                citizenInDB.StreetName = viewModel.Citizen.StreetName;
+                citizenInDB.District = viewModel.Citizen.District;
+                citizenInDB.Zone = viewModel.Citizen.Zone;
+                citizenInDB.Wardno = viewModel.Citizen.Wardno;
+                citizenInDB.Municipality = viewModel.Citizen.Municipality;
+
+            }
+            
             db.SaveChanges();
             return RedirectToAction("Index","Home");
         }
@@ -72,14 +89,22 @@ namespace TaxCalculator.Controllers
             }
 
             var citizens = db.Citizens.ToList();
-            Citizen citizen = db.Citizens.Find(citizenID);
+            var citizen = db.Citizens.Find(citizenID);
+
             if (citizen == null)
             {
                 return HttpNotFound();
             }
-            return View(citizen);
-        }
 
+            var viewModel = new CitizenViewModel
+            {
+                Citizen = citizen
+            };
+
+          
+            return View("CitizenForm",viewModel);
+        }
+        
         public ActionResult Details(int? citizenID)
         {
             if (citizenID == null)
