@@ -55,7 +55,7 @@
                         <td>@citizen.Municipality</td>
                         <td>
                             @Html.ActionLink("Details", "Details", new { citizenID = citizen.CitizenId }) /
-                            @Html.ActionLink("Edit", "Edit", new { citizenID = citizen.CitizenId }) /
+                            @Html.ActionLink("Edit", "Edit","Home", new { citizenID = citizen.CitizenId }) /
                             @Html.ActionLink("Detail", "Details", new { citizenID = citizen.CitizenId })
 
                         </td>

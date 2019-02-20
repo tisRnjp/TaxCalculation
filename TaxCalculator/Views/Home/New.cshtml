@@ -1,4 +1,4 @@
-﻿@model TaxCalculator.Models.Citizen
+﻿@model TaxCalculator.ViewModels.CitizenViewModel
 
 @{
     /**/
@@ -11,39 +11,47 @@
 
 @using (Html.BeginForm("Create", "Home"))
 {
-    <div class="form-group">
-        @Html.LabelFor(m => m.FirstName)
-        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
 
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName)
-        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Zone)
-        @Html.TextBoxFor(m => m.Zone, new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-
-        @Html.LabelFor(m => m.District)
-        @Html.TextBoxFor(m => m.District, new { @class = "form-control" })
+    <div class="form-group" >
+        @Html.LabelFor(m => m.Citizen.FirstName)
+        @Html.TextBoxFor(m => m.Citizen.FirstName, new { @class = "form-control" })
 
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.StreetName)
-        @Html.TextBoxFor(m => m.StreetName, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Citizen.LastName)
+        @Html.TextBoxFor(m => m.Citizen.LastName, new { @class = "form-control" })
+    </div>
+
+    
+
+    
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.Zone)
+        @Html.TextBoxFor(m => m.Citizen.Zone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Citizen.District)
+        @Html.TextBoxFor(m => m.Citizen.District, new { @class = "form-control" })
+
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Wardno)
-        @Html.TextBoxFor(m => m.Wardno, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Citizen.StreetName)
+        @Html.TextBoxFor(m => m.Citizen.StreetName, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Municipality)
-        @Html.TextBoxFor(m => m.Municipality, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Citizen.Wardno)
+        @Html.TextBoxFor(m => m.Citizen.Wardno, new { @class = "form-control" })
     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.Municipality)
+        @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary"> Save</button>
+
 }
 

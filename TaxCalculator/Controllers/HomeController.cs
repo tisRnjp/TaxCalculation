@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
+using TaxCalculator.ViewModels;
 
 namespace TaxCalculator.Controllers
 {
@@ -50,7 +51,17 @@ namespace TaxCalculator.Controllers
 
         public ActionResult New()
         {
-            return View();
+            var viewModel = new CitizenViewModel();
+            
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(CitizenViewModel viewModel)
+        {
+            db.Citizens.Add(viewModel.Citizen);
+            db.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
 
         public ActionResult Edit(int? citizenID)

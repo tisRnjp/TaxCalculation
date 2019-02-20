@@ -141,12 +141,17 @@
     <Compile Include="Migrations\201902190623535_db creation.Designer.cs">
       <DependentUpon>201902190623535_db creation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902200252129_annotation added to citizens.cs" />
+    <Compile Include="Migrations\201902200252129_annotation added to citizens.Designer.cs">
+      <DependentUpon>201902200252129_annotation added to citizens.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
     <Compile Include="Models\CitizenProperty.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CitizenViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -207,6 +212,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902190623535_db creation.resx">
       <DependentUpon>201902190623535_db creation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902200252129_annotation added to citizens.resx">
+      <DependentUpon>201902200252129_annotation added to citizens.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
