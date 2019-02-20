@@ -1,0 +1,59 @@
+﻿@model TaxCalculator.ViewModels.CitizenViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citizens Form</h2>
+
+@using (Html.BeginForm("Save", "Home"))
+{
+
+
+
+    <div class="form-group" >
+        @Html.LabelFor(m => m.Citizen.FirstName)
+        @Html.TextBoxFor(m => m.Citizen.FirstName, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.LastName)
+        @Html.TextBoxFor(m => m.Citizen.LastName, new { @class = "form-control" })
+    </div>
+
+    
+
+    
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.Zone)
+        @Html.TextBoxFor(m => m.Citizen.Zone, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Citizen.District)
+        @Html.TextBoxFor(m => m.Citizen.District, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.StreetName)
+        @Html.TextBoxFor(m => m.Citizen.StreetName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.Wardno)
+        @Html.TextBoxFor(m => m.Citizen.Wardno, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Citizen.Municipality)
+        @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(m => m.Citizen.CitizenId)
+    <button type="submit" class="btn btn-primary"> Save</button>
+
+}
+
