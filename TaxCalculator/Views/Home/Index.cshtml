@@ -22,10 +22,14 @@
             {
                 <p>
                     Search Name: @Html.TextBox("Search_Data")
-                    <input class="btn btn-primary"  type="submit" value="खोजी गर्नुहोस्।"/>
+                    <input class="btn btn-primary" type="submit" value="खोजी गर्नुहोस्।" />
                 </p>
 
             }
+
+            @Html.ActionLink("Export to Excel", "Reports", new { ReportType = "Excel" }) |
+            @Html.ActionLink("Export to PDF", "Reports", new { ReportType = "PDF" }) |
+            @Html.ActionLink("Export to Word", "Reports", new { ReportType = "Word" }) 
         </section>
 
         <table class="table">
