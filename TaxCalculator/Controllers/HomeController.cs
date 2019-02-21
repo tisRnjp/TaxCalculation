@@ -1,10 +1,12 @@
 ﻿using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
 using TaxCalculator.ViewModels;
@@ -123,6 +125,30 @@ namespace TaxCalculator.Controllers
             return View(citizen);
         }
 
+        public ActionResult CitizensReportViewer()
+        {
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
+            reportViewer.Width = Unit.Percentage(900);
+            reportViewer.Height = Unit.Percentage(900);
+
+            reportViewer.LocalReport.ReportPath = Server.MapPath("~/Reports/CustomerList.rdlc");
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "DataSet1";
+            reportDataSource.Value = db.Citizens.ToList();
+            reportViewer.LocalReport.DataSources.Add(reportDataSource);
+
+
+            ViewBag.ReportViewer = reportViewer;
+
+            return View();
+
+            
+        }
+
+      
+
         public ActionResult Reports(string ReportType)
         {
             LocalReport localReport = new LocalReport();
@@ -162,20 +188,6 @@ namespace TaxCalculator.Controllers
 
             //return View();
         }
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-
-        //    var citizens = db.Citizens.ToList();
-        //    Citizen citizen = db.Citizens.Find(id);
-        //    if (citizen == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(citizen);
-        //}
+       
     }
 }

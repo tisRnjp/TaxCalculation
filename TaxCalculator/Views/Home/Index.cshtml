@@ -18,6 +18,9 @@
                 <input type="submit" class="btn btn-primary" value="खोजी गर्नुहोस्।" />
             }
 
+         
+            @Html.ActionLink("Create New", "New","Home",null, new { @class = "btn btn-primary"})
+
             @using (Html.BeginForm())
             {
                 <p>
@@ -27,9 +30,11 @@
 
             }
 
+            @Html.ActionLink("Preview", "CitizensReportViewer") |
+
             @Html.ActionLink("Export to Excel", "Reports", new { ReportType = "Excel" }) |
             @Html.ActionLink("Export to PDF", "Reports", new { ReportType = "PDF" }) |
-            @Html.ActionLink("Export to Word", "Reports", new { ReportType = "Word" }) 
+            @Html.ActionLink("Export to Word", "Reports", new { ReportType = "Word" })
         </section>
 
         <table class="table">

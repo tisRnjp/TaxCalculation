@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TaxCalculator.Models
 {
+
     public class Citizen
     {
         [Key]
@@ -29,6 +30,10 @@ namespace TaxCalculator.Models
         public int Wardno { get; set; }
 
         public string Municipality { get; set; }
+
+        //public Zone Zone { get; set; }
+        //public byte ZoneId { get; set; }
+
 
         public ICollection<CitizenProperty> CitizenProperties { get; set; }
 

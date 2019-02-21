@@ -13,6 +13,7 @@ namespace TaxCalculator.DAL
 
         public DbSet<Citizen> Citizens { get; set; }
         public DbSet<CitizenProperty> CitizenProperties { get; set; }
+        public DbSet<Zone> Zones { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
