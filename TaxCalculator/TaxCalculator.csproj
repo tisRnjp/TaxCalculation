@@ -150,6 +150,7 @@
       <DependentUpon>CitizenDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="DAL\CitizenInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,6 +162,26 @@
     <Compile Include="Migrations\201902200252129_annotation added to citizens.cs" />
     <Compile Include="Migrations\201902200252129_annotation added to citizens.Designer.cs">
       <DependentUpon>201902200252129_annotation added to citizens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902211150354_zone string removed from citizen.cs" />
+    <Compile Include="Migrations\201902211150354_zone string removed from citizen.Designer.cs">
+      <DependentUpon>201902211150354_zone string removed from citizen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902211224330_zoneid added to citizen.cs" />
+    <Compile Include="Migrations\201902211224330_zoneid added to citizen.Designer.cs">
+      <DependentUpon>201902211224330_zoneid added to citizen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902211244013_zone navigation added to citizen.cs" />
+    <Compile Include="Migrations\201902211244013_zone navigation added to citizen.Designer.cs">
+      <DependentUpon>201902211244013_zone navigation added to citizen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.cs" />
+    <Compile Include="Migrations\201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.Designer.cs">
+      <DependentUpon>201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902211456423_citizenship no field added to citizen.cs" />
+    <Compile Include="Migrations\201902211456423_citizenship no field added to citizen.Designer.cs">
+      <DependentUpon>201902211456423_citizenship no field added to citizen.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -227,6 +248,9 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\CitizenForm.cshtml" />
     <Content Include="Views\Home\CitizensReportViewer.cshtml" />
+    <Content Include="Views\Zone\Index.cshtml" />
+    <Content Include="Views\Zone\Details.cshtml" />
+    <Content Include="Views\Zone\EditZone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -250,6 +274,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902200252129_annotation added to citizens.resx">
       <DependentUpon>201902200252129_annotation added to citizens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211150354_zone string removed from citizen.resx">
+      <DependentUpon>201902211150354_zone string removed from citizen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211224330_zoneid added to citizen.resx">
+      <DependentUpon>201902211224330_zoneid added to citizen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211244013_zone navigation added to citizen.resx">
+      <DependentUpon>201902211244013_zone navigation added to citizen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.resx">
+      <DependentUpon>201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211456423_citizenship no field added to citizen.resx">
+      <DependentUpon>201902211456423_citizenship no field added to citizen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
   </ItemGroup>

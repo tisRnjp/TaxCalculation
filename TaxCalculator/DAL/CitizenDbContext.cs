@@ -18,6 +18,10 @@ namespace TaxCalculator.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //modelBuilder.Entity<Citizen>()
+            //            .HasOptional(c => c.Zone)
+            //            .WithRequired
+
         }
     }
 }

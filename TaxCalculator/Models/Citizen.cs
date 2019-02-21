@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaxCalculator.Models
 {
@@ -9,7 +10,12 @@ namespace TaxCalculator.Models
         [Key]
         public int CitizenId { get; set; }
 
-        [Required]
+        
+        [MaxLength(20)]
+        //[Index(nameof(CitizenshipNo),IsUnique = true)]
+        public string CitizenshipNo { get; set; }
+
+        
         [MaxLength(255)]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
@@ -19,7 +25,7 @@ namespace TaxCalculator.Models
         [Display(Name = "Last Name")]
         public string  LastName { get; set; }
 
-        public string Zone { get; set; }
+        //public string Zone { get; set; }
 
         public string District { get; set; }
 
@@ -31,10 +37,11 @@ namespace TaxCalculator.Models
 
         public string Municipality { get; set; }
 
-        //public Zone Zone { get; set; }
-        //public byte ZoneId { get; set; }
 
-
+        public int? ZoneId { get; set; }
+        public Zone Zone { get; set; }
+        
+       
         public ICollection<CitizenProperty> CitizenProperties { get; set; }
 
     }

@@ -1,4 +1,5 @@
-﻿@model TaxCalculator.Models.Citizen
+﻿@*@model TaxCalculator.Models.Citizen*@
+@model TaxCalculator.ViewModels.CitizenViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -11,64 +12,64 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.Citizen.FirstName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.Citizen.FirstName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.Citizen.LastName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.Citizen.LastName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Zone)
+            @Html.DisplayNameFor(model => model.Citizen.Zone.Description)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Zone)
+            @Html.DisplayFor(model => model.Citizen.Zone.Description)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.District)
+            @Html.DisplayNameFor(model => model.Citizen.District)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.District)
+            @Html.DisplayFor(model => model.Citizen.District)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StreetName)
+            @Html.DisplayNameFor(model => model.Citizen.StreetName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StreetName)
+            @Html.DisplayFor(model => model.Citizen.StreetName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Wardno)
+            @Html.DisplayNameFor(model => model.Citizen.Wardno)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Wardno)
+            @Html.DisplayFor(model => model.Citizen.Wardno)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Municipality)
+            @Html.DisplayNameFor(model => model.Citizen.Municipality)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Municipality)
+            @Html.DisplayFor(model => model.Citizen.Municipality)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { citizenID = Model.CitizenId }) |
+    @Html.ActionLink("Edit", "Edit", new { citizenID = Model.Citizen.CitizenId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

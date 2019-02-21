@@ -11,6 +11,7 @@ namespace TaxCalculator.Models
         public string Code { get; set; }
         public string Description { get; set; }
 
+        public ICollection<Citizen> Citizens { get; set; }
 
     }
 }

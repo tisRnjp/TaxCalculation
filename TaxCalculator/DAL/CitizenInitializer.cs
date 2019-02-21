@@ -15,8 +15,8 @@ namespace TaxCalculator.DAL
 
             var citizens = new List<Citizen>
             {
-                new Citizen{ CitizenId=1, FirstName="Ranjeep", LastName="Maharjan", District="Lalitpur", Zone="Bagmati", Municipality="Lalitpur", StreetName="Kumaripati", Wardno=8 },
-                new Citizen{ CitizenId=1, FirstName="Pitambar", LastName="Jha", District="Sarlahi", Zone="Janakpur", Municipality="Sarlahi", StreetName="Malangwa", Wardno=8 }
+                new Citizen{ CitizenId=1, FirstName="Ranjeep", LastName="Maharjan", District="Lalitpur", Municipality="Lalitpur", StreetName="Kumaripati", Wardno=8 },
+                new Citizen{ CitizenId=1, FirstName="Pitambar", LastName="Jha", District="Sarlahi", Municipality="Sarlahi", StreetName="Malangwa", Wardno=8 }
             };
 
             citizens.ForEach(c => context.Citizens.Add(c));

@@ -19,10 +19,12 @@
 
             var citizens = new List<Citizen>
             {
-                new Citizen{ CitizenId=1, FirstName="Ranjeep", LastName="Maharjan", District="Lalitpur", Zone="Bagmati", Municipality="Lalitpur", StreetName="Kumaripati", Wardno=8 },
-                new Citizen{ CitizenId=1, FirstName="Pitambar", LastName="Jha", District="Sarlahi", Zone="Janakpur", Municipality="Sarlahi", StreetName="Malangwa", Wardno=8 },
-                new Citizen{ CitizenId=1, FirstName="रन्जिप ", LastName="महर्जन", District="Dharke", Zone="Dhading", Municipality="Dhding", StreetName="ke ho ke ho", Wardno=8 }
+                new Citizen{ CitizenId=1, FirstName="Ranjeep", LastName="Maharjan", District="Lalitpur",  Municipality="Lalitpur", StreetName="Kumaripati", Wardno=8 },
+                new Citizen{ CitizenId=2, FirstName="Pitambar", LastName="Jha", District="Sarlahi",  Municipality="Sarlahi", StreetName="Malangwa", Wardno=8 },
+                new Citizen{ CitizenId=3, FirstName="रन्जिप ", LastName="महर्जन", District="Dharke",  Municipality="Dhding", StreetName="ke ho ke ho", Wardno=8 }
             };
+
+            
 
             citizens.ForEach(c => context.Citizens.Add(c));
             context.SaveChanges();
@@ -37,6 +39,19 @@
 
             properties.ForEach(p => context.CitizenProperties.Add(p));
             context.SaveChanges();
+
+            var zones = new List<Zone>
+            {
+                new Zone{ Id = 1, Code="Bagmati", Description="Bagmati"},
+                new Zone{ Id = 2, Code="Mechi", Description="Mechi"},
+                new Zone{ Id = 3, Code="Koshi", Description="Koshi"},
+                new Zone{ Id = 4, Code="Sagarmatha", Description="Sagarmatha"},
+                new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
+                new Zone{ Id = 6, Code="Bheri", Description="Bheri"},
+            };
+            zones.ForEach(z => context.Zones.Add(z));
+            context.SaveChanges();
+
         }
     }
 }

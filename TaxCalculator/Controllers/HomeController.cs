@@ -1,10 +1,6 @@
 ﻿using Microsoft.Reporting.WebForms;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using TaxCalculator.DAL;
@@ -54,8 +50,15 @@ namespace TaxCalculator.Controllers
 
         public ActionResult New()
         {
-            var viewModel = new CitizenViewModel();
-            
+            var zones = db.Zones.ToList();
+            var viewModel = new CitizenViewModel
+            {
+                Zones = zones
+
+            };
+
+            ViewBag.title = "New";
+
             return View("CitizenForm",viewModel);
         }
 
@@ -74,7 +77,7 @@ namespace TaxCalculator.Controllers
                 citizenInDB.LastName = viewModel.Citizen.LastName;
                 citizenInDB.StreetName = viewModel.Citizen.StreetName;
                 citizenInDB.District = viewModel.Citizen.District;
-                citizenInDB.Zone = viewModel.Citizen.Zone;
+                citizenInDB.ZoneId = viewModel.Citizen.ZoneId;
                 citizenInDB.Wardno = viewModel.Citizen.Wardno;
                 citizenInDB.Municipality = viewModel.Citizen.Municipality;
 
@@ -101,9 +104,11 @@ namespace TaxCalculator.Controllers
 
             var viewModel = new CitizenViewModel
             {
-                Citizen = citizen
+                Citizen = citizen,
+                Zones = db.Zones.ToList()
             };
 
+            ViewBag.title = "Edit";
           
             return View("CitizenForm",viewModel);
         }
@@ -122,7 +127,15 @@ namespace TaxCalculator.Controllers
             {
                 return HttpNotFound();
             }
-            return View(citizen);
+
+            var viewModel = new CitizenViewModel
+            {
+                Citizen = citizen,
+                Zones = db.Zones.ToList()
+            };
+
+            //return View(citizen);
+            return View(viewModel);
         }
 
         public ActionResult CitizensReportViewer()
