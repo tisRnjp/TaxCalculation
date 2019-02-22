@@ -10,16 +10,16 @@ using TaxCalculator.ViewModels;
 
 namespace TaxCalculator.Controllers
 {
-    public class CitizenHouseController : Controller
+    public class CitizenLandController : Controller
     {
         private CitizenDbContext db = new CitizenDbContext();
 
 
-        // GET: CitizenHouse
+        // GET: CitizenLand
         public ActionResult Index()
         {
 
-            var houses = db.CitizenHouses.ToList();
+            var lands = db.CitizenLands.ToList();
             //if (Search_Data != null)
             //{
             //    houses = db.Citizens
@@ -29,27 +29,27 @@ namespace TaxCalculator.Controllers
 
 
 
-            var houseViewModel = new HouseViewModel
+            var landViewModel = new LandViewModel
             {
-                CitizenHouses = houses
+                CitizenLands = lands
             };
 
-            return View(houseViewModel);
+            return View(landViewModel);
             
         }
 
         public ActionResult New()
         {
             var citizens = db.Citizens.ToList();
-            var viewModel = new HouseFormViewModel
+            var viewModel = new LandFormViewModel
             {
                 Citizens = citizens,
-                CitizenHouse = new CitizenHouse()
+                CitizenLand = new CitizenLand()
             };
 
-            ViewBag.title = "New Citizen House";
+            ViewBag.title = "New Citizen Land";
 
-            return View("CitizenHouseForm", viewModel);
+            return View("CitizenLandForm", viewModel);
         }
 
 
@@ -61,22 +61,22 @@ namespace TaxCalculator.Controllers
             }
 
             var citizens = db.Citizens.ToList();
-            var citizenHouse = db.CitizenHouses.Find(Id);
+            var citizenLand = db.CitizenLands.Find(Id);
 
-            if (citizenHouse == null)
+            if (citizenLand == null)
             {
                 return HttpNotFound();
             }
 
-            var viewModel = new HouseFormViewModel
+            var viewModel = new LandFormViewModel
             {
-                CitizenHouse = citizenHouse,
+                CitizenLand = citizenLand,
                 Citizens = citizens
             };
 
-            ViewBag.title = "Edit";
+            ViewBag.title = "Edit Land";
 
-            return View("CitizenHouseForm", viewModel);
+            return View("CitizenLandForm", viewModel);
         }
 
 
@@ -88,15 +88,15 @@ namespace TaxCalculator.Controllers
             }
 
             
-            CitizenHouse citizenHouse = db.CitizenHouses.Find(Id);
-            if (citizenHouse == null)
+            CitizenLand citizenLand = db.CitizenLands.Find(Id);
+            if (citizenLand == null)
             {
                 return HttpNotFound();
             }
 
-            var viewModel = new HouseFormViewModel
+            var viewModel = new LandFormViewModel
             {
-                CitizenHouse = citizenHouse,
+                CitizenLand = citizenLand,
                 Citizens = db.Citizens.ToList()
             };
 
@@ -107,37 +107,38 @@ namespace TaxCalculator.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(HouseFormViewModel viewModel)
+        public ActionResult Save(LandFormViewModel viewModel)
         {
 
             if (!ModelState.IsValid)
             {
-                var invalidViewModel = new HouseFormViewModel
+                var invalidViewModel = new LandFormViewModel
                 {
-                    CitizenHouse = viewModel.CitizenHouse,
+                    CitizenLand = viewModel.CitizenLand,
                     Citizens = db.Citizens.ToList()
                 };
-                return View("CitizenHouseForm", invalidViewModel);
+                return View("CitizenLandForm", invalidViewModel);
 
             }
 
 
-            if (viewModel.CitizenHouse.Id == 0)
+            if (viewModel.CitizenLand.Id == 0)
             {
-                db.CitizenHouses.Add(viewModel.CitizenHouse);
+                db.CitizenLands.Add(viewModel.CitizenLand);
             }
             else
             {
-                var citizenHouseInDB = db.CitizenHouses.Single(c => c.Id == viewModel.CitizenHouse.Id);
-                citizenHouseInDB.Length = viewModel.CitizenHouse.Length;
-                citizenHouseInDB.Width = viewModel.CitizenHouse.Width;
-                citizenHouseInDB.Area = viewModel.CitizenHouse.Area;
-                citizenHouseInDB.Floor = viewModel.CitizenHouse.Floor   ;
-                citizenHouseInDB.CitizenId = viewModel.CitizenHouse.CitizenId;
+                var citizenLandInDB = db.CitizenLands.Single(c => c.Id == viewModel.CitizenLand.Id);
+                citizenLandInDB.VDC = viewModel.CitizenLand.VDC;
+                citizenLandInDB.WardNo = viewModel.CitizenLand.WardNo;
+                citizenLandInDB.SheetNo = viewModel.CitizenLand.SheetNo;
+                citizenLandInDB.KittaNo = viewModel.CitizenLand.KittaNo   ;
+                citizenLandInDB.ValuationArea    = viewModel.CitizenLand.ValuationArea;
+                citizenLandInDB.CitizenId = viewModel.CitizenLand.CitizenId;
             }
 
             db.SaveChanges();
-            return RedirectToAction("Index", "CitizenHouse");
+            return RedirectToAction("Index", "CitizenLand");
         }
 
 

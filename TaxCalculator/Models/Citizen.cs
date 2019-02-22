@@ -11,6 +11,8 @@ namespace TaxCalculator.Models
 
         
         [MaxLength(20)]
+
+        [Display(Name = "जगरिकता नम्बर")]
         //[Index(nameof(CitizenshipNo),IsUnique = true)]
         public string CitizenshipNo { get; set; }
 

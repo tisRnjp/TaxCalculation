@@ -149,6 +149,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitizenDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
@@ -170,7 +171,9 @@
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CitizenViewModel.cs" />
+    <Compile Include="ViewModels\LandFormViewModel.cs" />
     <Compile Include="ViewModels\HouseFormViewModel.cs" />
+    <Compile Include="ViewModels\LandViewModel.cs" />
     <Compile Include="ViewModels\HouseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -408,6 +411,9 @@
     <Content Include="Views\CitizenHouse\Index.cshtml" />
     <Content Include="Views\CitizenHouse\CitizenHouseForm.cshtml" />
     <Content Include="Views\CitizenHouse\Details.cshtml" />
+    <Content Include="Views\CitizenLand\CitizenLandForm.cshtml" />
+    <Content Include="Views\CitizenLand\Details.cshtml" />
+    <Content Include="Views\CitizenLand\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

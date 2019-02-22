@@ -5,6 +5,15 @@
     ViewBag.Title = "Home Page";
 }
 
+
+
+
+<div class="container">
+    <div class="page-header">
+        <h1>करदाता को सुची</h1>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-12">
         <section id="loginForm">
@@ -20,22 +29,25 @@
 
             <br />
             @Html.ActionLink("नयाँ करदाता थप्न्नुहोस् ", "New", "Home", null, new { @class = "btn btn-primary" })
+            <br />  
             <br />
 
             @*@using (Html.BeginForm())
-            {
-                <p>
-                    Search Name: @Html.TextBox("Search_Data")
-                    <input class="btn btn-primary" type="submit" value="खोजी गर्नुहोस्।" />
-                </p>
+        {
+            <p>
+                Search Name: @Html.TextBox("Search_Data")
+                <input class="btn btn-primary" type="submit" value="खोजी गर्नुहोस्।" />
+            </p>
 
-            }*@
+        }*@
 
-            @Html.ActionLink("Preview", "CitizensReportViewer") |
+            @Html.ActionLink("झलक हेर्नु होस्", "CitizensReportViewer") |
 
-            @Html.ActionLink("Export to Excel", "Reports", new { ReportType = "Excel" }) |
-            @Html.ActionLink("Export to PDF", "Reports", new { ReportType = "PDF" }) |
-            @Html.ActionLink("Export to Word", "Reports", new { ReportType = "Word" })
+            @Html.ActionLink("Excel मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "Excel" }) |
+            @Html.ActionLink("PDF मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "PDF" }) |
+            @Html.ActionLink("Word मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "Word" })
+            <br />
+            <br />
         </section>
 
         <table id="citizens" class="table">
@@ -48,31 +60,32 @@
                     <th scope="col">नागरिकता नं.</th>
                     <th scope="col">ठेगाना</th>
                     <th scope="col">वडा न.</th>
-                    <th scope="col">Zone</th>
+                    <th scope="col">अञ्चल </th>
                     <th scope="col">Municipality</th>
                     <th scope="col">कार्य</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach(var citizen in Model.Citizens){
-                <tr>
-                    <th scope="row">@citizen.CitizenId</th>
-                    <td>@citizen.FirstName</td>
-                    <td>@citizen.LastName</td>
-                    <td>@citizen.District</td>
-                    <td>@citizen.CitizenshipNo</td>
-                    <td>@citizen.StreetName</td>
-                    <td>@citizen.Wardno</td>
-                    <td>@citizen.ZoneId</td>
-                    <td>@citizen.Municipality</td>
-                    <td>
-                        @Html.ActionLink("थप जानकारी", "Details", new { citizenID = citizen.CitizenId }) /
-                        @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "Home", new { citizenID = citizen.CitizenId }, null)
+                @foreach (var citizen in Model.Citizens)
+                {
+                    <tr>
+                        <th scope="row">@citizen.CitizenId</th>
+                        <td>@citizen.FirstName</td>
+                        <td>@citizen.LastName</td>
+                        <td>@citizen.District</td>
+                        <td>@citizen.CitizenshipNo</td>
+                        <td>@citizen.StreetName</td>
+                        <td>@citizen.Wardno</td>
+                        <td>@citizen.ZoneId</td>
+                        <td>@citizen.Municipality</td>
+                        <td>
+                            @Html.ActionLink("थप जानकारी", "Details", new { citizenID = citizen.CitizenId }) /
+                            @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "Home", new { citizenID = citizen.CitizenId }, null)
 
-                    </td>
-                </tr>  
+                        </td>
+                    </tr>
 
-                  }
+                }
 
             </tbody>
         </table>
@@ -80,7 +93,7 @@
 
     </div>
 
-    
+
 
 </div>
 
@@ -97,6 +110,6 @@
 
 
     </script>
-    
-    
-    }
+
+
+}
