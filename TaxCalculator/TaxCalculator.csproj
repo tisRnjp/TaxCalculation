@@ -163,6 +163,7 @@
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
     <Compile Include="Models\CitizenHouse.cs" />
+    <Compile Include="Models\CitizenLand.cs" />
     <Compile Include="Models\CitizenProperty.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
     <Compile Include="Models\Zone.cs" />
