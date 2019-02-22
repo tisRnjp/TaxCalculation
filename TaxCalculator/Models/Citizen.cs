@@ -20,7 +20,7 @@ namespace TaxCalculator.Models
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter the Last Name!")]
         [MaxLength(255)]
         [Display(Name = "Last Name")]
         public string  LastName { get; set; }

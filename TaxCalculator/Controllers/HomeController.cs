@@ -53,7 +53,8 @@ namespace TaxCalculator.Controllers
             var zones = db.Zones.ToList();
             var viewModel = new CitizenViewModel
             {
-                Zones = zones
+                Zones = zones,
+                Citizen = new Citizen()
 
             };
 
@@ -65,6 +66,18 @@ namespace TaxCalculator.Controllers
         [HttpPost]
         public ActionResult Save(CitizenViewModel viewModel) 
         {
+
+            if (!ModelState.IsValid)
+            {
+                var invalidViewModel = new CitizenViewModel
+                {
+                    Citizen = viewModel.Citizen,
+                    Zones = db.Zones.ToList()
+                };
+                return View("CitizenForm",invalidViewModel);
+
+            }
+
 
             if (viewModel.Citizen.CitizenId == 0)
             {
