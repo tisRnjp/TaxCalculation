@@ -18,6 +18,7 @@ namespace TaxCalculator.Controllers
         public ActionResult Index(string Search_Data)
         {
             var citizens = db.Citizens.ToList();
+            //var citizens = db.Citizens.Include();
             if (Search_Data != null)
             {
                 citizens = db.Citizens
@@ -93,6 +94,7 @@ namespace TaxCalculator.Controllers
                 citizenInDB.District = viewModel.Citizen.District;
                 citizenInDB.ZoneId = viewModel.Citizen.ZoneId;
                 citizenInDB.Wardno = viewModel.Citizen.Wardno;
+                citizenInDB.CitizenshipNo = viewModel.Citizen.CitizenshipNo;
                 citizenInDB.Municipality = viewModel.Citizen.Municipality;
 
             }

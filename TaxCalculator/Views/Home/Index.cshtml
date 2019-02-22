@@ -6,7 +6,7 @@
 }
 
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <section id="loginForm">
             @*@using (Html.BeginForm("Details", "Home", FormMethod.Get))
         {
@@ -45,28 +45,32 @@
                     <th scope="col">नाम</th>
                     <th scope="col">थर</th>
                     <th scope="col">जिल्ला</th>
+                    <th scope="col">नागरिकता नं.</th>
                     <th scope="col">ठेगाना</th>
                     <th scope="col">वडा न.</th>
+                    <th scope="col">Zone</th>
                     <th scope="col">Municipality</th>
                     <th scope="col">कार्य</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach(var citizen in Model.Citizens){
-                    <tr>
-                        <th scope="row">@citizen.CitizenId</th>
-                        <td>@citizen.FirstName</td>
-                        <td>@citizen.LastName</td>
-                        <td>@citizen.District</td>
-                        <td>@citizen.StreetName</td>
-                        <td>@citizen.Wardno</td>
-                        <td>@citizen.Municipality</td>
-                        <td>
-                            @Html.ActionLink("थप जानकारी", "Details", new { citizenID = citizen.CitizenId }) /
-                            @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit","Home", new { citizenID = citizen.CitizenId },null) 
+                <tr>
+                    <th scope="row">@citizen.CitizenId</th>
+                    <td>@citizen.FirstName</td>
+                    <td>@citizen.LastName</td>
+                    <td>@citizen.District</td>
+                    <td>@citizen.CitizenshipNo</td>
+                    <td>@citizen.StreetName</td>
+                    <td>@citizen.Wardno</td>
+                    <td>@citizen.ZoneId</td>
+                    <td>@citizen.Municipality</td>
+                    <td>
+                        @Html.ActionLink("थप जानकारी", "Details", new { citizenID = citizen.CitizenId }) /
+                        @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "Home", new { citizenID = citizen.CitizenId }, null)
 
-                        </td>
-                    </tr>  
+                    </td>
+                </tr>  
 
                   }
 

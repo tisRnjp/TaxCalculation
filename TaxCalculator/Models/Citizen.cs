@@ -21,17 +21,17 @@ namespace TaxCalculator.Models
 
         [Required(ErrorMessage = "Please enter the Last Name!")]
         [MaxLength(255)]
-        [Display(Name = "Last Name")]
+        [Display(Name = "थर")]
         public string  LastName { get; set; }
 
         //public string Zone { get; set; }
-
+        [Display(Name = "जिल्ला")]
         public string District { get; set; }
 
-        [Display(Name = "Street Name")]
+        [Display(Name = "जिल्ला")]
         public string StreetName { get; set; }
 
-        [Display(Name = "Ward No")]
+        [Display(Name = "ठेगाना")] 
         public int Wardno { get; set; }
 
         public string Municipality { get; set; }
@@ -39,8 +39,9 @@ namespace TaxCalculator.Models
 
 
 
-
+        [Display(Name = "अञ्चल")] 
         public int? ZoneId { get; set; }
+        [Display(Name = "अञ्चल")]
         public Zone Zone { get; set; }
 
         public ICollection<CitizenHouse> CitizenHouses { get; set; }

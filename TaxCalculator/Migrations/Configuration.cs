@@ -42,12 +42,16 @@
 
             var zones = new List<Zone>
             {
-                new Zone{ Id = 1, Code="Bagmati", Description="Bagmati"},
-                new Zone{ Id = 2, Code="Mechi", Description="Mechi"},
-                new Zone{ Id = 3, Code="Koshi", Description="Koshi"},
-                new Zone{ Id = 4, Code="Sagarmatha", Description="Sagarmatha"},
+                new Zone{ Id = 1, Code="बागमति", Description="बागमति"},
+                new Zone{ Id = 2, Code="मेची", Description="मेची"},
+                new Zone{ Id = 3, Code="कोशी", Description="कोशी"},
+                new Zone{ Id = 4, Code="सगरमाथा", Description="सगरमाथा"},
                 new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
-                new Zone{ Id = 6, Code="Bheri", Description="Bheri"},
+                new Zone{ Id = 6, Code="भेरी", Description="भेरी"}
+
+
+
+
             };
             zones.ForEach(z => context.Zones.Add(z));
             context.SaveChanges();

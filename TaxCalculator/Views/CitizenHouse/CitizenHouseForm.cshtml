@@ -1,0 +1,53 @@
+﻿@model TaxCalculator.ViewModels.HouseFormViewModel
+@{
+    ViewBag.Title = "Citizen House Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Save", "CitizenHouse"))
+{
+
+
+    @*@Html.ValidationSummary()*@
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenHouse.Id)
+        @Html.TextBoxFor(m => m.CitizenHouse.Id, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenHouse.Area)
+        @Html.TextBoxFor(m => m.CitizenHouse.Area, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenHouse.Floor)
+        @Html.TextBoxFor(m => m.CitizenHouse.Floor, new { @class = "form-control" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenHouse.CitizenId)
+        @Html.DropDownListFor(m => m.CitizenHouse.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control" })
+    </div>
+
+ 
+
+    @Html.HiddenFor(m => m.CitizenHouse.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary"> Save</button>
+
+}
+
+@*<iframe src="http://nepalicalendar.rat32.com/addons/nepali-calendar-aja-ko-din.php" frameborder="0"
+    scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:217px;"
+    allowtransparency="true"></iframe>*@
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
