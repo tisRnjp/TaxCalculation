@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaxCalculator.Models
 {
@@ -17,7 +16,7 @@ namespace TaxCalculator.Models
 
         
         [MaxLength(255)]
-        [Display(Name = "First Name")]
+        [Display(Name = "नागरिक को नाम ")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please enter the Last Name!")]
@@ -38,10 +37,15 @@ namespace TaxCalculator.Models
         public string Municipality { get; set; }
 
 
+
+
+
         public int? ZoneId { get; set; }
         public Zone Zone { get; set; }
-        
-       
+
+        //public ICollection<CitizenHouse> CitizenHouses { get; set; }
+        //public ICollection<CitizenLand> CitizenLands { get; set; }
+
         public ICollection<CitizenProperty> CitizenProperties { get; set; }
 
     }
