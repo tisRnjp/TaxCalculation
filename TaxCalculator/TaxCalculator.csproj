@@ -155,33 +155,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902190623535_db creation.cs" />
-    <Compile Include="Migrations\201902190623535_db creation.Designer.cs">
-      <DependentUpon>201902190623535_db creation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902200252129_annotation added to citizens.cs" />
-    <Compile Include="Migrations\201902200252129_annotation added to citizens.Designer.cs">
-      <DependentUpon>201902200252129_annotation added to citizens.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211150354_zone string removed from citizen.cs" />
-    <Compile Include="Migrations\201902211150354_zone string removed from citizen.Designer.cs">
-      <DependentUpon>201902211150354_zone string removed from citizen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211224330_zoneid added to citizen.cs" />
-    <Compile Include="Migrations\201902211224330_zoneid added to citizen.Designer.cs">
-      <DependentUpon>201902211224330_zoneid added to citizen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211244013_zone navigation added to citizen.cs" />
-    <Compile Include="Migrations\201902211244013_zone navigation added to citizen.Designer.cs">
-      <DependentUpon>201902211244013_zone navigation added to citizen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.cs" />
-    <Compile Include="Migrations\201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.Designer.cs">
-      <DependentUpon>201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211456423_citizenship no field added to citizen.cs" />
-    <Compile Include="Migrations\201902211456423_citizenship no field added to citizen.Designer.cs">
-      <DependentUpon>201902211456423_citizenship no field added to citizen.cs</DependentUpon>
+    <Compile Include="Migrations\201902220551250_initialize db.cs" />
+    <Compile Include="Migrations\201902220551250_initialize db.Designer.cs">
+      <DependentUpon>201902220551250_initialize db.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -443,26 +419,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902190623535_db creation.resx">
-      <DependentUpon>201902190623535_db creation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902200252129_annotation added to citizens.resx">
-      <DependentUpon>201902200252129_annotation added to citizens.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211150354_zone string removed from citizen.resx">
-      <DependentUpon>201902211150354_zone string removed from citizen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211224330_zoneid added to citizen.resx">
-      <DependentUpon>201902211224330_zoneid added to citizen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211244013_zone navigation added to citizen.resx">
-      <DependentUpon>201902211244013_zone navigation added to citizen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.resx">
-      <DependentUpon>201902211248408_zone navigation added to citizen 2 with ZoneId Field addition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211456423_citizenship no field added to citizen.resx">
-      <DependentUpon>201902211456423_citizenship no field added to citizen.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902220551250_initialize db.resx">
+      <DependentUpon>201902220551250_initialize db.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
   </ItemGroup>

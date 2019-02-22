@@ -7,13 +7,13 @@ namespace TaxCalculator.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class zoneidaddedtocitizen : IMigrationMetadata
+    public sealed partial class initializedb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(zoneidaddedtocitizen));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initializedb));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902211224330_zoneid added to citizen"; }
+            get { return "201902220551250_initialize db"; }
         }
         
         string IMigrationMetadata.Source

@@ -43,8 +43,8 @@ namespace TaxCalculator.Models
         public int? ZoneId { get; set; }
         public Zone Zone { get; set; }
 
-        //public ICollection<CitizenHouse> CitizenHouses { get; set; }
-        //public ICollection<CitizenLand> CitizenLands { get; set; }
+        public ICollection<CitizenHouse> CitizenHouses { get; set; }
+        public ICollection<CitizenLand> CitizenLands { get; set; }
 
         public ICollection<CitizenProperty> CitizenProperties { get; set; }
 
