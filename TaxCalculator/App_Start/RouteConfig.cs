@@ -14,6 +14,18 @@ namespace TaxCalculator
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
 
+            //routes.MapRoute(
+            //        "Edit", // Route name
+            //        "{controller}/{action}/{id}/{name}", // URL with parameters
+            //        new
+            //        {
+            //            controller = "Home",
+            //            action = "Edit",
+            //            id = UrlParameter.Optional,
+            //            name = UrlParameter.Optional
+            //        } // Parameter defaults
+            //);
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
