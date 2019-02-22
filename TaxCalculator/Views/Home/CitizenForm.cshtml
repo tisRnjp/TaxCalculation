@@ -59,7 +59,13 @@
     </div>
 
     @Html.HiddenFor(m => m.Citizen.CitizenId)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary"> Save</button>
 
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    
 }
 

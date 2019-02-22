@@ -64,6 +64,7 @@ namespace TaxCalculator.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(CitizenViewModel viewModel) 
         {
 
