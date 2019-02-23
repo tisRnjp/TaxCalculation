@@ -152,8 +152,8 @@
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HouseTaxController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
-    <Compile Include="DAL\CitizenInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,13 +161,33 @@
     <Compile Include="Migrations\201902220551250_initialize db.Designer.cs">
       <DependentUpon>201902220551250_initialize db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902230632075_Added depreciation table.cs" />
+    <Compile Include="Migrations\201902230632075_Added depreciation table.Designer.cs">
+      <DependentUpon>201902230632075_Added depreciation table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902231117328_Changes in depreeciaton model.cs" />
+    <Compile Include="Migrations\201902231117328_Changes in depreeciaton model.Designer.cs">
+      <DependentUpon>201902231117328_Changes in depreeciaton model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902231515042_Removed Depreciation and Added PropertyType model.cs" />
+    <Compile Include="Migrations\201902231515042_Removed Depreciation and Added PropertyType model.Designer.cs">
+      <DependentUpon>201902231515042_Removed Depreciation and Added PropertyType model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
     <Compile Include="Models\CitizenHouse.cs" />
     <Compile Include="Models\CitizenLand.cs" />
     <Compile Include="Models\CitizenProperty.cs" />
+    <Compile Include="Models\Depreciation.cs" />
+    <Compile Include="Models\HouseTaxHistory.cs" />
+    <Compile Include="Models\HouseTaxViewModel.cs" />
+    <Compile Include="Models\InterestRate.cs" />
+    <Compile Include="Models\PropertyHouse.cs" />
+    <Compile Include="Models\PropertyLand.cs" />
+    <Compile Include="Models\PropertyType.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
+    <Compile Include="Models\TaxSlab.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CitizenViewModel.cs" />
@@ -414,6 +434,11 @@
     <Content Include="Views\CitizenLand\CitizenLandForm.cshtml" />
     <Content Include="Views\CitizenLand\Details.cshtml" />
     <Content Include="Views\CitizenLand\Index.cshtml" />
+    <Content Include="Views\HouseTax\Create.cshtml" />
+    <Content Include="Views\HouseTax\Delete.cshtml" />
+    <Content Include="Views\HouseTax\Details.cshtml" />
+    <Content Include="Views\HouseTax\Edit.cshtml" />
+    <Content Include="Views\HouseTax\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -434,6 +459,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902220551250_initialize db.resx">
       <DependentUpon>201902220551250_initialize db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902230632075_Added depreciation table.resx">
+      <DependentUpon>201902230632075_Added depreciation table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902231117328_Changes in depreeciaton model.resx">
+      <DependentUpon>201902231117328_Changes in depreeciaton model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902231515042_Removed Depreciation and Added PropertyType model.resx">
+      <DependentUpon>201902231515042_Removed Depreciation and Added PropertyType model.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
   </ItemGroup>

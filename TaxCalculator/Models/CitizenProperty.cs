@@ -6,7 +6,7 @@
 
         public string PropertyType { get; set; }
 
-        public float PropertyArea { get; set; }
+        public double PropertyArea { get; set; }
 
         public int CitizenId { get; set; }
         public Citizen Citizen { get; set; }

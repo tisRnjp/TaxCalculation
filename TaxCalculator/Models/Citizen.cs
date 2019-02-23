@@ -37,10 +37,7 @@ namespace TaxCalculator.Models
         public int Wardno { get; set; }
 
         public string Municipality { get; set; }
-
-
-
-
+        
         [Display(Name = "अञ्चल")] 
         public int? ZoneId { get; set; }
         [Display(Name = "अञ्चल")]

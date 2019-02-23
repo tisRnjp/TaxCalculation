@@ -76,11 +76,20 @@
                         <td>@citizen.CitizenshipNo</td>
                         <td>@citizen.StreetName</td>
                         <td>@citizen.Wardno</td>
-                        <td>@citizen.ZoneId</td>
+                        @{ if (citizen.Zone == null)
+                            {
+                            <td>0</td>
+                            }
+                            else
+                            {
+                        <td>@citizen.Zone.Description</td>
+                                }
+                            }
                         <td>@citizen.Municipality</td>
                         <td>
                             @Html.ActionLink("थप जानकारी", "Details", new { citizenID = citizen.CitizenId }) /
                             @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "Home", new { citizenID = citizen.CitizenId }, null)
+                            @Html.ActionLink("Tax Details", "Index", "HouseTax", new { id = citizen.CitizenId }, null)
 
                         </td>
                     </tr>

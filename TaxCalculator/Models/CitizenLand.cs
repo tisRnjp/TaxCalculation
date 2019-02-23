@@ -21,8 +21,6 @@ namespace TaxCalculator.Models
         [Display(Name = "मुल्यांकन हुने क्ष फ")]
         public decimal ValuationArea { get; set; }
 
-
-
         [Display(Name = "जगरिकता नम्बर")]
         public int? CitizenId { get; set; }
 
