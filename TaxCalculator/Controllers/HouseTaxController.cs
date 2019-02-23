@@ -19,9 +19,9 @@ namespace TaxCalculator.Controllers
         public ActionResult Index(int id)
         {
 
-            var citizen = db.Citizens.Single(c => c.CitizenId == id);
-            var citizenHouse = db.CitizenHouses.Where(h => h.Id == citizen.CitizenId);
-            var propertyType = db.PropertyType.Single(r => r.FiscalYear == "74/75" && r.Type == "House");
+            //var citizen = db.Citizens.Single(c => c.CitizenId == id);  RM
+            //var citizenHouse = db.CitizenHouses.Where(h => h.Id == citizen.CitizenId); RM
+            //var propertyType = db.PropertyType.Single(r => r.FiscalYear == "74/75" && r.Type == "House");
 
             //var houseTaxes = new List<HouseTaxViewModel>();  //RM
             var houseTaxes = new HouseTaxViewModel {

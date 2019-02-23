@@ -173,6 +173,10 @@
     <Compile Include="Migrations\201902231515042_Removed Depreciation and Added PropertyType model.Designer.cs">
       <DependentUpon>201902231515042_Removed Depreciation and Added PropertyType model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902231830537_Rhouse tax history added.cs" />
+    <Compile Include="Migrations\201902231830537_Rhouse tax history added.Designer.cs">
+      <DependentUpon>201902231830537_Rhouse tax history added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
@@ -468,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902231515042_Removed Depreciation and Added PropertyType model.resx">
       <DependentUpon>201902231515042_Removed Depreciation and Added PropertyType model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902231830537_Rhouse tax history added.resx">
+      <DependentUpon>201902231830537_Rhouse tax history added.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
   </ItemGroup>
