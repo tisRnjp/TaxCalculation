@@ -56,6 +56,21 @@
             zones.ForEach(z => context.Zones.Add(z));
             context.SaveChanges();
 
+            var lands = new List<CitizenLand>
+            {
+                new CitizenLand{ Id= 1 , VDC = "Kapan" , WardNo = "3", SheetNo = "552", KittaNo = "271", ValuationArea = 89, CitizenId = 1},
+                new CitizenLand{ Id= 2 , VDC = "Dhumbarahi" , WardNo = "4", SheetNo = "44", KittaNo = "44", ValuationArea = 44, CitizenId = 2},
+                new CitizenLand{ Id= 3 , VDC = "Sukedhara" , WardNo = "7", SheetNo = "34", KittaNo = "23", ValuationArea = 85, CitizenId = 3},
+               
+
+
+
+            };
+            lands.ForEach(z => context.CitizenLands.Add(z));
+            context.SaveChanges();
+
+
+
         }
     }
 }

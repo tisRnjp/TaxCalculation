@@ -152,6 +152,7 @@
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandTaxController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
     <Compile Include="DAL\CitizenInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -161,18 +162,32 @@
     <Compile Include="Migrations\201902220551250_initialize db.Designer.cs">
       <DependentUpon>201902220551250_initialize db.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902230818500_land tax history added.cs" />
+    <Compile Include="Migrations\201902230818500_land tax history added.Designer.cs">
+      <DependentUpon>201902230818500_land tax history added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902230926277_change the foreign key of landtaxhistory.cs" />
+    <Compile Include="Migrations\201902230926277_change the foreign key of landtaxhistory.Designer.cs">
+      <DependentUpon>201902230926277_change the foreign key of landtaxhistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902230942004_citizen aded to landtax history.cs" />
+    <Compile Include="Migrations\201902230942004_citizen aded to landtax history.Designer.cs">
+      <DependentUpon>201902230942004_citizen aded to landtax history.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
     <Compile Include="Models\CitizenHouse.cs" />
     <Compile Include="Models\CitizenLand.cs" />
     <Compile Include="Models\CitizenProperty.cs" />
+    <Compile Include="Models\LandTaxHistory.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CitizenViewModel.cs" />
     <Compile Include="ViewModels\LandFormViewModel.cs" />
     <Compile Include="ViewModels\HouseFormViewModel.cs" />
+    <Compile Include="ViewModels\LandTaxViewModel.cs" />
     <Compile Include="ViewModels\LandViewModel.cs" />
     <Compile Include="ViewModels\HouseViewModel.cs" />
   </ItemGroup>
@@ -414,6 +429,8 @@
     <Content Include="Views\CitizenLand\CitizenLandForm.cshtml" />
     <Content Include="Views\CitizenLand\Details.cshtml" />
     <Content Include="Views\CitizenLand\Index.cshtml" />
+    <Content Include="Views\LandTax\Index.cshtml" />
+    <Content Include="Views\LandTax\LandTaxCalculationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -434,6 +451,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902220551250_initialize db.resx">
       <DependentUpon>201902220551250_initialize db.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902230818500_land tax history added.resx">
+      <DependentUpon>201902230818500_land tax history added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902230926277_change the foreign key of landtaxhistory.resx">
+      <DependentUpon>201902230926277_change the foreign key of landtaxhistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902230942004_citizen aded to landtax history.resx">
+      <DependentUpon>201902230942004_citizen aded to landtax history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
   </ItemGroup>

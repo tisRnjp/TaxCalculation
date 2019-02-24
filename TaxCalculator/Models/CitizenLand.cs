@@ -23,7 +23,7 @@ namespace TaxCalculator.Models
 
 
 
-        [Display(Name = "जगरिकता नम्बर")]
+        [Display(Name = "नागरिकता नम्बर")]
         public int? CitizenId { get; set; }
 
         public Citizen citizen { get; set; }

@@ -44,6 +44,7 @@ namespace TaxCalculator.Models
         [Display(Name = "अञ्चल")] 
         public int? ZoneId { get; set; }
         [Display(Name = "अञ्चल")]
+        [DisplayFormat(NullDisplayText = "", ApplyFormatInEditMode = true)]
         public Zone Zone { get; set; }
 
         public ICollection<CitizenHouse> CitizenHouses { get; set; }
