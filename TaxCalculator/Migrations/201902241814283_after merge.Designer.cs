@@ -7,13 +7,13 @@ namespace TaxCalculator.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class RemovedDepreciationandAddedPropertyTypemodel : IMigrationMetadata
+    public sealed partial class aftermerge : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RemovedDepreciationandAddedPropertyTypemodel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(aftermerge));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902231515042_Removed Depreciation and Added PropertyType model"; }
+            get { return "201902241814283_after merge"; }
         }
         
         string IMigrationMetadata.Source
