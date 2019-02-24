@@ -202,10 +202,6 @@
     <Compile Include="Models\Depreciation.cs" />
     <Compile Include="Models\HouseTaxHistory.cs" />
     <Compile Include="Models\HouseTaxViewModel.cs" />
-    <Compile Include="Models\InterestRate.cs" />
-    <Compile Include="Models\PropertyHouse.cs" />
-    <Compile Include="Models\PropertyLand.cs" />
-    <Compile Include="Models\PropertyType.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
     <Compile Include="Models\TaxSlab.cs" />
     <Compile Include="Models\Zone.cs" />

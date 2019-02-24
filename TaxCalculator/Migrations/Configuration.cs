@@ -52,16 +52,16 @@
             zones.ForEach(z => context.Zones.Add(z));
             context.SaveChanges();
 
-            var propertyType = new List<PropertyType>
-            {
-                new PropertyType{Id=1, FiscalYear="73/74", Type="House", DepriciationRate=2.25m, PropertyCost = 1285.11m},
-                new PropertyType{Id=2, FiscalYear="73/74", Type="Land", DepriciationRate=2.25m, PropertyCost=28310.78m},
-                new PropertyType{Id=3, FiscalYear="74/75", Type="House", DepriciationRate=3.25m, PropertyCost=28310.78m},
-                new PropertyType{Id=4, FiscalYear="74/75", Type="Land", DepriciationRate=3.25m, PropertyCost=28310.78m}
-            };
+            //var propertyType = new List<PropertyType>
+            //{
+            //    new PropertyType{Id=1, FiscalYear="73/74", Type="House", DepriciationRate=2.25m, PropertyCost = 1285.11m},
+            //    new PropertyType{Id=2, FiscalYear="73/74", Type="Land", DepriciationRate=2.25m, PropertyCost=28310.78m},
+            //    new PropertyType{Id=3, FiscalYear="74/75", Type="House", DepriciationRate=3.25m, PropertyCost=28310.78m},
+            //    new PropertyType{Id=4, FiscalYear="74/75", Type="Land", DepriciationRate=3.25m, PropertyCost=28310.78m}
+            //};
 
-            propertyType.ForEach(d => context.PropertyType.Add(d));
-            context.SaveChanges();
+            //propertyType.ForEach(d => context.PropertyType.Add(d));
+            //context.SaveChanges();
 
             var citizenHouse = new List<CitizenHouse>
             {
