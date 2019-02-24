@@ -8,6 +8,7 @@ namespace TaxCalculator.DAL
     {
         public CitizenDbContext() : base("CitizenDbContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
 
         }
 
@@ -16,15 +17,12 @@ namespace TaxCalculator.DAL
         public DbSet<Zone> Zones { get; set; }
         public DbSet<CitizenLand> CitizenLands { get; set; }
         public DbSet<CitizenHouse> CitizenHouses { get; set; }
-        public DbSet<PropertyType> PropertyType { get; set; }
         public DbSet<HouseTaxHistory> HouseTaxHistories { get; set; }
 
+        public DbSet<LandTaxHistory> LandTaxHistories { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //modelBuilder.Entity<Citizen>()
-            //            .HasOptional(c => c.Zone)
-            //            .WithRequired
 
         }
     }

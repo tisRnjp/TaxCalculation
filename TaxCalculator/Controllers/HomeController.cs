@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Data.Entity;
 using System.Web.UI.WebControls;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
@@ -17,7 +18,7 @@ namespace TaxCalculator.Controllers
 
         public ActionResult Index(string Search_Data)
         {
-            var citizens = db.Citizens.ToList();
+            var citizens = db.Citizens.Include(z => z.Zone).ToList();
             //var citizens = db.Citizens.Include();
             if (Search_Data != null)
             {
@@ -210,10 +211,6 @@ namespace TaxCalculator.Controllers
                                     out fileNameExtension, out streams, out warnings);
             Response.AddHeader("content-disposition", "attachment:filename= citizen_report." + fileNameExtension);
             return File(renderByte, fileNameExtension);
-
-
-        
-
 
             //return View();
         }

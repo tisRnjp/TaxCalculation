@@ -1,0 +1,99 @@
+﻿@model TaxCalculator.ViewModels.LandTaxViewModel
+
+@{
+    /**/
+
+    ViewBag.Title = "Land Tax Calculation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Save", "LandTax"))
+{
+
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.VDC)
+        @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.VDC)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.CitizenLand.WardNo)
+        @Html.TextBoxFor(m => m.CitizenLand.WardNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.CitizenLand.SheetNo)
+        @Html.TextBoxFor(m => m.CitizenLand.SheetNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.CitizenLand.KittaNo)
+        @Html.TextBoxFor(m => m.CitizenLand.KittaNo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.KittaNo)
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LandTaxHistory.FY)
+        @Html.TextBoxFor(m => m.LandTaxHistory.FY, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.LandTaxHistory.FY)
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LandTaxHistory.ValuationArea)
+        @Html.TextBoxFor(m => m.LandTaxHistory.ValuationArea, new { @class = "form-control", id = "area" })
+    </div>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LandTaxHistory.CostPerUnitArea)
+        @Html.TextBoxFor(m => m.LandTaxHistory.CostPerUnitArea, new { @class = "form-control", id = "cost" })
+       
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.LandTaxHistory.CitizenId)
+        @Html.DropDownListFor(m => m.LandTaxHistory.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control", @Readonly =true})
+    </div>
+
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.LandTaxHistory.TotalCost)
+        @Html.TextBoxFor(m => m.LandTaxHistory.TotalCost, new { @class = "form-control", id = "total" })
+
+    </div>
+
+    @Html.HiddenFor(m => m.LandTaxHistory.CitizenLandId)
+    @Html.HiddenFor(m => m.LandTaxHistory.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary"> Save</button>
+
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            $("#cost").change(function () {
+                console.log($("#cost").val() * $("#area").val());
+                $("#total").val($("#cost").val() * $("#area").val());
+
+            });
+        });
+
+    </script>
+
+}
