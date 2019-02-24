@@ -1,0 +1,77 @@
+﻿@model  TaxCalculator.Models.HouseTaxViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Width)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Area)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseTax.CostPerUnitArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseTax.DepreciationRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastHouseTax.DepreciationRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseTax.GrossCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseTax.GrossCost)
+        </th>
+        <th>
+            कैफियत
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CitizenHouse.Length)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CitizenHouse.Width)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CitizenHouse.Area)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HouseTax.CostPerUnitArea)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HouseTax.DepreciationRate)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.LastHouseTax.DepreciationRate)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HouseTax.GrossCost)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.HouseTax.GrossCost)
+        </td>
+        <td></td>
+    </tr>
+</table>

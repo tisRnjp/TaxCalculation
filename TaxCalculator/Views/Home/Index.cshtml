@@ -84,6 +84,7 @@
                             @Html.ActionLink("थप जानकारी", "Details", new { citizenID = citizen.CitizenId }) /
                             @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "Home", new { citizenID = citizen.CitizenId }, null)
                             @Html.ActionLink("Calculate Land Tax", "LandTax", "LandTax", new { citizenID = citizen.CitizenId }, null)
+                            @Html.ActionLink("Tax Details", "Index", "HouseTax", new { id = citizen.CitizenId }, null)
 
                         </td>
                     </tr>
