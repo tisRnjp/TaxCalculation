@@ -13,10 +13,19 @@ namespace TaxCalculator.DAL
 
         public DbSet<Citizen> Citizens { get; set; }
         public DbSet<CitizenProperty> CitizenProperties { get; set; }
+        public DbSet<Zone> Zones { get; set; }
+        public DbSet<CitizenLand> CitizenLands { get; set; }
+        public DbSet<CitizenHouse> CitizenHouses { get; set; }
+        public DbSet<PropertyType> PropertyType { get; set; }
+        public DbSet<HouseTaxHistory> HouseTaxHistories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            //modelBuilder.Entity<Citizen>()
+            //            .HasOptional(c => c.Zone)
+            //            .WithRequired
+
         }
     }
 }

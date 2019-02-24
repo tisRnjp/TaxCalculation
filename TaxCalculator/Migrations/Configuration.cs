@@ -19,10 +19,12 @@
 
             var citizens = new List<Citizen>
             {
-                new Citizen{ CitizenId=1, FirstName="Ranjeep", LastName="Maharjan", District="Lalitpur", Zone="Bagmati", Municipality="Lalitpur", StreetName="Kumaripati", Wardno=8 },
-                new Citizen{ CitizenId=1, FirstName="Pitambar", LastName="Jha", District="Sarlahi", Zone="Janakpur", Municipality="Sarlahi", StreetName="Malangwa", Wardno=8 },
-                new Citizen{ CitizenId=1, FirstName="रन्जिप ", LastName="महर्जन", District="Dharke", Zone="Dhading", Municipality="Dhding", StreetName="ke ho ke ho", Wardno=8 }
+                new Citizen{ CitizenId=1, FirstName="Ranjeep", LastName="Maharjan", District="Lalitpur",  Municipality="Lalitpur", StreetName="Kumaripati", Wardno=8 },
+                new Citizen{ CitizenId=2, FirstName="Pitambar", LastName="Jha", District="Sarlahi",  Municipality="Sarlahi", StreetName="Malangwa", Wardno=8 },
+                new Citizen{ CitizenId=3, FirstName="रन्जिप ", LastName="महर्जन", District="Dharke",  Municipality="Dhding", StreetName="ke ho ke ho", Wardno=8 }
             };
+
+            
 
             citizens.ForEach(c => context.Citizens.Add(c));
             context.SaveChanges();
@@ -37,6 +39,38 @@
 
             properties.ForEach(p => context.CitizenProperties.Add(p));
             context.SaveChanges();
+
+            var zones = new List<Zone>
+            {
+                new Zone{ Id = 1, Code="बागमति", Description="बागमति"},
+                new Zone{ Id = 2, Code="मेची", Description="मेची"},
+                new Zone{ Id = 3, Code="कोशी", Description="कोशी"},
+                new Zone{ Id = 4, Code="सगरमाथा", Description="सगरमाथा"},
+                new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
+                new Zone{ Id = 6, Code="भेरी", Description="भेरी"}
+            };
+            zones.ForEach(z => context.Zones.Add(z));
+            context.SaveChanges();
+
+            var propertyType = new List<PropertyType>
+            {
+                new PropertyType{Id=1, FiscalYear="73/74", Type="House", DepriciationRate=2.25m, PropertyCost = 1285.11m},
+                new PropertyType{Id=2, FiscalYear="73/74", Type="Land", DepriciationRate=2.25m, PropertyCost=28310.78m},
+                new PropertyType{Id=3, FiscalYear="74/75", Type="House", DepriciationRate=3.25m, PropertyCost=28310.78m},
+                new PropertyType{Id=4, FiscalYear="74/75", Type="Land", DepriciationRate=3.25m, PropertyCost=28310.78m}
+            };
+
+            propertyType.ForEach(d => context.PropertyType.Add(d));
+            context.SaveChanges();
+
+            var citizenHouse = new List<CitizenHouse>
+            {
+                new CitizenHouse{ CitizenId=1, Area=1285.11m, Floor=2.5m}
+            };
+
+            citizenHouse.ForEach(h => context.CitizenHouses.Add(h));
+            context.SaveChanges();
+
         }
     }
 }

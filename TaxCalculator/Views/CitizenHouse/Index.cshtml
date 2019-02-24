@@ -1,0 +1,71 @@
+﻿@model TaxCalculator.ViewModels.HouseViewModel
+
+@{
+    ViewBag.Title = "Citizen Houses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citizen Houses</h2>
+<div class="row">
+    <div class="col-md-12">
+        <section id="loginForm">
+            <br />
+            @Html.ActionLink("करदाता को घर थप्न्नुहोस् ", "New", "CitizenHouse", null, new { @class = "btn btn-primary" })
+        </section>
+        <br />
+        <table id="citizenhouses" class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">वर्गफूट</th>
+                    <th scope="col">तल्ला</th>
+
+
+                    <th scope="col">कार्यहरु</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var house in Model.CitizenHouses)
+                {
+                    <tr>
+                        <th scope="row">@house.Id</th>
+                        <td>@house.Area</td>
+                        <td>@house.Floor</td>
+
+
+                        <td>
+                            @Html.ActionLink("थप जानकारी", "Details", new { Id = house.Id }) /
+                            @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "CitizenHouse", new { Id = house.Id }, null)
+
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#citizenhouses").DataTable();
+
+
+
+
+        });
+
+
+
+    </script>
+
+
+}

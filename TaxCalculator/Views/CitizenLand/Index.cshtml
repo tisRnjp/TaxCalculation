@@ -1,0 +1,76 @@
+﻿@model TaxCalculator.ViewModels.LandViewModel
+
+@{
+    ViewBag.Title = "Citizen Lands";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citizen Lands</h2>
+<div class="row">
+    <div class="col-md-12">
+        <section id="loginForm">
+            <br />
+            @Html.ActionLink("करदाता को जग्गा थप्न्नुहोस् ", "New", "CitizenLand", null, new { @class = "btn btn-primary" })
+        </section>
+        <br />
+        <table id="citizenlands" class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">VDC</th>
+                    <th scope="col">WardNo</th>
+                    <th scope="col">SheetNo</th>
+                    <th scope="col">KittaNo</th>
+                    <th scope="col">Valuation Area</th>
+                    <th scope="col">Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var land in Model.CitizenLands)
+                {
+                <tr>
+                    <th scope="row">@land.Id</th>
+                    <td>@land.VDC</td>
+                    <td>@land.WardNo</td>
+                    <td>@land.SheetNo</td>
+                    <td>@land.KittaNo</td>
+                    <td>@land.ValuationArea</td>
+
+
+
+                    <td>
+                        @Html.ActionLink("थप जानकारी", "Details", new { Id = land.Id }) /
+                        @Html.ActionLink("सम्पादन गर्नुहोस्", "Edit", "CitizenLand", new { Id = land.Id }, null)
+
+                    </td>
+                </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#citizenlands").DataTable();
+
+
+
+
+        });
+
+
+
+    </script>
+
+
+}

@@ -4,5 +4,4 @@ obj/
 .vs/
 
 *.lock
-i
 web.config
