@@ -13,35 +13,7 @@ namespace TaxCalculator.Models
 
         public HouseTaxHistory HouseTax { get; set; }
 
-        public HouseTaxHistory houseTaxHistory { get; set; }
-
-        public IEnumerable<HouseTaxHistory> HouseTaxHistories { get; set; }
-
-        public IEnumerable<CitizenHouse> CitizenHouses { get; set; }
-        
-
-
-        //public decimal CurrentCost { get; set; }
-
-        //public decimal LastYearCost { get; set; }
-
-        //public decimal GrossCost {
-        //    get
-        //    {
-        //        return CurrentCost * CitizenHouse.Area - DepreciationAmount;
-        //    }
-        //}
-
-        //public decimal DepreciationRate { get; set; }
-
-        //public decimal DepreciationRateLastYear { get; set; }
-
-        //public decimal DepreciationAmount {
-        //    get
-        //    {
-        //        return (DepreciationRate / 100) * CurrentCost; 
-        //    }
-        //}
+        public HouseTaxHistory LastHouseTax { get; set; }
 
     }
 }

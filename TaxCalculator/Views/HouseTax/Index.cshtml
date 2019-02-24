@@ -1,4 +1,4 @@
-﻿@model TaxCalculator.Models.HouseTaxViewModel
+﻿@model  TaxCalculator.Models.HouseTaxViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -25,64 +25,53 @@
             @Html.DisplayNameFor(model => model.CitizenHouse.Area)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.CitizenHouse.c)*@
-            Current Cost
+            @Html.DisplayNameFor(model => model.HouseTax.CostPerUnitArea)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CitizenHouse.Floor)
+            @Html.DisplayNameFor(model => model.HouseTax.DepreciationRate)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.GrossCost)*@
-            GrossCost
+            @Html.DisplayNameFor(model => model.LastHouseTax.DepreciationRate)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.DepreciationRate)*@
-            Depreciation Rate
+            @Html.DisplayNameFor(model => model.HouseTax.GrossCost)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.DepreciationAmount)*@
-            Depreciation Amount
+            @Html.DisplayNameFor(model => model.HouseTax.GrossCost)
         </th>
         <th>
-            @*@Html.DisplayNameFor(model => model.LastYearCost)*@
-            Last Year Cost
+            कैफियत
         </th>
-        <th></th>
     </tr>
 
-@foreach (var item in Model.HouseTaxHistories) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Id)
+            @Html.DisplayFor(model => model.Id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CitizenHouse.Length)
+            @Html.DisplayFor(model => model.CitizenHouse.Length)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CitizenHouse.Width)
+            @Html.DisplayFor(model => model.CitizenHouse.Width)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CitizenHouse.Area)
+            @Html.DisplayFor(model => model.CitizenHouse.Area)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CurrentCost)
+            @Html.DisplayFor(model => model.HouseTax.CostPerUnitArea)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CitizenHouse.Floor)
+            @Html.DisplayFor(model => model.HouseTax.DepreciationRate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.GrossCost)
+            @Html.DisplayFor(model => model.LastHouseTax.DepreciationRate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DepreciationRate)
+            @Html.DisplayFor(model => model.HouseTax.GrossCost)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DepreciationAmount)
+            @Html.DisplayFor(model => model.HouseTax.GrossCost)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastYearCost)
-        </td>
+        <td></td>
     </tr>
-}
-
 </table>

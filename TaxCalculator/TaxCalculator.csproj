@@ -177,6 +177,22 @@
     <Compile Include="Migrations\201902231830537_Rhouse tax history added.Designer.cs">
       <DependentUpon>201902231830537_Rhouse tax history added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902240632518_citizen navigation added to housetaxhistory.cs" />
+    <Compile Include="Migrations\201902240632518_citizen navigation added to housetaxhistory.Designer.cs">
+      <DependentUpon>201902240632518_citizen navigation added to housetaxhistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902240714201_changes in house tax model.cs" />
+    <Compile Include="Migrations\201902240714201_changes in house tax model.Designer.cs">
+      <DependentUpon>201902240714201_changes in house tax model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902240936426_unknown changes.cs" />
+    <Compile Include="Migrations\201902240936426_unknown changes.Designer.cs">
+      <DependentUpon>201902240936426_unknown changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902240943162_removed get from house tax model fields.cs" />
+    <Compile Include="Migrations\201902240943162_removed get from house tax model fields.Designer.cs">
+      <DependentUpon>201902240943162_removed get from house tax model fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
@@ -475,6 +491,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902231830537_Rhouse tax history added.resx">
       <DependentUpon>201902231830537_Rhouse tax history added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902240632518_citizen navigation added to housetaxhistory.resx">
+      <DependentUpon>201902240632518_citizen navigation added to housetaxhistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902240714201_changes in house tax model.resx">
+      <DependentUpon>201902240714201_changes in house tax model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902240936426_unknown changes.resx">
+      <DependentUpon>201902240936426_unknown changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902240943162_removed get from house tax model fields.resx">
+      <DependentUpon>201902240943162_removed get from house tax model fields.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
   </ItemGroup>

@@ -27,7 +27,5 @@ namespace TaxCalculator.DAL
             //            .WithRequired
 
         }
-
-        public System.Data.Entity.DbSet<TaxCalculator.Models.HouseTaxViewModel> HouseTaxViewModels { get; set; }
     }
 }

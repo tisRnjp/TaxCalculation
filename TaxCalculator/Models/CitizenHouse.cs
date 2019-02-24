@@ -22,10 +22,10 @@ namespace TaxCalculator.Models
         [Display(Name = "तल्ला")]
         public decimal Floor { get; set; }
 
-        public String BatoKoPrakar { get; set; }
+        //public String BatoKoPrakar { get; set; }
 
 
-        [Display(Name = "जगरिकता नम्बर")]
+        [Display(Name = "नागरिकता नम्बर")]
         public int? CitizenId { get; set; }
         public Citizen citizen { get; set; }
     }
