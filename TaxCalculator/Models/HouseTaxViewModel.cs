@@ -13,6 +13,8 @@ namespace TaxCalculator.Models
 
         public HouseTaxHistory HouseTax { get; set; }
 
+        public List<HouseTaxHistory> HouseTaxHistories { get; set; }
+
         public HouseTaxHistory LastHouseTax { get; set; }
 
     }

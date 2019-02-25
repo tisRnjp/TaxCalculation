@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
+using TaxCalculator.ViewModels;
 
 namespace TaxCalculator.Controllers
 {
@@ -18,7 +19,9 @@ namespace TaxCalculator.Controllers
         // GET: HouseTax
         public ActionResult Index(int? id)
         {
-            var houseTaxes = new HouseTaxViewModel();
+            var houseTaxes = new HouseTaxViewModel {
+                HouseTaxHistories = db.HouseTaxHistories.Include(h => h.CitizenHouse).ToList()
+            };
 
             return View(houseTaxes);
         }
@@ -37,7 +40,7 @@ namespace TaxCalculator.Controllers
             if(citizenHouse != null)
             {
                 houseTax.CitizenHouse = citizenHouse;
-                houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id};
+                houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id, TotalArea = citizenHouse.Area};
             }
 
             return View(houseTax);
@@ -49,9 +52,34 @@ namespace TaxCalculator.Controllers
         {
             
             db.HouseTaxHistories.Add(model.HouseTax);
+            var citizenHouse = db.CitizenHouses.First(c => c.Id == model.HouseTax.CitizenHouseId);
+
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            
+            //Move to land calculations
+            var citizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId);
+            var landTaxViewModel = new LandTaxViewModel
+            {
+
+                CitizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId),
+                LandTaxHistory = new LandTaxHistory
+                {
+                    CitizenId = citizenHouse.CitizenId,
+                    ValuationArea = citizenLand.ValuationArea,
+                    CitizenLandId = citizenLand.Id,
+                    HouseTaxHistoryId = model.HouseTax.Id
+
+                },
+                CitizenLands = db.CitizenLands.ToList(),
+                Citizens = db.Citizens.ToList()
+
+            };
+
+            return View("~/Views/LandTax/LandTaxCalculationForm.cshtml", landTaxViewModel);
+
+          
+          
         }
 
         protected override void Dispose(bool disposing)

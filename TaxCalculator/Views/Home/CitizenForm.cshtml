@@ -11,65 +11,67 @@
 
 @using (Html.BeginForm("Save", "Home"))
 {
+    <div class="form-horizontal">
+
+        @*@Html.ValidationSummary()*@
+        @Html.ValidationSummary(true, "Please fix the following errors.")
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.FirstName)
+            @Html.TextBoxFor(m => m.Citizen.FirstName, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.LastName)
+            @Html.TextBoxFor(m => m.Citizen.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Citizen.LastName)
+        </div>
 
 
-    @*@Html.ValidationSummary()*@
-    @Html.ValidationSummary(true, "Please fix the following errors.")
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.FirstName)
-        @Html.TextBoxFor(m => m.Citizen.FirstName, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.CitizenshipNo)
+            @Html.TextBoxFor(m => m.Citizen.CitizenshipNo, new { @class = "form-control" })
+        </div>
 
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.ZoneId)
+            @Html.DropDownListFor(m => m.Citizen.ZoneId, new SelectList(Model.Zones, "Id", "Code"), "Select Zone", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.Citizen.District)
+            @Html.TextBoxFor(m => m.Citizen.District, new { @class = "form-control" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.StreetName)
+            @Html.TextBoxFor(m => m.Citizen.StreetName, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.Wardno)
+            @Html.TextBoxFor(m => m.Citizen.Wardno, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Citizen.Municipality)
+            @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
+        </div>
+
+        @Html.HiddenFor(m => m.Citizen.CitizenId)
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-primary"> Save</button>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.LastName)
-        @Html.TextBoxFor(m => m.Citizen.LastName, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Citizen.LastName)
-    </div>
+ }
 
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.CitizenshipNo)
-        @Html.TextBoxFor(m => m.Citizen.CitizenshipNo, new { @class = "form-control" })
-    </div>
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.ZoneId)
-        @Html.DropDownListFor(m => m.Citizen.ZoneId, new SelectList(Model.Zones, "Id", "Code"), "Select Zone", new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-
-        @Html.LabelFor(m => m.Citizen.District)
-        @Html.TextBoxFor(m => m.Citizen.District, new { @class = "form-control" })
-
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.StreetName)
-        @Html.TextBoxFor(m => m.Citizen.StreetName, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.Wardno)
-        @Html.TextBoxFor(m => m.Citizen.Wardno, new { @class = "form-control" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Citizen.Municipality)
-        @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
-    </div>
-
-    @Html.HiddenFor(m => m.Citizen.CitizenId)
-    @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary"> Save</button>
-
-}
-
-    @*<iframe src="http://nepalicalendar.rat32.com/addons/nepali-calendar-aja-ko-din.php" frameborder="0" 
-            scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:217px;" 
+        @*<iframe src="http://nepalicalendar.rat32.com/addons/nepali-calendar-aja-ko-din.php" frameborder="0"
+            scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:217px;"
             allowtransparency="true"></iframe>*@
 
-@section scripts{
-    @Scripts.Render("~/bundles/jqueryval")
-    
-}
+        @section scripts{
+            @Scripts.Render("~/bundles/jqueryval")
 
+        }
+
+    
