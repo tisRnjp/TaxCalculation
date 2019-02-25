@@ -141,6 +141,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllTables.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AllTables.xsd</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -314,6 +319,17 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="CitizenDBDataSet.xsc">
       <DependentUpon>CitizenDBDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="AllTables.xsc">
+      <DependentUpon>AllTables.xsd</DependentUpon>
+    </Content>
+    <None Include="AllTables.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AllTables.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="AllTables.xss">
+      <DependentUpon>AllTables.xsd</DependentUpon>
     </Content>
     <None Include="CitizenDBDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>

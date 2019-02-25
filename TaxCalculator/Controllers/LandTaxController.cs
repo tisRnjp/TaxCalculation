@@ -7,6 +7,7 @@ using System.Data.Entity;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
 using TaxCalculator.ViewModels;
+using Microsoft.Reporting.WebForms;
 
 namespace TaxCalculator.Controllers
 {
@@ -68,7 +69,97 @@ namespace TaxCalculator.Controllers
                 db.LandTaxHistories.Add(viewModel.LandTaxHistory);
             }
             db.SaveChanges();
-            return RedirectToAction("Index", "LandTax");
+
+
+            string ReportType = "pdf";
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/TaxReport.rdlc");
+
+            localReport.DataSources.Add(new ReportDataSource
+            {
+                Name = "HouseTax",
+                Value = db.HouseTaxHistories.Where(h => h.Id == viewModel.LandTaxHistory.HouseTaxHistoryId).ToList()
+            });
+            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.Where(l => l.Id == viewModel.LandTaxHistory.Id).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.Where(c => c.CitizenId == viewModel.LandTaxHistory.CitizenId).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Lands", Value = db.CitizenLands.Where(l => l.CitizenId == viewModel.LandTaxHistory.CitizenId).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "houses", Value = db.CitizenHouses.Where(l => l.CitizenId == viewModel.LandTaxHistory.CitizenId).ToList() });
+
+
+            string reportType = ReportType;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            //if (ReportType == "Excel")
+            //{
+            //    fileNameExtension = "xlsx";
+            //}
+            //else if (ReportType == "PDF")
+            //{
+            //    fileNameExtension = "pdf";
+            //}
+            //else
+            //{
+            //    fileNameExtension = "docx";
+            //}
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderByte;
+            renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
+                                    out fileNameExtension, out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= TaxReport." + fileNameExtension);
+            return File(renderByte, fileNameExtension);
+
+            //return RedirectToAction("Index", "LandTax");
+        }
+
+
+
+        public ActionResult TaxReport()
+        {
+             string ReportType = "pdf";
+
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/TaxReport.rdlc");
+
+            localReport.DataSources.Add(new ReportDataSource
+            {
+                Name = "HouseTax",
+                Value = db.HouseTaxHistories.Where(h => h.Id == 2).ToList()
+            });
+            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Lands", Value = db.CitizenLands.Where(l => l.CitizenId == 2).ToList() });
+
+
+            string reportType = ReportType;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            //if (ReportType == "Excel")
+            //{
+            //    fileNameExtension = "xlsx";
+            //}
+            //else if (ReportType == "PDF")
+            //{
+            //    fileNameExtension = "pdf";
+            //}
+            //else
+            //{
+            //    fileNameExtension = "docx";
+            //}
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderByte;
+            renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
+                                    out fileNameExtension, out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= TaxReport." + fileNameExtension);
+            return File(renderByte, fileNameExtension);
+
+            //return View();
         }
     }
 }
