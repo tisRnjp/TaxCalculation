@@ -4,7 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Land Tax Calculation</h2>
+
+
+
+<div class="container">
+    <div class="page-header">
+        <h2>जग्गा तर्फ को कर सुची</h2>
+    </div>
+</div>
+
 
 
 <div class="row">
@@ -27,22 +35,22 @@
             <tbody>
                 @foreach (var landtax in Model.LandTaxHistories)
                 {
-                <tr>
-                    <th scope="row">@landtax.Id</th>
-                    <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.KittaNo)  </td>
-                    <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.SheetNo)  </td>
-                    <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.WardNo)  </td>
-                   
-                    <td>@landtax.ValuationArea</td>
-                    <td>@landtax.FY</td>
-                    <td>@landtax.CostPerUnitArea</td>
-                    <td>@landtax.TotalCost</td>
-                    <td>
-                        @Html.ActionLink("थप जानकारी (Details)", "Details", new { Id = landtax.Id }) /
-                        @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "LandTax", new { Id = landtax.Id }, null)
+                    <tr>
+                        <th scope="row">@landtax.Id</th>
+                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.KittaNo)  </td>
+                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.SheetNo)  </td>
+                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.WardNo)  </td>
 
-                    </td>
-                </tr>
+                        <td>@landtax.ValuationArea</td>
+                        <td>@landtax.FY</td>
+                        <td>@landtax.CostPerUnitArea</td>
+                        <td>@landtax.TotalCost</td>
+                        <td>
+                            @Html.ActionLink("थप जानकारी (Details)", "Details", new { Id = landtax.Id }) /
+                            @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "LandTax", new { Id = landtax.Id }, null)
+
+                        </td>
+                    </tr>
 
                 }
 

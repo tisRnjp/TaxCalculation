@@ -12,13 +12,13 @@ namespace TaxCalculator.Models
         
         [MaxLength(20)]
 
-        [Display(Name = "जगरिकता नम्बर")]
+        [Display(Name = "नागरिकता नम्बर")]
         //[Index(nameof(CitizenshipNo),IsUnique = true)]
         public string CitizenshipNo { get; set; }
 
         
         [MaxLength(255)]
-        [Display(Name = "नागरिक को नाम ")]
+        [Display(Name = "नाम ")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Please enter the Last Name!")]
@@ -30,17 +30,18 @@ namespace TaxCalculator.Models
         [Display(Name = "जिल्ला")]
         public string District { get; set; }
 
-        [Display(Name = "जिल्ला")]
+        
+        [Display(Name = "ठेगाना")]
         public string StreetName { get; set; }
 
-        [Display(Name = "ठेगाना")] 
+        [Display(Name = "वडा न.")]
         public int Wardno { get; set; }
 
         [Display(Name = "कित्ता नम्बर")]
         public string KittaNo { get; set; }
 
 
-
+        [Display(Name = "नगरपालिका")]
         public string Municipality { get; set; }
         
         [Display(Name = "अञ्चल")] 

@@ -19,9 +19,9 @@
 
             var citizens = new List<Citizen>
             {
-                new Citizen{ CitizenId=1, FirstName="कुलमान  ", LastName="श्रेष्ठ", District="काठमाडौँ",  Municipality="बुढानिलकण्ठ", StreetName="कपन",KittaNo = "118", Wardno=10,CitizenshipNo = "8546" },
-                new Citizen{ CitizenId=2, FirstName="पूर्ण लक्ष्मी", LastName=" शाक्य ", District="काठमाडौँ",  Municipality="बुढानिलकण्ठ", StreetName="कपन",KittaNo = "271", Wardno=10,CitizenshipNo = "4571" },
-                new Citizen{ CitizenId=3, FirstName="रन्जिप ", LastName="महर्जन", District="काठमाडौँ",  Municipality="बुढानिलकण्ठ", StreetName="कपन", KittaNo = "101",Wardno=10, CitizenshipNo = "9988" }
+                new Citizen{ CitizenId=1, FirstName="कुलमान  ", LastName="श्रेष्ठ", District="काठमाडौँ",  Municipality="बुढानिलकण्ठ", StreetName="कपन",KittaNo = "118", Wardno=10,CitizenshipNo = "8546",ZoneId = 1 },
+                new Citizen{ CitizenId=2, FirstName="पूर्ण लक्ष्मी", LastName=" शाक्य ", District="काठमाडौँ",  Municipality="बुढानिलकण्ठ", StreetName="कपन",KittaNo = "271", Wardno=10,CitizenshipNo = "4571",ZoneId = 3},
+                new Citizen{ CitizenId=3, FirstName="रन्जिप ", LastName="महर्जन", District="काठमाडौँ",  Municipality="बुढानिलकण्ठ", StreetName="कपन", KittaNo = "101",Wardno=10, CitizenshipNo = "9988", ZoneId = 4}
             };
 
 

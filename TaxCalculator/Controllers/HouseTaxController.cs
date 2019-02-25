@@ -40,7 +40,7 @@ namespace TaxCalculator.Controllers
             if(citizenHouse != null)
             {
                 houseTax.CitizenHouse = citizenHouse;
-                houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id};
+                houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id, TotalArea = citizenHouse.Area};
             }
 
             return View(houseTax);

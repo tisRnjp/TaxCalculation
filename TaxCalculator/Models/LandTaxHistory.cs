@@ -18,7 +18,7 @@ namespace TaxCalculator.Models
         [Display(Name = "मुल्यांकन हुने क्ष फ")]
         public decimal ValuationArea { get; set; }
 
-        [Display(Name = "प्रति व फु दर")]
+        [Display(Name = "प्रति व मी दर")]
         public decimal CostPerUnitArea { get; set; }
 
         [Display(Name = "कायम मूल्य")]

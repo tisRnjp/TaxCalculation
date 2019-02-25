@@ -162,6 +162,14 @@
     <Compile Include="Migrations\201902250238496_initial after merge.Designer.cs">
       <DependentUpon>201902250238496_initial after merge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902250546145_area added to housetax history.cs" />
+    <Compile Include="Migrations\201902250546145_area added to housetax history.Designer.cs">
+      <DependentUpon>201902250546145_area added to housetax history.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902250651349_FY added to housetax.cs" />
+    <Compile Include="Migrations\201902250651349_FY added to housetax.Designer.cs">
+      <DependentUpon>201902250651349_FY added to housetax.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
     <Compile Include="DAL\CitizenDbContext.cs" />
@@ -429,9 +437,6 @@
     <Content Include="Views\LandTax\Index.cshtml" />
     <Content Include="Views\LandTax\LandTaxCalculationForm.cshtml" />
     <Content Include="Views\HouseTax\Create.cshtml" />
-    <Content Include="Views\HouseTax\Delete.cshtml" />
-    <Content Include="Views\HouseTax\Details.cshtml" />
-    <Content Include="Views\HouseTax\Edit.cshtml" />
     <Content Include="Views\HouseTax\Index.cshtml" />
     <Content Include="TaxDBDataSet.xsc">
       <DependentUpon>TaxDBDataSet.xsd</DependentUpon>
@@ -464,6 +469,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902250238496_initial after merge.resx">
       <DependentUpon>201902250238496_initial after merge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902250546145_area added to housetax history.resx">
+      <DependentUpon>201902250546145_area added to housetax history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902250651349_FY added to housetax.resx">
+      <DependentUpon>201902250651349_FY added to housetax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

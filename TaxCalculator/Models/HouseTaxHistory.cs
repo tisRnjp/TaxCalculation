@@ -13,6 +13,13 @@ namespace TaxCalculator.Models
         [Display(Name = "प्रति वर्ग फु दर")]
         public decimal CostPerUnitArea { get; set; }
 
+        [Display(Name = "आ व")]
+        public string FY { get; set; }
+
+
+        [Display(Name = "वर्ग फु")]
+        public decimal TotalArea { get; set; }
+
         //[Display(Name = "")]
         //public decimal LastYearCost { get; set; }
 

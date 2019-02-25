@@ -31,6 +31,16 @@
         </div>
     </div>
 
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.HouseTax.FY, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.HouseTax.FY, new { htmlAttributes = new { @class = "form-control", id = "house-FY" } })
+            @Html.ValidationMessageFor(model => model.HouseTax.FY, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
     <div class="form-group">
         @Html.LabelFor(model => model.CitizenHouse.Area, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -111,9 +121,10 @@
             </div>
         </div>*@
 
+    @Html.HiddenFor(model => model.HouseTax.TotalArea)
     @Html.HiddenFor(model => model.HouseTax.CitizenHouseId)
     @Html.HiddenFor(model => model.CitizenHouse.Id)
-
+   
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Next" class="btn btn-default" />
@@ -123,6 +134,7 @@
 }
 
 @section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
         $(document).ready(function () {
             $("#house-length").blur(function () {
@@ -149,10 +161,10 @@
         });
 
     </script>
-    
-    
+
+
 }
 
 @*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

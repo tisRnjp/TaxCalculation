@@ -62,7 +62,7 @@
                     <th scope="col">ठेगाना</th>
                     <th scope="col">वडा न.</th>
                     <th scope="col">अञ्चल </th>
-                    <th scope="col">Municipality</th>
+                    <th scope="col">नगरपालिका</th>
                     <th scope="col">कार्य</th>
                 </tr>
             </thead>
@@ -86,8 +86,8 @@
                         @Html.ActionLink("थप जानकारी (Details)", "Details", new { citizenID = citizen.CitizenId }) /
                         @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "Home", new { citizenID = citizen.CitizenId }, null) /
                         @Html.ActionLink("कर विवरण निकाल्नुहोस (Calculate Tax)", "Create", "HouseTax", new { id = citizen.CitizenId }, null)
-                        @Html.ActionLink("Calculate Land Tax", "LandTax", "LandTax", new { citizenID = citizen.CitizenId }, null)
-                        @Html.ActionLink("Tax Details", "Index", "HouseTax", new { id = citizen.CitizenId }, null)
+                        @*@Html.ActionLink("Calculate Land Tax", "LandTax", "LandTax", new { citizenID = citizen.CitizenId }, null)
+                        @Html.ActionLink("Tax Details", "Index", "HouseTax", new { id = citizen.CitizenId }, null)*@
 
                     </td>
                 </tr>
