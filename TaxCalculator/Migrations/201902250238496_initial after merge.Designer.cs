@@ -7,13 +7,13 @@ namespace TaxCalculator.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class aftermerge : IMigrationMetadata
+    public sealed partial class initialaftermerge : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(aftermerge));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initialaftermerge));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902241814283_after merge"; }
+            get { return "201902250238496_initial after merge"; }
         }
         
         string IMigrationMetadata.Source

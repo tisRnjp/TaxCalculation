@@ -30,48 +30,42 @@
         <th>
             @Html.DisplayNameFor(model => model.HouseTax.DepreciationRate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastHouseTax.DepreciationRate)
-        </th>
+    
         <th>
             @Html.DisplayNameFor(model => model.HouseTax.GrossCost)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HouseTax.GrossCost)
-        </th>
+    
         <th>
             कैफियत
         </th>
     </tr>
-
-    <tr>
-        <td>
-            @Html.DisplayFor(model => model.Id)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.CitizenHouse.Length)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.CitizenHouse.Width)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.CitizenHouse.Area)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.HouseTax.CostPerUnitArea)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.HouseTax.DepreciationRate)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.LastHouseTax.DepreciationRate)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.HouseTax.GrossCost)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.HouseTax.GrossCost)
-        </td>
-        <td></td>
-    </tr>
-</table>
+    @foreach (var tax in Model.HouseTaxHistories)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CitizenHouse.Length)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CitizenHouse.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CitizenHouse.Area)
+            </td>
+            <td>
+                @Html.DisplayFor(model => tax.CostPerUnitArea)
+            </td>
+            <td>
+                @Html.DisplayFor(model => tax.DepreciationRate)
+            </td>
+          
+            <td>
+                @Html.DisplayFor(model => tax.GrossCost)
+            </td>
+            
+            <td></td>
+        </tr>
+    }
+    </table>

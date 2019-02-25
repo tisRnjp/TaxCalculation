@@ -36,6 +36,11 @@ namespace TaxCalculator.Models
         [Display(Name = "ठेगाना")] 
         public int Wardno { get; set; }
 
+        [Display(Name = "कित्ता नम्बर")]
+        public string KittaNo { get; set; }
+
+
+
         public string Municipality { get; set; }
         
         [Display(Name = "अञ्चल")] 

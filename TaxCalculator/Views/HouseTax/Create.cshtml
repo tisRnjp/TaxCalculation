@@ -18,7 +18,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.CitizenHouse.Length, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.CitizenHouse.Length, new { htmlAttributes = new { @class = "form-control", id = "house-length" } })
+            @Html.EditorFor(model => model.CitizenHouse.Length, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-length" } })
             @Html.ValidationMessageFor(model => model.CitizenHouse.Length, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.CitizenHouse.Width, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.CitizenHouse.Width, new { htmlAttributes = new { @class = "form-control", id = "house-width" } })
+            @Html.EditorFor(model => model.CitizenHouse.Width, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-width" } })
             @Html.ValidationMessageFor(model => model.CitizenHouse.Width, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.TotalCost, new { htmlAttributes = new { @class = "form-control", id = "house-totalCost", @readonly=true } })
+            @Html.EditorFor(model => model.HouseTax.TotalCost, new { htmlAttributes = new { @class = "form-control", id = "house-totalCost", @readonly = true } })
             @Html.ValidationMessageFor(model => model.HouseTax.TotalCost, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -66,40 +66,57 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.DepreciationRate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", id="house-depreciationRate" } })
+            @Html.EditorFor(model => model.HouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", id = "house-depreciationRate" } })
             @Html.ValidationMessageFor(model => model.HouseTax.DepreciationRate, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.LastHouseTax.DepreciationRate, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.HouseTax.DepreciationAmount, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.LastHouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-            @Html.ValidationMessageFor(model => model.LastHouseTax.DepreciationRate, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.LastHouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.LastHouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-            @Html.ValidationMessageFor(model => model.LastHouseTax.GrossCost, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.HouseTax.DepreciationAmount, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "depreciationamount" } })
+            @Html.ValidationMessageFor(model => model.HouseTax.DepreciationAmount, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled", id = "house-grossCost" } })
+            @Html.EditorFor(model => model.HouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-grossCost" } })
             @Html.ValidationMessageFor(model => model.HouseTax.GrossCost, "", new { @class = "text-danger" })
         </div>
     </div>
 
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.LastHouseTax.DepreciationRate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastHouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.LastHouseTax.DepreciationRate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastHouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastHouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.LastHouseTax.GrossCost, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.HouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-grossCost" } })
+                @Html.ValidationMessageFor(model => model.HouseTax.GrossCost, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @Html.HiddenFor(model => model.HouseTax.CitizenHouseId)
     @Html.HiddenFor(model => model.CitizenHouse.Id)
-    
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+            <input type="submit" value="Next" class="btn btn-default" />
         </div>
     </div>
 </div>
@@ -124,8 +141,10 @@
             });
 
             $("#house-depreciationRate").blur(function () {
-                if ($("#house-totalCost").val() !== null && $("#house-depreciationRate").val() !== null)
+                if ($("#house-totalCost").val() !== null && $("#house-depreciationRate").val() !== null) {
                     $("#house-grossCost").val($("#house-totalCost").val() - ($("#house-depreciationRate").val() * $("#house-totalCost").val() * 0.01));
+                    $("#depreciationamount").val(($("#house-depreciationRate").val() * $("#house-totalCost").val() * 0.01));
+                }
             });
         });
 

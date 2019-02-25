@@ -3,7 +3,7 @@ namespace TaxCalculator.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class aftermerge : DbMigration
+    public partial class initialaftermerge : DbMigration
     {
         public override void Up()
         {
@@ -33,6 +33,7 @@ namespace TaxCalculator.Migrations
                         District = c.String(),
                         StreetName = c.String(),
                         Wardno = c.Int(nullable: false),
+                        KittaNo = c.String(),
                         Municipality = c.String(),
                         ZoneId = c.Int(),
                     })

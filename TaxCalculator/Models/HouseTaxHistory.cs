@@ -19,7 +19,7 @@ namespace TaxCalculator.Models
         [Display(Name = "कायमी मुल्य")]
         public decimal TotalCost { get; set; }
 
-        [Display(Name = "कायमी मुल्य")]
+        [Display(Name = "चालु आ व को कायम मूल्य")]
         public decimal GrossCost { get; set; }
 
         [Display(Name = "ह्रासकट्टी प्रतिशत")]
