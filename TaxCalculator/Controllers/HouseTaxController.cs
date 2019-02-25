@@ -56,8 +56,8 @@ namespace TaxCalculator.Controllers
 
             db.SaveChanges();
 
-
-            //Moe to land calculations
+            
+            //Move to land calculations
             var citizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId);
             var landTaxViewModel = new LandTaxViewModel
             {
@@ -67,7 +67,9 @@ namespace TaxCalculator.Controllers
                 {
                     CitizenId = citizenHouse.CitizenId,
                     ValuationArea = citizenLand.ValuationArea,
-                    CitizenLandId = citizenLand.Id
+                    CitizenLandId = citizenLand.Id,
+                    HouseTaxHistoryId = model.HouseTax.Id
+
                 },
                 CitizenLands = db.CitizenLands.ToList(),
                 Citizens = db.Citizens.ToList()

@@ -35,5 +35,9 @@ namespace TaxCalculator.Models
         public int? CitizenLandId { get; set; }
         public CitizenLand CitizenLand { get; set; }
 
+        [Display(Name = "House Tax")]
+        public int? HouseTaxHistoryId { get; set; }
+        public HouseTaxHistory HouseTaxHistory { get; set; }
+
     }
 }

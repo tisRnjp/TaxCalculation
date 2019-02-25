@@ -20,35 +20,25 @@ namespace TaxCalculator {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("TaxDBDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("TaxDetail")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class TaxDBDataSet : global::System.Data.DataSet {
+    public partial class TaxDetail : global::System.Data.DataSet {
         
         private CitizenDataTable tableCitizen;
-        
-        private CitizenHouseDataTable tableCitizenHouse;
-        
-        private CitizenLandDataTable tableCitizenLand;
         
         private HouseTaxHistoryDataTable tableHouseTaxHistory;
         
         private LandTaxHistoryDataTable tableLandTaxHistory;
         
-        private global::System.Data.DataRelation _relationFK_dbo_CitizenHouse_dbo_Citizen_CitizenId;
-        
-        private global::System.Data.DataRelation _relationFK_dbo_CitizenLand_dbo_Citizen_CitizenId;
-        
-        private global::System.Data.DataRelation _relationFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId;
-        
         private global::System.Data.DataRelation _relationFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId;
         
-        private global::System.Data.DataRelation _relationFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId;
+        private global::System.Data.DataRelation _relationFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public TaxDBDataSet() {
+        public TaxDetail() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -59,7 +49,7 @@ namespace TaxCalculator {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected TaxDBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected TaxDetail(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -74,12 +64,6 @@ namespace TaxCalculator {
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
                 if ((ds.Tables["Citizen"] != null)) {
                     base.Tables.Add(new CitizenDataTable(ds.Tables["Citizen"]));
-                }
-                if ((ds.Tables["CitizenHouse"] != null)) {
-                    base.Tables.Add(new CitizenHouseDataTable(ds.Tables["CitizenHouse"]));
-                }
-                if ((ds.Tables["CitizenLand"] != null)) {
-                    base.Tables.Add(new CitizenLandDataTable(ds.Tables["CitizenLand"]));
                 }
                 if ((ds.Tables["HouseTaxHistory"] != null)) {
                     base.Tables.Add(new HouseTaxHistoryDataTable(ds.Tables["HouseTaxHistory"]));
@@ -112,26 +96,6 @@ namespace TaxCalculator {
         public CitizenDataTable Citizen {
             get {
                 return this.tableCitizen;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CitizenHouseDataTable CitizenHouse {
-            get {
-                return this.tableCitizenHouse;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public CitizenLandDataTable CitizenLand {
-            get {
-                return this.tableCitizenLand;
             }
         }
         
@@ -197,7 +161,7 @@ namespace TaxCalculator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            TaxDBDataSet cln = ((TaxDBDataSet)(base.Clone()));
+            TaxDetail cln = ((TaxDetail)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -224,12 +188,6 @@ namespace TaxCalculator {
                 ds.ReadXml(reader);
                 if ((ds.Tables["Citizen"] != null)) {
                     base.Tables.Add(new CitizenDataTable(ds.Tables["Citizen"]));
-                }
-                if ((ds.Tables["CitizenHouse"] != null)) {
-                    base.Tables.Add(new CitizenHouseDataTable(ds.Tables["CitizenHouse"]));
-                }
-                if ((ds.Tables["CitizenLand"] != null)) {
-                    base.Tables.Add(new CitizenLandDataTable(ds.Tables["CitizenLand"]));
                 }
                 if ((ds.Tables["HouseTaxHistory"] != null)) {
                     base.Tables.Add(new HouseTaxHistoryDataTable(ds.Tables["HouseTaxHistory"]));
@@ -276,18 +234,6 @@ namespace TaxCalculator {
                     this.tableCitizen.InitVars();
                 }
             }
-            this.tableCitizenHouse = ((CitizenHouseDataTable)(base.Tables["CitizenHouse"]));
-            if ((initTable == true)) {
-                if ((this.tableCitizenHouse != null)) {
-                    this.tableCitizenHouse.InitVars();
-                }
-            }
-            this.tableCitizenLand = ((CitizenLandDataTable)(base.Tables["CitizenLand"]));
-            if ((initTable == true)) {
-                if ((this.tableCitizenLand != null)) {
-                    this.tableCitizenLand.InitVars();
-                }
-            }
             this.tableHouseTaxHistory = ((HouseTaxHistoryDataTable)(base.Tables["HouseTaxHistory"]));
             if ((initTable == true)) {
                 if ((this.tableHouseTaxHistory != null)) {
@@ -300,68 +246,37 @@ namespace TaxCalculator {
                     this.tableLandTaxHistory.InitVars();
                 }
             }
-            this._relationFK_dbo_CitizenHouse_dbo_Citizen_CitizenId = this.Relations["FK_dbo.CitizenHouse_dbo.Citizen_CitizenId"];
-            this._relationFK_dbo_CitizenLand_dbo_Citizen_CitizenId = this.Relations["FK_dbo.CitizenLand_dbo.Citizen_CitizenId"];
-            this._relationFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId = this.Relations["FK_dbo.HouseTaxHistory_dbo.CitizenHouse_CitizenHouseId"];
             this._relationFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId = this.Relations["FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId"];
-            this._relationFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId = this.Relations["FK_dbo.LandTaxHistory_dbo.CitizenLand_CitizenLandId"];
+            this._relationFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId = this.Relations["FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "TaxDBDataSet";
+            this.DataSetName = "TaxDetail";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/TaxDBDataSet.xsd";
+            this.Namespace = "http://tempuri.org/TaxDetail.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCitizen = new CitizenDataTable();
             base.Tables.Add(this.tableCitizen);
-            this.tableCitizenHouse = new CitizenHouseDataTable();
-            base.Tables.Add(this.tableCitizenHouse);
-            this.tableCitizenLand = new CitizenLandDataTable();
-            base.Tables.Add(this.tableCitizenLand);
             this.tableHouseTaxHistory = new HouseTaxHistoryDataTable();
             base.Tables.Add(this.tableHouseTaxHistory);
             this.tableLandTaxHistory = new LandTaxHistoryDataTable();
             base.Tables.Add(this.tableLandTaxHistory);
-            this._relationFK_dbo_CitizenHouse_dbo_Citizen_CitizenId = new global::System.Data.DataRelation("FK_dbo.CitizenHouse_dbo.Citizen_CitizenId", new global::System.Data.DataColumn[] {
-                        this.tableCitizen.CitizenIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCitizenHouse.CitizenIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_CitizenHouse_dbo_Citizen_CitizenId);
-            this._relationFK_dbo_CitizenLand_dbo_Citizen_CitizenId = new global::System.Data.DataRelation("FK_dbo.CitizenLand_dbo.Citizen_CitizenId", new global::System.Data.DataColumn[] {
-                        this.tableCitizen.CitizenIdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCitizenLand.CitizenIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_CitizenLand_dbo_Citizen_CitizenId);
-            this._relationFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId = new global::System.Data.DataRelation("FK_dbo.HouseTaxHistory_dbo.CitizenHouse_CitizenHouseId", new global::System.Data.DataColumn[] {
-                        this.tableCitizenHouse.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableHouseTaxHistory.CitizenHouseIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId);
             this._relationFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId = new global::System.Data.DataRelation("FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId", new global::System.Data.DataColumn[] {
                         this.tableCitizen.CitizenIdColumn}, new global::System.Data.DataColumn[] {
                         this.tableLandTaxHistory.CitizenIdColumn}, false);
             this.Relations.Add(this._relationFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId);
-            this._relationFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId = new global::System.Data.DataRelation("FK_dbo.LandTaxHistory_dbo.CitizenLand_CitizenLandId", new global::System.Data.DataColumn[] {
-                        this.tableCitizenLand.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableLandTaxHistory.CitizenLandIdColumn}, false);
-            this.Relations.Add(this._relationFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId);
+            this._relationFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId = new global::System.Data.DataRelation("FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId", new global::System.Data.DataColumn[] {
+                        this.tableHouseTaxHistory.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableLandTaxHistory.HouseTaxHistoryIdColumn}, false);
+            this.Relations.Add(this._relationFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeCitizen() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeCitizenHouse() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeCitizenLand() {
             return false;
         }
         
@@ -388,7 +303,7 @@ namespace TaxCalculator {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            TaxDBDataSet ds = new TaxDBDataSet();
+            TaxDetail ds = new TaxDetail();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -436,12 +351,6 @@ namespace TaxCalculator {
         public delegate void CitizenRowChangeEventHandler(object sender, CitizenRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void CitizenHouseRowChangeEventHandler(object sender, CitizenHouseRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void CitizenLandRowChangeEventHandler(object sender, CitizenLandRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void HouseTaxHistoryRowChangeEventHandler(object sender, HouseTaxHistoryRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -467,6 +376,8 @@ namespace TaxCalculator {
             private global::System.Data.DataColumn columnStreetName;
             
             private global::System.Data.DataColumn columnWardno;
+            
+            private global::System.Data.DataColumn columnKittaNo;
             
             private global::System.Data.DataColumn columnMunicipality;
             
@@ -563,6 +474,14 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn KittaNoColumn {
+                get {
+                    return this.columnKittaNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn MunicipalityColumn {
                 get {
                     return this.columnMunicipality;
@@ -614,7 +533,7 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenRow AddCitizenRow(string CitizenshipNo, string FirstName, string LastName, string District, string StreetName, int Wardno, string Municipality, int ZoneId) {
+            public CitizenRow AddCitizenRow(string CitizenshipNo, string FirstName, string LastName, string District, string StreetName, int Wardno, string KittaNo, string Municipality, int ZoneId) {
                 CitizenRow rowCitizenRow = ((CitizenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -624,6 +543,7 @@ namespace TaxCalculator {
                         District,
                         StreetName,
                         Wardno,
+                        KittaNo,
                         Municipality,
                         ZoneId};
                 rowCitizenRow.ItemArray = columnValuesArray;
@@ -662,6 +582,7 @@ namespace TaxCalculator {
                 this.columnDistrict = base.Columns["District"];
                 this.columnStreetName = base.Columns["StreetName"];
                 this.columnWardno = base.Columns["Wardno"];
+                this.columnKittaNo = base.Columns["KittaNo"];
                 this.columnMunicipality = base.Columns["Municipality"];
                 this.columnZoneId = base.Columns["ZoneId"];
             }
@@ -683,6 +604,8 @@ namespace TaxCalculator {
                 base.Columns.Add(this.columnStreetName);
                 this.columnWardno = new global::System.Data.DataColumn("Wardno", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWardno);
+                this.columnKittaNo = new global::System.Data.DataColumn("KittaNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKittaNo);
                 this.columnMunicipality = new global::System.Data.DataColumn("Municipality", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMunicipality);
                 this.columnZoneId = new global::System.Data.DataColumn("ZoneId", typeof(int), null, global::System.Data.MappingType.Element);
@@ -702,6 +625,7 @@ namespace TaxCalculator {
                 this.columnDistrict.MaxLength = 2147483647;
                 this.columnStreetName.MaxLength = 2147483647;
                 this.columnWardno.AllowDBNull = false;
+                this.columnKittaNo.MaxLength = 2147483647;
                 this.columnMunicipality.MaxLength = 2147483647;
             }
             
@@ -770,7 +694,7 @@ namespace TaxCalculator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TaxDBDataSet ds = new TaxDBDataSet();
+                TaxDetail ds = new TaxDetail();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -834,704 +758,15 @@ namespace TaxCalculator {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CitizenHouseDataTable : global::System.Data.TypedTableBase<CitizenHouseRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnLength;
-            
-            private global::System.Data.DataColumn columnWidth;
-            
-            private global::System.Data.DataColumn columnArea;
-            
-            private global::System.Data.DataColumn columnFloor;
-            
-            private global::System.Data.DataColumn columnCitizenId;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseDataTable() {
-                this.TableName = "CitizenHouse";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal CitizenHouseDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected CitizenHouseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn LengthColumn {
-                get {
-                    return this.columnLength;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn WidthColumn {
-                get {
-                    return this.columnWidth;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn AreaColumn {
-                get {
-                    return this.columnArea;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FloorColumn {
-                get {
-                    return this.columnFloor;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CitizenIdColumn {
-                get {
-                    return this.columnCitizenId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow this[int index] {
-                get {
-                    return ((CitizenHouseRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenHouseRowChangeEventHandler CitizenHouseRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenHouseRowChangeEventHandler CitizenHouseRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenHouseRowChangeEventHandler CitizenHouseRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenHouseRowChangeEventHandler CitizenHouseRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddCitizenHouseRow(CitizenHouseRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow AddCitizenHouseRow(decimal Length, decimal Width, decimal Area, decimal Floor, CitizenRow _parentCitizenRowByFK_dbo_CitizenHouse_dbo_Citizen_CitizenId) {
-                CitizenHouseRow rowCitizenHouseRow = ((CitizenHouseRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Length,
-                        Width,
-                        Area,
-                        Floor,
-                        null};
-                if ((_parentCitizenRowByFK_dbo_CitizenHouse_dbo_Citizen_CitizenId != null)) {
-                    columnValuesArray[5] = _parentCitizenRowByFK_dbo_CitizenHouse_dbo_Citizen_CitizenId[0];
-                }
-                rowCitizenHouseRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCitizenHouseRow);
-                return rowCitizenHouseRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow FindById(int Id) {
-                return ((CitizenHouseRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CitizenHouseDataTable cln = ((CitizenHouseDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CitizenHouseDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnLength = base.Columns["Length"];
-                this.columnWidth = base.Columns["Width"];
-                this.columnArea = base.Columns["Area"];
-                this.columnFloor = base.Columns["Floor"];
-                this.columnCitizenId = base.Columns["CitizenId"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnLength = new global::System.Data.DataColumn("Length", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLength);
-                this.columnWidth = new global::System.Data.DataColumn("Width", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWidth);
-                this.columnArea = new global::System.Data.DataColumn("Area", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArea);
-                this.columnFloor = new global::System.Data.DataColumn("Floor", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFloor);
-                this.columnCitizenId = new global::System.Data.DataColumn("CitizenId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCitizenId);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
-                this.columnLength.AllowDBNull = false;
-                this.columnWidth.AllowDBNull = false;
-                this.columnArea.AllowDBNull = false;
-                this.columnFloor.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow NewCitizenHouseRow() {
-                return ((CitizenHouseRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CitizenHouseRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CitizenHouseRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CitizenHouseRowChanged != null)) {
-                    this.CitizenHouseRowChanged(this, new CitizenHouseRowChangeEvent(((CitizenHouseRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CitizenHouseRowChanging != null)) {
-                    this.CitizenHouseRowChanging(this, new CitizenHouseRowChangeEvent(((CitizenHouseRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CitizenHouseRowDeleted != null)) {
-                    this.CitizenHouseRowDeleted(this, new CitizenHouseRowChangeEvent(((CitizenHouseRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CitizenHouseRowDeleting != null)) {
-                    this.CitizenHouseRowDeleting(this, new CitizenHouseRowChangeEvent(((CitizenHouseRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveCitizenHouseRow(CitizenHouseRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TaxDBDataSet ds = new TaxDBDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CitizenHouseDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class CitizenLandDataTable : global::System.Data.TypedTableBase<CitizenLandRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnVDC;
-            
-            private global::System.Data.DataColumn columnWardNo;
-            
-            private global::System.Data.DataColumn columnSheetNo;
-            
-            private global::System.Data.DataColumn columnKittaNo;
-            
-            private global::System.Data.DataColumn columnValuationArea;
-            
-            private global::System.Data.DataColumn columnCitizenId;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandDataTable() {
-                this.TableName = "CitizenLand";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal CitizenLandDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected CitizenLandDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn VDCColumn {
-                get {
-                    return this.columnVDC;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn WardNoColumn {
-                get {
-                    return this.columnWardNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SheetNoColumn {
-                get {
-                    return this.columnSheetNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn KittaNoColumn {
-                get {
-                    return this.columnKittaNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ValuationAreaColumn {
-                get {
-                    return this.columnValuationArea;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CitizenIdColumn {
-                get {
-                    return this.columnCitizenId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow this[int index] {
-                get {
-                    return ((CitizenLandRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenLandRowChangeEventHandler CitizenLandRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenLandRowChangeEventHandler CitizenLandRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenLandRowChangeEventHandler CitizenLandRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event CitizenLandRowChangeEventHandler CitizenLandRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddCitizenLandRow(CitizenLandRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow AddCitizenLandRow(string VDC, string WardNo, string SheetNo, string KittaNo, decimal ValuationArea, CitizenRow _parentCitizenRowByFK_dbo_CitizenLand_dbo_Citizen_CitizenId) {
-                CitizenLandRow rowCitizenLandRow = ((CitizenLandRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        VDC,
-                        WardNo,
-                        SheetNo,
-                        KittaNo,
-                        ValuationArea,
-                        null};
-                if ((_parentCitizenRowByFK_dbo_CitizenLand_dbo_Citizen_CitizenId != null)) {
-                    columnValuesArray[6] = _parentCitizenRowByFK_dbo_CitizenLand_dbo_Citizen_CitizenId[0];
-                }
-                rowCitizenLandRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowCitizenLandRow);
-                return rowCitizenLandRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow FindById(int Id) {
-                return ((CitizenLandRow)(this.Rows.Find(new object[] {
-                            Id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                CitizenLandDataTable cln = ((CitizenLandDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new CitizenLandDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnVDC = base.Columns["VDC"];
-                this.columnWardNo = base.Columns["WardNo"];
-                this.columnSheetNo = base.Columns["SheetNo"];
-                this.columnKittaNo = base.Columns["KittaNo"];
-                this.columnValuationArea = base.Columns["ValuationArea"];
-                this.columnCitizenId = base.Columns["CitizenId"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnVDC = new global::System.Data.DataColumn("VDC", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnVDC);
-                this.columnWardNo = new global::System.Data.DataColumn("WardNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWardNo);
-                this.columnSheetNo = new global::System.Data.DataColumn("SheetNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSheetNo);
-                this.columnKittaNo = new global::System.Data.DataColumn("KittaNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKittaNo);
-                this.columnValuationArea = new global::System.Data.DataColumn("ValuationArea", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnValuationArea);
-                this.columnCitizenId = new global::System.Data.DataColumn("CitizenId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCitizenId);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
-                this.columnVDC.MaxLength = 2147483647;
-                this.columnWardNo.MaxLength = 2147483647;
-                this.columnSheetNo.MaxLength = 2147483647;
-                this.columnKittaNo.MaxLength = 2147483647;
-                this.columnValuationArea.AllowDBNull = false;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow NewCitizenLandRow() {
-                return ((CitizenLandRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new CitizenLandRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(CitizenLandRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.CitizenLandRowChanged != null)) {
-                    this.CitizenLandRowChanged(this, new CitizenLandRowChangeEvent(((CitizenLandRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.CitizenLandRowChanging != null)) {
-                    this.CitizenLandRowChanging(this, new CitizenLandRowChangeEvent(((CitizenLandRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.CitizenLandRowDeleted != null)) {
-                    this.CitizenLandRowDeleted(this, new CitizenLandRowChangeEvent(((CitizenLandRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.CitizenLandRowDeleting != null)) {
-                    this.CitizenLandRowDeleting(this, new CitizenLandRowChangeEvent(((CitizenLandRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveCitizenLandRow(CitizenLandRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TaxDBDataSet ds = new TaxDBDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "CitizenLandDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class HouseTaxHistoryDataTable : global::System.Data.TypedTableBase<HouseTaxHistoryRow> {
             
             private global::System.Data.DataColumn columnId;
             
             private global::System.Data.DataColumn columnCostPerUnitArea;
+            
+            private global::System.Data.DataColumn columnFY;
+            
+            private global::System.Data.DataColumn columnTotalArea;
             
             private global::System.Data.DataColumn columnTotalCost;
             
@@ -1589,6 +824,22 @@ namespace TaxCalculator {
             public global::System.Data.DataColumn CostPerUnitAreaColumn {
                 get {
                     return this.columnCostPerUnitArea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FYColumn {
+                get {
+                    return this.columnFY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TotalAreaColumn {
+                get {
+                    return this.columnTotalArea;
                 }
             }
             
@@ -1669,19 +920,18 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HouseTaxHistoryRow AddHouseTaxHistoryRow(decimal CostPerUnitArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, CitizenHouseRow _parentCitizenHouseRowByFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId) {
+            public HouseTaxHistoryRow AddHouseTaxHistoryRow(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, int CitizenHouseId) {
                 HouseTaxHistoryRow rowHouseTaxHistoryRow = ((HouseTaxHistoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         CostPerUnitArea,
+                        FY,
+                        TotalArea,
                         TotalCost,
                         GrossCost,
                         DepreciationRate,
                         DepreciationAmount,
-                        null};
-                if ((_parentCitizenHouseRowByFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId != null)) {
-                    columnValuesArray[6] = _parentCitizenHouseRowByFK_dbo_HouseTaxHistory_dbo_CitizenHouse_CitizenHouseId[0];
-                }
+                        CitizenHouseId};
                 rowHouseTaxHistoryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHouseTaxHistoryRow);
                 return rowHouseTaxHistoryRow;
@@ -1713,6 +963,8 @@ namespace TaxCalculator {
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
                 this.columnCostPerUnitArea = base.Columns["CostPerUnitArea"];
+                this.columnFY = base.Columns["FY"];
+                this.columnTotalArea = base.Columns["TotalArea"];
                 this.columnTotalCost = base.Columns["TotalCost"];
                 this.columnGrossCost = base.Columns["GrossCost"];
                 this.columnDepreciationRate = base.Columns["DepreciationRate"];
@@ -1727,6 +979,10 @@ namespace TaxCalculator {
                 base.Columns.Add(this.columnId);
                 this.columnCostPerUnitArea = new global::System.Data.DataColumn("CostPerUnitArea", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCostPerUnitArea);
+                this.columnFY = new global::System.Data.DataColumn("FY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFY);
+                this.columnTotalArea = new global::System.Data.DataColumn("TotalArea", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalArea);
                 this.columnTotalCost = new global::System.Data.DataColumn("TotalCost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalCost);
                 this.columnGrossCost = new global::System.Data.DataColumn("GrossCost", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -1746,6 +1002,8 @@ namespace TaxCalculator {
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
                 this.columnCostPerUnitArea.AllowDBNull = false;
+                this.columnFY.MaxLength = 2147483647;
+                this.columnTotalArea.AllowDBNull = false;
                 this.columnTotalCost.AllowDBNull = false;
                 this.columnGrossCost.AllowDBNull = false;
                 this.columnDepreciationRate.AllowDBNull = false;
@@ -1817,7 +1075,7 @@ namespace TaxCalculator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TaxDBDataSet ds = new TaxDBDataSet();
+                TaxDetail ds = new TaxDetail();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1898,6 +1156,8 @@ namespace TaxCalculator {
             private global::System.Data.DataColumn columnCitizenId;
             
             private global::System.Data.DataColumn columnCitizenLandId;
+            
+            private global::System.Data.DataColumn columnHouseTaxHistoryId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1998,6 +1258,14 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HouseTaxHistoryIdColumn {
+                get {
+                    return this.columnHouseTaxHistoryId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2033,7 +1301,7 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public LandTaxHistoryRow AddLandTaxHistoryRow(string FY, decimal MyProperty, decimal ValuationArea, decimal CostPerUnitArea, decimal TotalCost, CitizenRow _parentCitizenRowByFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId, CitizenLandRow _parentCitizenLandRowByFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId) {
+            public LandTaxHistoryRow AddLandTaxHistoryRow(string FY, decimal MyProperty, decimal ValuationArea, decimal CostPerUnitArea, decimal TotalCost, CitizenRow _parentCitizenRowByFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId, int CitizenLandId, HouseTaxHistoryRow _parentHouseTaxHistoryRowByFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId) {
                 LandTaxHistoryRow rowLandTaxHistoryRow = ((LandTaxHistoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2043,12 +1311,13 @@ namespace TaxCalculator {
                         CostPerUnitArea,
                         TotalCost,
                         null,
+                        CitizenLandId,
                         null};
                 if ((_parentCitizenRowByFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId != null)) {
                     columnValuesArray[6] = _parentCitizenRowByFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId[0];
                 }
-                if ((_parentCitizenLandRowByFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId != null)) {
-                    columnValuesArray[7] = _parentCitizenLandRowByFK_dbo_LandTaxHistory_dbo_CitizenLand_CitizenLandId[0];
+                if ((_parentHouseTaxHistoryRowByFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId != null)) {
+                    columnValuesArray[8] = _parentHouseTaxHistoryRowByFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId[0];
                 }
                 rowLandTaxHistoryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowLandTaxHistoryRow);
@@ -2087,6 +1356,7 @@ namespace TaxCalculator {
                 this.columnTotalCost = base.Columns["TotalCost"];
                 this.columnCitizenId = base.Columns["CitizenId"];
                 this.columnCitizenLandId = base.Columns["CitizenLandId"];
+                this.columnHouseTaxHistoryId = base.Columns["HouseTaxHistoryId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2108,6 +1378,8 @@ namespace TaxCalculator {
                 base.Columns.Add(this.columnCitizenId);
                 this.columnCitizenLandId = new global::System.Data.DataColumn("CitizenLandId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCitizenLandId);
+                this.columnHouseTaxHistoryId = new global::System.Data.DataColumn("HouseTaxHistoryId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHouseTaxHistoryId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2188,7 +1460,7 @@ namespace TaxCalculator {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                TaxDBDataSet ds = new TaxDBDataSet();
+                TaxDetail ds = new TaxDetail();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2360,6 +1632,22 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string KittaNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableCitizen.KittaNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KittaNo\' in table \'Citizen\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCitizen.KittaNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string Municipality {
                 get {
                     try {
@@ -2440,6 +1728,18 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsKittaNoNull() {
+                return this.IsNull(this.tableCitizen.KittaNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetKittaNoNull() {
+                this[this.tableCitizen.KittaNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsMunicipalityNull() {
                 return this.IsNull(this.tableCitizen.MunicipalityColumn);
             }
@@ -2464,353 +1764,12 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow[] GetCitizenHouseRows() {
-                if ((this.Table.ChildRelations["FK_dbo.CitizenHouse_dbo.Citizen_CitizenId"] == null)) {
-                    return new CitizenHouseRow[0];
-                }
-                else {
-                    return ((CitizenHouseRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.CitizenHouse_dbo.Citizen_CitizenId"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow[] GetCitizenLandRows() {
-                if ((this.Table.ChildRelations["FK_dbo.CitizenLand_dbo.Citizen_CitizenId"] == null)) {
-                    return new CitizenLandRow[0];
-                }
-                else {
-                    return ((CitizenLandRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.CitizenLand_dbo.Citizen_CitizenId"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public LandTaxHistoryRow[] GetLandTaxHistoryRows() {
                 if ((this.Table.ChildRelations["FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId"] == null)) {
                     return new LandTaxHistoryRow[0];
                 }
                 else {
                     return ((LandTaxHistoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class CitizenHouseRow : global::System.Data.DataRow {
-            
-            private CitizenHouseDataTable tableCitizenHouse;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal CitizenHouseRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCitizenHouse = ((CitizenHouseDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tableCitizenHouse.IdColumn]));
-                }
-                set {
-                    this[this.tableCitizenHouse.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Length {
-                get {
-                    return ((decimal)(this[this.tableCitizenHouse.LengthColumn]));
-                }
-                set {
-                    this[this.tableCitizenHouse.LengthColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Width {
-                get {
-                    return ((decimal)(this[this.tableCitizenHouse.WidthColumn]));
-                }
-                set {
-                    this[this.tableCitizenHouse.WidthColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Area {
-                get {
-                    return ((decimal)(this[this.tableCitizenHouse.AreaColumn]));
-                }
-                set {
-                    this[this.tableCitizenHouse.AreaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal Floor {
-                get {
-                    return ((decimal)(this[this.tableCitizenHouse.FloorColumn]));
-                }
-                set {
-                    this[this.tableCitizenHouse.FloorColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int CitizenId {
-                get {
-                    try {
-                        return ((int)(this[this.tableCitizenHouse.CitizenIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CitizenId\' in table \'CitizenHouse\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCitizenHouse.CitizenIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenRow CitizenRow {
-                get {
-                    return ((CitizenRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.CitizenHouse_dbo.Citizen_CitizenId"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.CitizenHouse_dbo.Citizen_CitizenId"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCitizenIdNull() {
-                return this.IsNull(this.tableCitizenHouse.CitizenIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCitizenIdNull() {
-                this[this.tableCitizenHouse.CitizenIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HouseTaxHistoryRow[] GetHouseTaxHistoryRows() {
-                if ((this.Table.ChildRelations["FK_dbo.HouseTaxHistory_dbo.CitizenHouse_CitizenHouseId"] == null)) {
-                    return new HouseTaxHistoryRow[0];
-                }
-                else {
-                    return ((HouseTaxHistoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.HouseTaxHistory_dbo.CitizenHouse_CitizenHouseId"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class CitizenLandRow : global::System.Data.DataRow {
-            
-            private CitizenLandDataTable tableCitizenLand;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal CitizenLandRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableCitizenLand = ((CitizenLandDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tableCitizenLand.IdColumn]));
-                }
-                set {
-                    this[this.tableCitizenLand.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string VDC {
-                get {
-                    try {
-                        return ((string)(this[this.tableCitizenLand.VDCColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VDC\' in table \'CitizenLand\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCitizenLand.VDCColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string WardNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableCitizenLand.WardNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WardNo\' in table \'CitizenLand\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCitizenLand.WardNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string SheetNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableCitizenLand.SheetNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SheetNo\' in table \'CitizenLand\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCitizenLand.SheetNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string KittaNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableCitizenLand.KittaNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'KittaNo\' in table \'CitizenLand\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCitizenLand.KittaNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal ValuationArea {
-                get {
-                    return ((decimal)(this[this.tableCitizenLand.ValuationAreaColumn]));
-                }
-                set {
-                    this[this.tableCitizenLand.ValuationAreaColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int CitizenId {
-                get {
-                    try {
-                        return ((int)(this[this.tableCitizenLand.CitizenIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CitizenId\' in table \'CitizenLand\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableCitizenLand.CitizenIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenRow CitizenRow {
-                get {
-                    return ((CitizenRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.CitizenLand_dbo.Citizen_CitizenId"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.CitizenLand_dbo.Citizen_CitizenId"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsVDCNull() {
-                return this.IsNull(this.tableCitizenLand.VDCColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetVDCNull() {
-                this[this.tableCitizenLand.VDCColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsWardNoNull() {
-                return this.IsNull(this.tableCitizenLand.WardNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetWardNoNull() {
-                this[this.tableCitizenLand.WardNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsSheetNoNull() {
-                return this.IsNull(this.tableCitizenLand.SheetNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetSheetNoNull() {
-                this[this.tableCitizenLand.SheetNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsKittaNoNull() {
-                return this.IsNull(this.tableCitizenLand.KittaNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetKittaNoNull() {
-                this[this.tableCitizenLand.KittaNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCitizenIdNull() {
-                return this.IsNull(this.tableCitizenLand.CitizenIdColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCitizenIdNull() {
-                this[this.tableCitizenLand.CitizenIdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public LandTaxHistoryRow[] GetLandTaxHistoryRows() {
-                if ((this.Table.ChildRelations["FK_dbo.LandTaxHistory_dbo.CitizenLand_CitizenLandId"] == null)) {
-                    return new LandTaxHistoryRow[0];
-                }
-                else {
-                    return ((LandTaxHistoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.LandTaxHistory_dbo.CitizenLand_CitizenLandId"])));
                 }
             }
         }
@@ -2848,6 +1807,33 @@ namespace TaxCalculator {
                 }
                 set {
                     this[this.tableHouseTaxHistory.CostPerUnitAreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string FY {
+                get {
+                    try {
+                        return ((string)(this[this.tableHouseTaxHistory.FYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FY\' in table \'HouseTaxHistory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHouseTaxHistory.FYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal TotalArea {
+                get {
+                    return ((decimal)(this[this.tableHouseTaxHistory.TotalAreaColumn]));
+                }
+                set {
+                    this[this.tableHouseTaxHistory.TotalAreaColumn] = value;
                 }
             }
             
@@ -2913,13 +1899,14 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow CitizenHouseRow {
-                get {
-                    return ((CitizenHouseRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.HouseTaxHistory_dbo.CitizenHouse_CitizenHouseId"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.HouseTaxHistory_dbo.CitizenHouse_CitizenHouseId"]);
-                }
+            public bool IsFYNull() {
+                return this.IsNull(this.tableHouseTaxHistory.FYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFYNull() {
+                this[this.tableHouseTaxHistory.FYColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2932,6 +1919,17 @@ namespace TaxCalculator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCitizenHouseIdNull() {
                 this[this.tableHouseTaxHistory.CitizenHouseIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public LandTaxHistoryRow[] GetLandTaxHistoryRows() {
+                if ((this.Table.ChildRelations["FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId"] == null)) {
+                    return new LandTaxHistoryRow[0];
+                }
+                else {
+                    return ((LandTaxHistoryRow[])(base.GetChildRows(this.Table.ChildRelations["FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId"])));
+                }
             }
         }
         
@@ -3054,6 +2052,22 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int HouseTaxHistoryId {
+                get {
+                    try {
+                        return ((int)(this[this.tableLandTaxHistory.HouseTaxHistoryIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HouseTaxHistoryId\' in table \'LandTaxHistory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableLandTaxHistory.HouseTaxHistoryIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public CitizenRow CitizenRow {
                 get {
                     return ((CitizenRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId"])));
@@ -3065,12 +2079,12 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow CitizenLandRow {
+            public HouseTaxHistoryRow HouseTaxHistoryRow {
                 get {
-                    return ((CitizenLandRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.LandTaxHistory_dbo.CitizenLand_CitizenLandId"])));
+                    return ((HouseTaxHistoryRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.LandTaxHistory_dbo.CitizenLand_CitizenLandId"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId"]);
                 }
             }
             
@@ -3109,6 +2123,18 @@ namespace TaxCalculator {
             public void SetCitizenLandIdNull() {
                 this[this.tableLandTaxHistory.CitizenLandIdColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHouseTaxHistoryIdNull() {
+                return this.IsNull(this.tableLandTaxHistory.HouseTaxHistoryIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHouseTaxHistoryIdNull() {
+                this[this.tableLandTaxHistory.HouseTaxHistoryIdColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -3131,74 +2157,6 @@ namespace TaxCalculator {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public CitizenRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class CitizenHouseRowChangeEvent : global::System.EventArgs {
-            
-            private CitizenHouseRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRowChangeEvent(CitizenHouseRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenHouseRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class CitizenLandRowChangeEvent : global::System.EventArgs {
-            
-            private CitizenLandRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRowChangeEvent(CitizenLandRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CitizenLandRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3282,7 +2240,7 @@ namespace TaxCalculator {
         }
     }
 }
-namespace TaxCalculator.TaxDBDataSetTableAdapters {
+namespace TaxCalculator.TaxDetailTableAdapters {
     
     
     /// <summary>
@@ -3413,6 +2371,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("District", "District");
             tableMapping.ColumnMappings.Add("StreetName", "StreetName");
             tableMapping.ColumnMappings.Add("Wardno", "Wardno");
+            tableMapping.ColumnMappings.Add("KittaNo", "KittaNo");
             tableMapping.ColumnMappings.Add("Municipality", "Municipality");
             tableMapping.ColumnMappings.Add("ZoneId", "ZoneId");
             this._adapter.TableMappings.Add(tableMapping);
@@ -3423,9 +2382,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Citizen] ([CitizenshipNo], [FirstName], [LastName], [District]" +
-                ", [StreetName], [Wardno], [Municipality], [ZoneId]) VALUES (@CitizenshipNo, @Fir" +
-                "stName, @LastName, @District, @StreetName, @Wardno, @Municipality, @ZoneId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Citizen] ([CitizenshipNo], [FirstName], [LastName], [District], [StreetName], [Wardno], [KittaNo], [Municipality], [ZoneId]) VALUES (@CitizenshipNo, @FirstName, @LastName, @District, @StreetName, @Wardno, @KittaNo, @Municipality, @ZoneId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenshipNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenshipNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3433,11 +2390,12 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@District", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "District", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StreetName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StreetName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Wardno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Wardno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KittaNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KittaNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Municipality", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Municipality", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZoneId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZoneId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Citizen] SET [CitizenshipNo] = @CitizenshipNo, [FirstName] = @FirstName, [LastName] = @LastName, [District] = @District, [StreetName] = @StreetName, [Wardno] = @Wardno, [Municipality] = @Municipality, [ZoneId] = @ZoneId WHERE (([CitizenId] = @Original_CitizenId))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Citizen] SET [CitizenshipNo] = @CitizenshipNo, [FirstName] = @FirstName, [LastName] = @LastName, [District] = @District, [StreetName] = @StreetName, [Wardno] = @Wardno, [KittaNo] = @KittaNo, [Municipality] = @Municipality, [ZoneId] = @ZoneId WHERE (([CitizenId] = @Original_CitizenId))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenshipNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenshipNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3445,6 +2403,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@District", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "District", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StreetName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StreetName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Wardno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Wardno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KittaNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KittaNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Municipality", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Municipality", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ZoneId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ZoneId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3464,7 +2423,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT CitizenId, CitizenshipNo, FirstName, LastName, District, StreetName, Wardn" +
-                "o, Municipality, ZoneId FROM dbo.Citizen";
+                "o, KittaNo, Municipality, ZoneId FROM dbo.Citizen";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3472,7 +2431,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TaxDBDataSet.CitizenDataTable dataTable) {
+        public virtual int Fill(TaxDetail.CitizenDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3485,9 +2444,9 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TaxDBDataSet.CitizenDataTable GetData() {
+        public virtual TaxDetail.CitizenDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TaxDBDataSet.CitizenDataTable dataTable = new TaxDBDataSet.CitizenDataTable();
+            TaxDetail.CitizenDataTable dataTable = new TaxDetail.CitizenDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3495,14 +2454,14 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet.CitizenDataTable dataTable) {
+        public virtual int Update(TaxDetail.CitizenDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet dataSet) {
+        public virtual int Update(TaxDetail dataSet) {
             return this.Adapter.Update(dataSet, "Citizen");
         }
         
@@ -3547,7 +2506,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string CitizenshipNo, string FirstName, string LastName, string District, string StreetName, int Wardno, string Municipality, global::System.Nullable<int> ZoneId) {
+        public virtual int Insert(string CitizenshipNo, string FirstName, string LastName, string District, string StreetName, int Wardno, string KittaNo, string Municipality, global::System.Nullable<int> ZoneId) {
             if ((CitizenshipNo == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3579,17 +2538,23 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(StreetName));
             }
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Wardno));
-            if ((Municipality == null)) {
+            if ((KittaNo == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Municipality));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(KittaNo));
             }
-            if ((ZoneId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(ZoneId.Value));
+            if ((Municipality == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Municipality));
+            }
+            if ((ZoneId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(ZoneId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3611,7 +2576,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string CitizenshipNo, string FirstName, string LastName, string District, string StreetName, int Wardno, string Municipality, global::System.Nullable<int> ZoneId, int Original_CitizenId) {
+        public virtual int Update(string CitizenshipNo, string FirstName, string LastName, string District, string StreetName, int Wardno, string KittaNo, string Municipality, global::System.Nullable<int> ZoneId, int Original_CitizenId) {
             if ((CitizenshipNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -3643,691 +2608,25 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(StreetName));
             }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Wardno));
-            if ((Municipality == null)) {
+            if ((KittaNo == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Municipality));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(KittaNo));
             }
-            if ((ZoneId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(ZoneId.Value));
-            }
-            else {
+            if ((Municipality == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_CitizenId));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Municipality));
             }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CitizenHouseTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public CitizenHouseTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "CitizenHouse";
-            tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("Length", "Length");
-            tableMapping.ColumnMappings.Add("Width", "Width");
-            tableMapping.ColumnMappings.Add("Area", "Area");
-            tableMapping.ColumnMappings.Add("Floor", "Floor");
-            tableMapping.ColumnMappings.Add("CitizenId", "CitizenId");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CitizenHouse] WHERE (([Id] = @Original_Id))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CitizenHouse] ([Length], [Width], [Area], [Floor], [CitizenId]" +
-                ") VALUES (@Length, @Width, @Area, @Floor, @CitizenId)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Length", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Width", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Width", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Floor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Floor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[CitizenHouse] SET [Length] = @Length, [Width] = @Width, [Area] = @A" +
-                "rea, [Floor] = @Floor, [CitizenId] = @CitizenId WHERE (([Id] = @Original_Id))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Length", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Length", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Width", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Width", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Area", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Area", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Floor", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "Floor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CitizenDbContext"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Length, Width, Area, Floor, CitizenId FROM dbo.CitizenHouse";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TaxDBDataSet.CitizenHouseDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TaxDBDataSet.CitizenHouseDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            TaxDBDataSet.CitizenHouseDataTable dataTable = new TaxDBDataSet.CitizenHouseDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet.CitizenHouseDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "CitizenHouse");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal Length, decimal Width, decimal Area, decimal Floor, global::System.Nullable<int> CitizenId) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(Length));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(Width));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Area));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(Floor));
-            if ((CitizenId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(CitizenId.Value));
+            if ((ZoneId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(ZoneId.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal Length, decimal Width, decimal Area, decimal Floor, global::System.Nullable<int> CitizenId, int Original_Id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(Length));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(Width));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Area));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(Floor));
-            if ((CitizenId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(CitizenId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class CitizenLandTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public CitizenLandTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "CitizenLand";
-            tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("VDC", "VDC");
-            tableMapping.ColumnMappings.Add("WardNo", "WardNo");
-            tableMapping.ColumnMappings.Add("SheetNo", "SheetNo");
-            tableMapping.ColumnMappings.Add("KittaNo", "KittaNo");
-            tableMapping.ColumnMappings.Add("ValuationArea", "ValuationArea");
-            tableMapping.ColumnMappings.Add("CitizenId", "CitizenId");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[CitizenLand] WHERE (([Id] = @Original_Id))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[CitizenLand] ([VDC], [WardNo], [SheetNo], [KittaNo], [Valuatio" +
-                "nArea], [CitizenId]) VALUES (@VDC, @WardNo, @SheetNo, @KittaNo, @ValuationArea, " +
-                "@CitizenId)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VDC", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VDC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SheetNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SheetNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KittaNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KittaNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ValuationArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "ValuationArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[CitizenLand] SET [VDC] = @VDC, [WardNo] = @WardNo, [SheetNo] = @She" +
-                "etNo, [KittaNo] = @KittaNo, [ValuationArea] = @ValuationArea, [CitizenId] = @Cit" +
-                "izenId WHERE (([Id] = @Original_Id))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@VDC", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "VDC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@WardNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "WardNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SheetNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SheetNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@KittaNo", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "KittaNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ValuationArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "ValuationArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["CitizenDbContext"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, VDC, WardNo, SheetNo, KittaNo, ValuationArea, CitizenId FROM dbo.Citiz" +
-                "enLand";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TaxDBDataSet.CitizenLandDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TaxDBDataSet.CitizenLandDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            TaxDBDataSet.CitizenLandDataTable dataTable = new TaxDBDataSet.CitizenLandDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet.CitizenLandDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "CitizenLand");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string VDC, string WardNo, string SheetNo, string KittaNo, decimal ValuationArea, global::System.Nullable<int> CitizenId) {
-            if ((VDC == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(VDC));
-            }
-            if ((WardNo == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(WardNo));
-            }
-            if ((SheetNo == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(SheetNo));
-            }
-            if ((KittaNo == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(KittaNo));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(ValuationArea));
-            if ((CitizenId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(CitizenId.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string VDC, string WardNo, string SheetNo, string KittaNo, decimal ValuationArea, global::System.Nullable<int> CitizenId, int Original_Id) {
-            if ((VDC == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(VDC));
-            }
-            if ((WardNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(WardNo));
-            }
-            if ((SheetNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(SheetNo));
-            }
-            if ((KittaNo == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(KittaNo));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(ValuationArea));
-            if ((CitizenId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(CitizenId.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_CitizenId));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4468,6 +2767,8 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             tableMapping.DataSetTable = "HouseTaxHistory";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("CostPerUnitArea", "CostPerUnitArea");
+            tableMapping.ColumnMappings.Add("FY", "FY");
+            tableMapping.ColumnMappings.Add("TotalArea", "TotalArea");
             tableMapping.ColumnMappings.Add("TotalCost", "TotalCost");
             tableMapping.ColumnMappings.Add("GrossCost", "GrossCost");
             tableMapping.ColumnMappings.Add("DepreciationRate", "DepreciationRate");
@@ -4481,12 +2782,11 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[HouseTaxHistory] ([CostPerUnitArea], [TotalCost], [GrossCost]," +
-                " [DepreciationRate], [DepreciationAmount], [CitizenHouseId]) VALUES (@CostPerUni" +
-                "tArea, @TotalCost, @GrossCost, @DepreciationRate, @DepreciationAmount, @CitizenH" +
-                "ouseId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[HouseTaxHistory] ([CostPerUnitArea], [FY], [TotalArea], [TotalCost], [GrossCost], [DepreciationRate], [DepreciationAmount], [CitizenHouseId]) VALUES (@CostPerUnitArea, @FY, @TotalArea, @TotalCost, @GrossCost, @DepreciationRate, @DepreciationAmount, @CitizenHouseId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPerUnitArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CostPerUnitArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TotalArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TotalCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GrossCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GrossCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepreciationRate", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DepreciationRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4494,9 +2794,11 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenHouseId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenHouseId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[HouseTaxHistory] SET [CostPerUnitArea] = @CostPerUnitArea, [TotalCost] = @TotalCost, [GrossCost] = @GrossCost, [DepreciationRate] = @DepreciationRate, [DepreciationAmount] = @DepreciationAmount, [CitizenHouseId] = @CitizenHouseId WHERE (([Id] = @Original_Id))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[HouseTaxHistory] SET [CostPerUnitArea] = @CostPerUnitArea, [FY] = @FY, [TotalArea] = @TotalArea, [TotalCost] = @TotalCost, [GrossCost] = @GrossCost, [DepreciationRate] = @DepreciationRate, [DepreciationAmount] = @DepreciationAmount, [CitizenHouseId] = @CitizenHouseId WHERE (([Id] = @Original_Id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPerUnitArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CostPerUnitArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TotalArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TotalCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GrossCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "GrossCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DepreciationRate", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "DepreciationRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4518,8 +2820,8 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, CostPerUnitArea, TotalCost, GrossCost, DepreciationRate, DepreciationA" +
-                "mount, CitizenHouseId FROM dbo.HouseTaxHistory";
+            this._commandCollection[0].CommandText = "SELECT Id, CostPerUnitArea, FY, TotalArea, TotalCost, GrossCost, DepreciationRate" +
+                ", DepreciationAmount, CitizenHouseId FROM dbo.HouseTaxHistory";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4527,7 +2829,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TaxDBDataSet.HouseTaxHistoryDataTable dataTable) {
+        public virtual int Fill(TaxDetail.HouseTaxHistoryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4540,9 +2842,9 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TaxDBDataSet.HouseTaxHistoryDataTable GetData() {
+        public virtual TaxDetail.HouseTaxHistoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TaxDBDataSet.HouseTaxHistoryDataTable dataTable = new TaxDBDataSet.HouseTaxHistoryDataTable();
+            TaxDetail.HouseTaxHistoryDataTable dataTable = new TaxDetail.HouseTaxHistoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4550,14 +2852,14 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet.HouseTaxHistoryDataTable dataTable) {
+        public virtual int Update(TaxDetail.HouseTaxHistoryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet dataSet) {
+        public virtual int Update(TaxDetail dataSet) {
             return this.Adapter.Update(dataSet, "HouseTaxHistory");
         }
         
@@ -4602,17 +2904,24 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal CostPerUnitArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId) {
+        public virtual int Insert(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(CostPerUnitArea));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(TotalCost));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(GrossCost));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(DepreciationRate));
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(DepreciationAmount));
-            if ((CitizenHouseId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((int)(CitizenHouseId.Value));
+            if ((FY == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(FY));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(TotalArea));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(TotalCost));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(GrossCost));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(DepreciationRate));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(DepreciationAmount));
+            if ((CitizenHouseId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(CitizenHouseId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4634,19 +2943,26 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal CostPerUnitArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId, int Original_Id) {
+        public virtual int Update(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId, int Original_Id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(CostPerUnitArea));
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(TotalCost));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(GrossCost));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(DepreciationRate));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(DepreciationAmount));
-            if ((CitizenHouseId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(CitizenHouseId.Value));
+            if ((FY == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(FY));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(TotalArea));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((decimal)(TotalCost));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(GrossCost));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(DepreciationRate));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(DepreciationAmount));
+            if ((CitizenHouseId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(CitizenHouseId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4793,6 +3109,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("TotalCost", "TotalCost");
             tableMapping.ColumnMappings.Add("CitizenId", "CitizenId");
             tableMapping.ColumnMappings.Add("CitizenLandId", "CitizenLandId");
+            tableMapping.ColumnMappings.Add("HouseTaxHistoryId", "HouseTaxHistoryId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -4801,9 +3118,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[LandTaxHistory] ([FY], [MyProperty], [ValuationArea], [CostPer" +
-                "UnitArea], [TotalCost], [CitizenId], [CitizenLandId]) VALUES (@FY, @MyProperty, " +
-                "@ValuationArea, @CostPerUnitArea, @TotalCost, @CitizenId, @CitizenLandId)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[LandTaxHistory] ([FY], [MyProperty], [ValuationArea], [CostPerUnitArea], [TotalCost], [CitizenId], [CitizenLandId], [HouseTaxHistoryId]) VALUES (@FY, @MyProperty, @ValuationArea, @CostPerUnitArea, @TotalCost, @CitizenId, @CitizenLandId, @HouseTaxHistoryId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MyProperty", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MyProperty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4812,9 +3127,10 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TotalCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenLandId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenLandId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HouseTaxHistoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HouseTaxHistoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[LandTaxHistory] SET [FY] = @FY, [MyProperty] = @MyProperty, [ValuationArea] = @ValuationArea, [CostPerUnitArea] = @CostPerUnitArea, [TotalCost] = @TotalCost, [CitizenId] = @CitizenId, [CitizenLandId] = @CitizenLandId WHERE (([Id] = @Original_Id))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[LandTaxHistory] SET [FY] = @FY, [MyProperty] = @MyProperty, [ValuationArea] = @ValuationArea, [CostPerUnitArea] = @CostPerUnitArea, [TotalCost] = @TotalCost, [CitizenId] = @CitizenId, [CitizenLandId] = @CitizenLandId, [HouseTaxHistoryId] = @HouseTaxHistoryId WHERE (([Id] = @Original_Id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MyProperty", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "MyProperty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -4823,6 +3139,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "TotalCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CitizenLandId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CitizenLandId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HouseTaxHistoryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HouseTaxHistoryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -4840,7 +3157,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, FY, MyProperty, ValuationArea, CostPerUnitArea, TotalCost, CitizenId, " +
-                "CitizenLandId FROM dbo.LandTaxHistory";
+                "CitizenLandId, HouseTaxHistoryId FROM dbo.LandTaxHistory";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4848,7 +3165,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(TaxDBDataSet.LandTaxHistoryDataTable dataTable) {
+        public virtual int Fill(TaxDetail.LandTaxHistoryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4861,9 +3178,9 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual TaxDBDataSet.LandTaxHistoryDataTable GetData() {
+        public virtual TaxDetail.LandTaxHistoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            TaxDBDataSet.LandTaxHistoryDataTable dataTable = new TaxDBDataSet.LandTaxHistoryDataTable();
+            TaxDetail.LandTaxHistoryDataTable dataTable = new TaxDetail.LandTaxHistoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4871,14 +3188,14 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet.LandTaxHistoryDataTable dataTable) {
+        public virtual int Update(TaxDetail.LandTaxHistoryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(TaxDBDataSet dataSet) {
+        public virtual int Update(TaxDetail dataSet) {
             return this.Adapter.Update(dataSet, "LandTaxHistory");
         }
         
@@ -4923,7 +3240,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string FY, decimal MyProperty, decimal ValuationArea, decimal CostPerUnitArea, decimal TotalCost, global::System.Nullable<int> CitizenId, global::System.Nullable<int> CitizenLandId) {
+        public virtual int Insert(string FY, decimal MyProperty, decimal ValuationArea, decimal CostPerUnitArea, decimal TotalCost, global::System.Nullable<int> CitizenId, global::System.Nullable<int> CitizenLandId, global::System.Nullable<int> HouseTaxHistoryId) {
             if ((FY == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4946,6 +3263,12 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((HouseTaxHistoryId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(HouseTaxHistoryId.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4966,7 +3289,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string FY, decimal MyProperty, decimal ValuationArea, decimal CostPerUnitArea, decimal TotalCost, global::System.Nullable<int> CitizenId, global::System.Nullable<int> CitizenLandId, int Original_Id) {
+        public virtual int Update(string FY, decimal MyProperty, decimal ValuationArea, decimal CostPerUnitArea, decimal TotalCost, global::System.Nullable<int> CitizenId, global::System.Nullable<int> CitizenLandId, global::System.Nullable<int> HouseTaxHistoryId, int Original_Id) {
             if ((FY == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -4989,7 +3312,13 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_Id));
+            if ((HouseTaxHistoryId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(HouseTaxHistoryId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -5021,10 +3350,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         
         private CitizenTableAdapter _citizenTableAdapter;
         
-        private CitizenHouseTableAdapter _citizenHouseTableAdapter;
-        
-        private CitizenLandTableAdapter _citizenLandTableAdapter;
-        
         private HouseTaxHistoryTableAdapter _houseTaxHistoryTableAdapter;
         
         private LandTaxHistoryTableAdapter _landTaxHistoryTableAdapter;
@@ -5055,34 +3380,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             }
             set {
                 this._citizenTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CitizenHouseTableAdapter CitizenHouseTableAdapter {
-            get {
-                return this._citizenHouseTableAdapter;
-            }
-            set {
-                this._citizenHouseTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public CitizenLandTableAdapter CitizenLandTableAdapter {
-            get {
-                return this._citizenLandTableAdapter;
-            }
-            set {
-                this._citizenLandTableAdapter = value;
             }
         }
         
@@ -5137,14 +3434,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                             && (this._citizenTableAdapter.Connection != null))) {
                     return this._citizenTableAdapter.Connection;
                 }
-                if (((this._citizenHouseTableAdapter != null) 
-                            && (this._citizenHouseTableAdapter.Connection != null))) {
-                    return this._citizenHouseTableAdapter.Connection;
-                }
-                if (((this._citizenLandTableAdapter != null) 
-                            && (this._citizenLandTableAdapter.Connection != null))) {
-                    return this._citizenLandTableAdapter.Connection;
-                }
                 if (((this._houseTaxHistoryTableAdapter != null) 
                             && (this._houseTaxHistoryTableAdapter.Connection != null))) {
                     return this._houseTaxHistoryTableAdapter.Connection;
@@ -5169,12 +3458,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                 if ((this._citizenTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._citizenHouseTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._citizenLandTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._houseTaxHistoryTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -5190,7 +3473,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(TaxDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(TaxDetail dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._citizenTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Citizen.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -5198,24 +3481,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._citizenTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._citizenHouseTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CitizenHouse.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._citizenHouseTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._citizenLandTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.CitizenLand.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._citizenLandTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5245,29 +3510,13 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(TaxDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(TaxDetail dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._citizenTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Citizen.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._citizenTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._citizenHouseTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CitizenHouse.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._citizenHouseTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._citizenLandTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.CitizenLand.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._citizenLandTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5295,7 +3544,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(TaxDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(TaxDetail dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._landTaxHistoryTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.LandTaxHistory.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -5310,22 +3559,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._houseTaxHistoryTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._citizenLandTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CitizenLand.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._citizenLandTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._citizenHouseTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.CitizenHouse.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._citizenHouseTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -5369,7 +3602,7 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(TaxDBDataSet dataSet) {
+        public virtual int UpdateAll(TaxDetail dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
@@ -5378,16 +3611,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
             }
             if (((this._citizenTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._citizenTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._citizenHouseTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._citizenHouseTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
-            if (((this._citizenLandTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._citizenLandTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -5440,24 +3663,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                     if (this._citizenTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._citizenTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._citizenTableAdapter.Adapter);
-                    }
-                }
-                if ((this._citizenHouseTableAdapter != null)) {
-                    revertConnections.Add(this._citizenHouseTableAdapter, this._citizenHouseTableAdapter.Connection);
-                    this._citizenHouseTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._citizenHouseTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._citizenHouseTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._citizenHouseTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._citizenHouseTableAdapter.Adapter);
-                    }
-                }
-                if ((this._citizenLandTableAdapter != null)) {
-                    revertConnections.Add(this._citizenLandTableAdapter, this._citizenLandTableAdapter.Connection);
-                    this._citizenLandTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._citizenLandTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._citizenLandTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._citizenLandTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._citizenLandTableAdapter.Adapter);
                     }
                 }
                 if ((this._houseTaxHistoryTableAdapter != null)) {
@@ -5539,14 +3744,6 @@ namespace TaxCalculator.TaxDBDataSetTableAdapters {
                 if ((this._citizenTableAdapter != null)) {
                     this._citizenTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._citizenTableAdapter]));
                     this._citizenTableAdapter.Transaction = null;
-                }
-                if ((this._citizenHouseTableAdapter != null)) {
-                    this._citizenHouseTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._citizenHouseTableAdapter]));
-                    this._citizenHouseTableAdapter.Transaction = null;
-                }
-                if ((this._citizenLandTableAdapter != null)) {
-                    this._citizenLandTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._citizenLandTableAdapter]));
-                    this._citizenLandTableAdapter.Transaction = null;
                 }
                 if ((this._houseTaxHistoryTableAdapter != null)) {
                     this._houseTaxHistoryTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._houseTaxHistoryTableAdapter]));

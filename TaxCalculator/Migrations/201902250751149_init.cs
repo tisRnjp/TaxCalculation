@@ -3,7 +3,7 @@ namespace TaxCalculator.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialaftermerge : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -86,6 +86,8 @@ namespace TaxCalculator.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         CostPerUnitArea = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        FY = c.String(),
+                        TotalArea = c.Decimal(nullable: false, precision: 18, scale: 2),
                         TotalCost = c.Decimal(nullable: false, precision: 18, scale: 2),
                         GrossCost = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DepreciationRate = c.Decimal(nullable: false, precision: 18, scale: 2),

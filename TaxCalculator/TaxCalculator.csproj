@@ -158,17 +158,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902250238496_initial after merge.cs" />
-    <Compile Include="Migrations\201902250238496_initial after merge.Designer.cs">
-      <DependentUpon>201902250238496_initial after merge.cs</DependentUpon>
+    <Compile Include="Migrations\201902250751149_init.cs" />
+    <Compile Include="Migrations\201902250751149_init.Designer.cs">
+      <DependentUpon>201902250751149_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902250546145_area added to housetax history.cs" />
-    <Compile Include="Migrations\201902250546145_area added to housetax history.Designer.cs">
-      <DependentUpon>201902250546145_area added to housetax history.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902250651349_FY added to housetax.cs" />
-    <Compile Include="Migrations\201902250651349_FY added to housetax.Designer.cs">
-      <DependentUpon>201902250651349_FY added to housetax.cs</DependentUpon>
+    <Compile Include="Migrations\201902250821285_house tax id added to land tax history.cs" />
+    <Compile Include="Migrations\201902250821285_house tax id added to land tax history.Designer.cs">
+      <DependentUpon>201902250821285_house tax id added to land tax history.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -184,10 +180,10 @@
     <Compile Include="Models\TaxSlab.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TaxDBDataSet.Designer.cs">
+    <Compile Include="TaxDetail.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TaxDBDataSet.xsd</DependentUpon>
+      <DependentUpon>TaxDetail.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CitizenViewModel.cs" />
     <Compile Include="ViewModels\LandFormViewModel.cs" />
@@ -308,6 +304,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\Images\gov of nepal.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -438,16 +435,16 @@
     <Content Include="Views\LandTax\LandTaxCalculationForm.cshtml" />
     <Content Include="Views\HouseTax\Create.cshtml" />
     <Content Include="Views\HouseTax\Index.cshtml" />
-    <Content Include="TaxDBDataSet.xsc">
-      <DependentUpon>TaxDBDataSet.xsd</DependentUpon>
+    <Content Include="TaxDetail.xsc">
+      <DependentUpon>TaxDetail.xsd</DependentUpon>
     </Content>
-    <None Include="TaxDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TaxDBDataSet.Designer.cs</LastGenOutput>
+    <None Include="TaxDetail.xsd">
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TaxDetail.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="TaxDBDataSet.xss">
-      <DependentUpon>TaxDBDataSet.xsd</DependentUpon>
+    <Content Include="TaxDetail.xss">
+      <DependentUpon>TaxDetail.xsd</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -467,14 +464,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902250238496_initial after merge.resx">
-      <DependentUpon>201902250238496_initial after merge.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902250751149_init.resx">
+      <DependentUpon>201902250751149_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902250546145_area added to housetax history.resx">
-      <DependentUpon>201902250546145_area added to housetax history.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902250651349_FY added to housetax.resx">
-      <DependentUpon>201902250651349_FY added to housetax.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902250821285_house tax id added to land tax history.resx">
+      <DependentUpon>201902250821285_house tax id added to land tax history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

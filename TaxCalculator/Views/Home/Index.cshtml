@@ -29,7 +29,7 @@
 
             <br />
             @Html.ActionLink("नयाँ करदाता थप्न्नुहोस् ", "New", "Home", null, new { @class = "btn btn-primary" })
-            <br />  
+            <br />
             <br />
 
             @*@using (Html.BeginForm())
@@ -42,6 +42,7 @@
         }*@
 
             @Html.ActionLink("झलक हेर्नु होस्", "CitizensReportViewer") |
+            @Html.ActionLink("hhhh", "TaxReport",new { ReportType = "PDF"}) |
 
             @Html.ActionLink("Excel मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "Excel" }) |
             @Html.ActionLink("PDF मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "PDF" }) |

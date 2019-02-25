@@ -16,6 +16,17 @@
 
         protected override void Seed(TaxCalculator.DAL.CitizenDbContext context)
         {
+            var zones = new List<Zone>
+            {
+                new Zone{ Id = 1, Code="बागमति", Description="बागमति"},
+                new Zone{ Id = 2, Code="मेची", Description="मेची"},
+                new Zone{ Id = 3, Code="कोशी", Description="कोशी"},
+                new Zone{ Id = 4, Code="सगरमाथा", Description="सगरमाथा"},
+                new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
+                new Zone{ Id = 6, Code="भेरी", Description="भेरी"}
+            };
+            zones.ForEach(z => context.Zones.Add(z));
+            context.SaveChanges();
 
             var citizens = new List<Citizen>
             {
@@ -30,9 +41,9 @@
 
             var lands = new List<CitizenLand>
             {
-                new CitizenLand{ Id= 1 , VDC = "Kapan" , WardNo = "3", SheetNo = "552", KittaNo = "118", ValuationArea = 145.90m, CitizenId = 1},
-                new CitizenLand{ Id= 2 , VDC = "Kapan" , WardNo = "4", SheetNo = "44", KittaNo = "271", ValuationArea = 89.43m, CitizenId = 2},
-                new CitizenLand{ Id= 3 , VDC = "Kapan" , WardNo = "7", SheetNo = "34", KittaNo = "101", ValuationArea = 85, CitizenId = 3},
+                new CitizenLand{ Id= 1 , VDC = "Kapan" , WardNo = "3", SheetNo = "552", KittaNo = "118", ValuationArea = 145.90m},
+                new CitizenLand{ Id= 2 , VDC = "Kapan" , WardNo = "4", SheetNo = "44", KittaNo = "271", ValuationArea = 89.43m},
+                new CitizenLand{ Id= 3 , VDC = "Kapan" , WardNo = "7", SheetNo = "34", KittaNo = "101", ValuationArea = 85},
             };
 
             lands.ForEach(z => context.CitizenLands.Add(z));
@@ -40,37 +51,27 @@
 
             var citizenHouse = new List<CitizenHouse>
             {
-                new CitizenHouse{ CitizenId=1, Area=2923.31m, Floor=2.5m},
-                new CitizenHouse{ CitizenId=2, Area=1285.11m, Floor=5},
-                new CitizenHouse{ CitizenId=3, Area=1156.12m, Floor=1}
+                new CitizenHouse{ Area=2923.31m, Floor=2.5m},
+                new CitizenHouse{ Area=1285.11m, Floor=5},
+                new CitizenHouse{ Area=1156.12m, Floor=1}
             };
 
             citizenHouse.ForEach(h => context.CitizenHouses.Add(h));
             context.SaveChanges();
 
 
-            var properties = new List<CitizenProperty>
-            {
-                new CitizenProperty{ CitizenId=1, PropertyType="land", PropertyArea=250 },
-                new CitizenProperty{ CitizenId=1, PropertyType="house", PropertyArea=500 },
-                new CitizenProperty{ CitizenId=2, PropertyType="land", PropertyArea=500 },
-                new CitizenProperty{ CitizenId=2, PropertyType="house", PropertyArea=1000 }
-            };
+            //var properties = new List<CitizenProperty>
+            //{
+            //    new CitizenProperty{ CitizenId=1, PropertyType="land", PropertyArea=250 },
+            //    new CitizenProperty{ CitizenId=1, PropertyType="house", PropertyArea=500 },
+            //    new CitizenProperty{ CitizenId=2, PropertyType="land", PropertyArea=500 },
+            //    new CitizenProperty{ CitizenId=2, PropertyType="house", PropertyArea=1000 }
+            //};
 
-            properties.ForEach(p => context.CitizenProperties.Add(p));
-            context.SaveChanges();
+            //properties.ForEach(p => context.CitizenProperties.Add(p));
+            //context.SaveChanges();
 
-            var zones = new List<Zone>
-            {
-                new Zone{ Id = 1, Code="बागमति", Description="बागमति"},
-                new Zone{ Id = 2, Code="मेची", Description="मेची"},
-                new Zone{ Id = 3, Code="कोशी", Description="कोशी"},
-                new Zone{ Id = 4, Code="सगरमाथा", Description="सगरमाथा"},
-                new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
-                new Zone{ Id = 6, Code="भेरी", Description="भेरी"}
-            };
-            zones.ForEach(z => context.Zones.Add(z));
-            context.SaveChanges();
+         
 
             //var propertyType = new List<PropertyType>
             //{

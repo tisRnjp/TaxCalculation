@@ -7,13 +7,13 @@ namespace TaxCalculator.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class FYaddedtohousetax : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FYaddedtohousetax));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902250651349_FY added to housetax"; }
+            get { return "201902250751149_init"; }
         }
         
         string IMigrationMetadata.Source

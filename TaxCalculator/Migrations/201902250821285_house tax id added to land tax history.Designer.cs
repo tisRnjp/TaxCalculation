@@ -7,13 +7,13 @@ namespace TaxCalculator.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class areaaddedtohousetaxhistory : IMigrationMetadata
+    public sealed partial class housetaxidaddedtolandtaxhistory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(areaaddedtohousetaxhistory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(housetaxidaddedtolandtaxhistory));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902250546145_area added to housetax history"; }
+            get { return "201902250821285_house tax id added to land tax history"; }
         }
         
         string IMigrationMetadata.Source

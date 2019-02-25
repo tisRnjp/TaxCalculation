@@ -177,8 +177,6 @@ namespace TaxCalculator.Controllers
             
         }
 
-      
-
         public ActionResult Reports(string ReportType)
         {
             LocalReport localReport = new LocalReport();
@@ -210,6 +208,53 @@ namespace TaxCalculator.Controllers
             renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
                                     out fileNameExtension, out streams, out warnings);
             Response.AddHeader("content-disposition", "attachment:filename= citizen_report." + fileNameExtension);
+            return File(renderByte, fileNameExtension);
+
+            //return View();
+        }
+
+
+        public ActionResult TaxReport(string ReportType)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/TaxReport.rdlc");
+
+            //ReportDataSource reportDataSource = new ReportDataSource();
+            //reportDataSource.Name = "DataSet1";
+            //reportDataSource.Value = db.Citizens.ToList();
+            //localReport.DataSources.Add(reportDataSource);
+
+            localReport.DataSources.Add(new ReportDataSource {
+                Name = "HouseTax",
+                Value = db.HouseTaxHistories.Where(h => h.Id == 2).ToList()
+                                                });
+            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.ToList() });
+
+
+            string reportType = ReportType;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+
+            if (ReportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+            else if (ReportType == "PDF")
+            {
+                fileNameExtension = "pdf";
+            }
+            else
+            {
+                fileNameExtension = "docx";
+            }
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderByte;
+            renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
+                                    out fileNameExtension, out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= TaxReport." + fileNameExtension);
             return File(renderByte, fileNameExtension);
 
             //return View();
