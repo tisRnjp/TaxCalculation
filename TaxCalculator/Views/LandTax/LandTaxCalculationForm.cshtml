@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>जग्गा तर्फ</h2>
 
 
 @using (Html.BeginForm("Save", "LandTax"))
@@ -75,10 +75,11 @@
 
     </div>
 
+    @Html.HiddenFor(m=> m.LandTaxHistory.HouseTaxHistoryId)
     @Html.HiddenFor(m => m.LandTaxHistory.CitizenLandId)
     @Html.HiddenFor(m => m.LandTaxHistory.Id)
     @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary"> Save</button>
+    <button type="submit" class="btn btn-primary">Print</button>
 
 }
 

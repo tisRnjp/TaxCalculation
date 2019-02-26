@@ -228,9 +228,11 @@ namespace TaxCalculator.Controllers
                 Name = "HouseTax",
                 Value = db.HouseTaxHistories.Where(h => h.Id == 2).ToList()
                                                 });
-            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.Where(l => l.Id == 1).ToList() });
             localReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.ToList() });
             localReport.DataSources.Add(new ReportDataSource { Name = "Lands", Value = db.CitizenLands.Where(l => l.CitizenId == 2).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "houses", Value = db.CitizenHouses.Where(l => l.CitizenId == 2).ToList() });
+
 
 
             string reportType = ReportType;
