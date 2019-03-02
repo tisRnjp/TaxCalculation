@@ -18,6 +18,7 @@ namespace TaxCalculator.Models
 
         
         [MaxLength(255)]
+        [Required(ErrorMessage = "Please enter the First Name!")]
         [Display(Name = "नाम ")]
         public string FirstName { get; set; }
 

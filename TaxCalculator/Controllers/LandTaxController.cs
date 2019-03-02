@@ -116,10 +116,29 @@ namespace TaxCalculator.Controllers
         }
 
 
-
-        public ActionResult TaxReport()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TaxReport(LandTaxViewModel viewModel)
         {
-             string ReportType = "pdf";
+            if (!ModelState.IsValid)
+            {
+                var invalidViewModel = new LandTaxViewModel
+                {
+                    LandTaxHistory = viewModel.LandTaxHistory,
+                };
+                return View("LandTaxCalculationForm", invalidViewModel);
+
+            }
+
+
+            if (viewModel.LandTaxHistory.Id == 0)
+            {
+                db.LandTaxHistories.Add(viewModel.LandTaxHistory);
+            }
+            db.SaveChanges();
+
+
+            string ReportType = "pdf";
 
             LocalReport localReport = new LocalReport();
             localReport.ReportPath = Server.MapPath("~/Reports/TaxReport.rdlc");
@@ -127,11 +146,12 @@ namespace TaxCalculator.Controllers
             localReport.DataSources.Add(new ReportDataSource
             {
                 Name = "HouseTax",
-                Value = db.HouseTaxHistories.Where(h => h.Id == 2).ToList()
+                Value = db.HouseTaxHistories.Where(h => h.Id == viewModel.LandTaxHistory.HouseTaxHistoryId).ToList()
             });
-            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.ToList() });
-            localReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.ToList() });
-            localReport.DataSources.Add(new ReportDataSource { Name = "Lands", Value = db.CitizenLands.Where(l => l.CitizenId == 2).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.Where(l => l.Id == viewModel.LandTaxHistory.Id).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.Where(c => c.CitizenId == viewModel.LandTaxHistory.CitizenId).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "Lands", Value = db.CitizenLands.Where(l => l.CitizenId == viewModel.LandTaxHistory.CitizenId).ToList() });
+            localReport.DataSources.Add(new ReportDataSource { Name = "houses", Value = db.CitizenHouses.Where(l => l.CitizenId == viewModel.LandTaxHistory.CitizenId).ToList() });
 
 
             string reportType = ReportType;
