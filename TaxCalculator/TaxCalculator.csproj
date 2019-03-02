@@ -157,6 +157,7 @@
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HouseValuationController.cs" />
     <Compile Include="Controllers\LandTaxController.cs" />
     <Compile Include="Controllers\HouseTaxController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
@@ -177,10 +178,13 @@
     <Compile Include="Models\CitizenHouse.cs" />
     <Compile Include="Models\CitizenLand.cs" />
     <Compile Include="Models\CitizenProperty.cs" />
+    <Compile Include="Models\HouseLandTaxSlab.cs" />
+    <Compile Include="Models\HouseValuation.cs" />
     <Compile Include="Models\LandTaxHistory.cs" />
     <Compile Include="Models\Depreciation.cs" />
     <Compile Include="Models\HouseTaxHistory.cs" />
     <Compile Include="Models\HouseTaxViewModel.cs" />
+    <Compile Include="Models\LandValuation.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
     <Compile Include="Models\TaxSlab.cs" />
     <Compile Include="Models\Zone.cs" />
@@ -466,6 +470,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\HouseValuation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
