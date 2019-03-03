@@ -18,13 +18,18 @@ namespace TaxCalculator.DAL
         public DbSet<CitizenLand> CitizenLands { get; set; }
         public DbSet<CitizenHouse> CitizenHouses { get; set; }
         public DbSet<LandTaxHistory> LandTaxHistories { get; set; }
-        
         public DbSet<HouseTaxHistory> HouseTaxHistories { get; set; }
+        public DbSet<HouseValuation> HouseValuations { get; set; }
+        public DbSet<LandValuation> LandValuations { get; set; }
+        public DbSet<HouseLandTaxSlab> HouseLandTaxSlabs { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
         }
+
+        
     }
 }

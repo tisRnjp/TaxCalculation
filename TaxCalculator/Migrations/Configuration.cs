@@ -60,32 +60,19 @@
             context.SaveChanges();
 
 
-            //var properties = new List<CitizenProperty>
-            //{
-            //    new CitizenProperty{ CitizenId=1, PropertyType="land", PropertyArea=250 },
-            //    new CitizenProperty{ CitizenId=1, PropertyType="house", PropertyArea=500 },
-            //    new CitizenProperty{ CitizenId=2, PropertyType="land", PropertyArea=500 },
-            //    new CitizenProperty{ CitizenId=2, PropertyType="house", PropertyArea=1000 }
-            //};
 
-            //properties.ForEach(p => context.CitizenProperties.Add(p));
-            //context.SaveChanges();
+            var houseValuation = new List<HouseValuation>
+            {
+                new HouseValuation{ Description="भित्र काँचो बाहिर पाको ईट्टामा माटोको जोडाई भएको वा काठै काठबाट बनेको र जस्ता, झिङ्गति, टायल, एसवेसतसको छाना भएको घर",CostPerArea=600,DepreciationRate=3,DepreciationPeriod=25,HouseType="क"},
+                new HouseValuation{ Description="भित्र बाहिर सिमेन्ट प्लास्टर गरि छाना ढलान वा आर वि सि गरिएको वा जस्ता, टायल, जिङ्गति, एसवेसटसको छाना भएको",CostPerArea=750,DepreciationRate=2,DepreciationPeriod=30,HouseType="ख"},
+                new HouseValuation{ Description="भित्र बाहिर पाको ईट्टा वा ढुंगामा सिमेन्ट प्लास्टर गरि छाना ढलान (आर सी सी वा आर वि सी ) गरिएको घर",CostPerArea=1750,DepreciationRate=1,DepreciationPeriod=70,HouseType="ग"},
+                new HouseValuation{ Description="आर सी सी फ्रेम स्तरकचरमा लिफ्ट / एस्कलेटर जडान भएको घर",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="घ"},
+                new HouseValuation{ Description="स्टील फ्रेम स्तरकचर, फ्रविङत्रास, फाईवर वा यस्तै संग्रचना ",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="ङ"}
+            };
 
-         
+            houseValuation.ForEach(h => context.HouseValuations.Add(h));
+            context.SaveChanges();
 
-            //var propertyType = new List<PropertyType>
-            //{
-            //    new PropertyType{Id=1, FiscalYear="73/74", Type="House", DepriciationRate=2.25m, PropertyCost = 1285.11m},
-            //    new PropertyType{Id=2, FiscalYear="73/74", Type="Land", DepriciationRate=2.25m, PropertyCost=28310.78m},
-            //    new PropertyType{Id=3, FiscalYear="74/75", Type="House", DepriciationRate=3.25m, PropertyCost=28310.78m},
-            //    new PropertyType{Id=4, FiscalYear="74/75", Type="Land", DepriciationRate=3.25m, PropertyCost=28310.78m}
-            //};
-
-            //propertyType.ForEach(d => context.PropertyType.Add(d));
-            //context.SaveChanges();
-
-           
-         
 
 
 

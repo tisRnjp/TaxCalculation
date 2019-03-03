@@ -1,0 +1,66 @@
+﻿@model TaxCalculator.Models.HouseValuation
+@{
+    /**/
+
+    ViewBag.Title = "HouseValuationForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>घर को मुल्यांकन</h2>
+
+@using (Html.BeginForm("Save", "HouseValuation"))
+{
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Description, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CostPerArea, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.CostPerArea, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.DepreciationRate, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.DepreciationRate, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.DepreciationPeriod, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.DepreciationPeriod, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.HouseType, new { @class = "col-sm-2 col-form-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.HouseType, new { @class = "form-control" })
+        </div>
+    </div>
+
+
+
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary"> Save</button>
+
+}
+
+
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

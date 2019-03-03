@@ -157,6 +157,7 @@
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandValuationController.cs" />
     <Compile Include="Controllers\HouseValuationController.cs" />
     <Compile Include="Controllers\LandTaxController.cs" />
     <Compile Include="Controllers\HouseTaxController.cs" />
@@ -171,6 +172,10 @@
     <Compile Include="Migrations\201902250821285_house tax id added to land tax history.cs" />
     <Compile Include="Migrations\201902250821285_house tax id added to land tax history.Designer.cs">
       <DependentUpon>201902250821285_house tax id added to land tax history.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903030526476_valuation and taxslab added.cs" />
+    <Compile Include="Migrations\201903030526476_valuation and taxslab added.Designer.cs">
+      <DependentUpon>201903030526476_valuation and taxslab added.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -467,10 +472,15 @@
     <Content Include="TaxDetail.xss">
       <DependentUpon>TaxDetail.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\HouseValuation\Index.cshtml" />
+    <Content Include="Views\HouseValuation\HouseValuationForm.cshtml" />
+    <Content Include="Views\HouseValuation\Details.cshtml" />
+    <Content Include="Views\LandValuation\Index.cshtml" />
+    <Content Include="Views\LandValuation\LandValuationForm.cshtml" />
+    <Content Include="Views\LandValuation\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\HouseValuation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -491,6 +501,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902250821285_house tax id added to land tax history.resx">
       <DependentUpon>201902250821285_house tax id added to land tax history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903030526476_valuation and taxslab added.resx">
+      <DependentUpon>201903030526476_valuation and taxslab added.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

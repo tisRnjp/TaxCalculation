@@ -1,0 +1,80 @@
+﻿@model IEnumerable<TaxCalculator.Models.HouseValuation>
+
+@{
+    ViewBag.Title = "घरको बनावट अनुसारको मुल्यांकन";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<br/>
+<p> 
+    @Html.ActionLink("नयाँ मुल्यांकन थप्नुहोस", "New", "HouseValuation", null, new { @class = "btn btn-primary" })
+</p>
+<br />
+<table class="table" id="houseValuations">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostPerArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepreciationRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepreciationPeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostPerArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepreciationRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepreciationPeriod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HouseType)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#houseValuations").DataTable();
+
+
+
+
+        });
+
+
+
+    </script>
+
+
+}

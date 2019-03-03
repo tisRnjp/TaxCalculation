@@ -6,53 +6,53 @@ using TaxCalculator.Models;
 
 namespace TaxCalculator.Controllers
 {
-    public class HouseValuationController : Controller
+    public class LandValuationController : Controller
     {
         private CitizenDbContext db = new CitizenDbContext();
 
-        // GET: HouseValuation
+        // GET: landValuation
         public ActionResult Index()
         {
-            var houseValuations = db.HouseValuations.ToList();
+            var landValuations = db.LandValuations.ToList();
 
-            return View(houseValuations);
+            return View(landValuations);
         }
         
         public ActionResult New()
         {
-            var houseValuation = new HouseValuation();
+            var landValuation = new LandValuation();
 
-            return View("HouseValuationForm",houseValuation);
+            return View("LandValuationForm",landValuation);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(HouseValuation model)
+        public ActionResult Save(LandValuation model)
         {
 
             if (!ModelState.IsValid)
             {
                 var invalidModel = model;
-                return View("HouseValuationForm", invalidModel);
+                return View("LandValuationForm", invalidModel);
 
             }
 
 
             if (model.Id == 0)
             {
-                db.HouseValuations.Add(model);
+                db.LandValuations.Add(model);
             }
             else
             {
-                var houseValuationInDB = db.HouseValuations.Single(h => h.Id == model.Id);
-                houseValuationInDB.Description = model.Description;
-                houseValuationInDB.CostPerArea = model.CostPerArea;
-                houseValuationInDB.DepreciationRate = model.DepreciationRate;
-                houseValuationInDB.DepreciationPeriod = model.DepreciationPeriod;
+                var landValuationInDB = db.LandValuations.Single(h => h.Id == model.Id);
+                landValuationInDB.Description = model.Description;
+                landValuationInDB.LandType = model.LandType;
+                landValuationInDB.CostPerAnna = model.CostPerAnna;
+                
             }
 
             db.SaveChanges();
-            return RedirectToAction("Index", "HouseValuation");
+            return RedirectToAction("Index", "LandValuation");
         }
 
 
@@ -64,9 +64,9 @@ namespace TaxCalculator.Controllers
             }
 
         
-            var houseValuation = db.HouseValuations.Find(Id);
+            var landValuation = db.LandValuations.Find(Id);
 
-            if (houseValuation == null)
+            if (landValuation == null)
             {
                 return HttpNotFound();
             }
@@ -75,7 +75,7 @@ namespace TaxCalculator.Controllers
 
             ViewBag.title = "Edit";
 
-            return View("HouseValuationForm", houseValuation);
+            return View("LandValuationForm", landValuation);
         }
 
         public ActionResult Details(int? Id)
@@ -86,15 +86,15 @@ namespace TaxCalculator.Controllers
             }
 
 
-            HouseValuation houseValuation = db.HouseValuations.Find(Id);
-            if (houseValuation == null)
+            LandValuation landValuation = db.LandValuations.Find(Id);
+            if (landValuation == null)
             {
                 return HttpNotFound();
             }
 
           
             //return View(citizen);
-            return View(houseValuation);
+            return View(landValuation);
         }
 
 

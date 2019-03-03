@@ -68,28 +68,28 @@
             <tbody>
                 @foreach (var citizen in Model.Citizens)
                 {
-                <tr>
-                    <th scope="row">@citizen.CitizenId</th>
-                    <td>@citizen.FirstName</td>
-                    <td>@citizen.LastName</td>
-                    <td>@citizen.District</td>
-                    <td>@citizen.KittaNo</td>
-                    <td>@citizen.CitizenshipNo</td>
-                    <td>@citizen.StreetName</td>
-                    <td>@citizen.Wardno</td>
+                    <tr>
+                        <th scope="row">@citizen.CitizenId</th>
+                        <td>@citizen.FirstName</td>
+                        <td>@citizen.LastName</td>
+                        <td>@citizen.District</td>
+                        <td>@citizen.KittaNo</td>
+                        <td>@citizen.CitizenshipNo</td>
+                        <td>@citizen.StreetName</td>
+                        <td>@citizen.Wardno</td>
 
 
-                    <td>     @(citizen.Zone == null ? "" : citizen.Zone.Description)      </td>
-                    <td>@citizen.Municipality</td>
-                    <td>
-                        @Html.ActionLink("थप जानकारी (Details)", "Details", new { citizenID = citizen.CitizenId }) /
-                        @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "Home", new { citizenID = citizen.CitizenId }, null) /
-                        @Html.ActionLink("कर विवरण निकाल्नुहोस (Calculate Tax)", "Create", "HouseTax", new { id = citizen.CitizenId }, null)
-                        @*@Html.ActionLink("Calculate Land Tax", "LandTax", "LandTax", new { citizenID = citizen.CitizenId }, null)
-                        @Html.ActionLink("Tax Details", "Index", "HouseTax", new { id = citizen.CitizenId }, null)*@
+                        <td>     @(citizen.Zone == null ? "" : citizen.Zone.Description)      </td>
+                        <td>@citizen.Municipality</td>
+                        <td>
+                            @Html.ActionLink("थप जानकारी (Details)", "Details", new { citizenID = citizen.CitizenId }) /
+                            @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "Home", new { citizenID = citizen.CitizenId }, null) /
+                            @Html.ActionLink("कर विवरण निकाल्नुहोस (Calculate Tax)", "Create", "HouseTax", new { id = citizen.CitizenId }, null)
+                            @*@Html.ActionLink("Calculate Land Tax", "LandTax", "LandTax", new { citizenID = citizen.CitizenId }, null)
+                            @Html.ActionLink("Tax Details", "Index", "HouseTax", new { id = citizen.CitizenId }, null)*@
 
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
 
                 }
 
