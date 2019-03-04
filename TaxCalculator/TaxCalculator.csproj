@@ -184,12 +184,12 @@
       <DependentUpon>CitizenDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LandValuationController.cs" />
     <Compile Include="Controllers\HouseValuationController.cs" />
+    <Compile Include="Controllers\LandValuationController.cs" />
+    <Compile Include="Controllers\HouseLandTaxSlabController.cs" />
     <Compile Include="Controllers\LandTaxController.cs" />
     <Compile Include="Controllers\HouseTaxController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -209,6 +209,14 @@
     <Compile Include="Migrations\201903030526476_valuation and taxslab added.Designer.cs">
       <DependentUpon>201903030526476_valuation and taxslab added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903041648166_Added fields in HouseLandTaxSlab.cs" />
+    <Compile Include="Migrations\201903041648166_Added fields in HouseLandTaxSlab.Designer.cs">
+      <DependentUpon>201903041648166_Added fields in HouseLandTaxSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903041745205_Added house category in HouseTax.cs" />
+    <Compile Include="Migrations\201903041745205_Added house category in HouseTax.Designer.cs">
+      <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -226,7 +234,6 @@
     <Compile Include="Models\LandValuation.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
-    <Compile Include="Models\TaxSlab.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -588,6 +595,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903030526476_valuation and taxslab added.resx">
       <DependentUpon>201903030526476_valuation and taxslab added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903041648166_Added fields in HouseLandTaxSlab.resx">
+      <DependentUpon>201903041648166_Added fields in HouseLandTaxSlab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903041745205_Added house category in HouseTax.resx">
+      <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

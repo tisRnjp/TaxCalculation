@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    
+
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
@@ -50,9 +50,17 @@
     </div>
 
     <div class="form-group">
+        @Html.LabelFor(model => model.HouseValuations, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), new { htmlAttributes = new { @class = "form-control", id = "house-category" } })
+            @Html.ValidationMessageFor(model => model.CitizenHouse.Area, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.CostPerUnitArea, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea" } })
+            @Html.EditorFor(model => model.HouseTax.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea", @readonly = true } })
             @Html.ValidationMessageFor(model => model.HouseTax.CostPerUnitArea, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -64,6 +72,7 @@
             @Html.ValidationMessageFor(model => model.CitizenHouse.Floor, "", new { @class = "text-danger" })
         </div>
     </div>
+    <p> @Model.HouseTax.HouseCategory </p>
 
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -76,7 +85,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.DepreciationRate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", id = "house-depreciationRate" } })
+            @Html.EditorFor(model => model.HouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", id = "house-depreciationRate", @readonly = true } })
             @Html.ValidationMessageFor(model => model.HouseTax.DepreciationRate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -124,7 +133,16 @@
     @Html.HiddenFor(model => model.HouseTax.TotalArea)
     @Html.HiddenFor(model => model.HouseTax.CitizenHouseId)
     @Html.HiddenFor(model => model.CitizenHouse.Id)
-   
+
+    <p>Select a new car from the list.</p>
+
+    <select id="mySelect" onchange="myFunction()">
+        <option value="Audi">Audi
+        <option value="BMW">BMW
+        <option value="Mercedes">Mercedes
+        <option value="Volvo">Volvo
+    </select>
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Next" class="btn btn-default" />
@@ -158,6 +176,20 @@
                     $("#depreciationamount").val(($("#house-depreciationRate").val() * $("#house-totalCost").val() * 0.01));
                 }
             });
+
+            $("#house-category").on("change", function () {
+                console.log('change event fired');
+                alert('haha');
+            });
+
+            function myFunction() {
+                var x = document.getElementById("mySelect").value;
+                document.getElementById("demo").innerHTML = "You selected: " + x;
+            }
+
+            function categoryChanged() {
+                console.log("alsdfjalskasf");
+            }
         });
 
     </script>

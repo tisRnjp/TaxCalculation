@@ -42,6 +42,7 @@ namespace TaxCalculator.Controllers
             {
                 houseTax.CitizenHouse = citizenHouse;
                 houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id, TotalArea = citizenHouse.Area};
+                houseTax.HouseValuations = db.HouseValuations.ToList();
             }
 
             return View(houseTax);

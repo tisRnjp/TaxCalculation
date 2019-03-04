@@ -31,7 +31,11 @@ namespace TaxCalculator.Models
 
         public Boolean FirstSlab { get; set; }
 
+        public DateTime StartDate { get; set; }
 
+        public DateTime EndDate { get; set; }
+
+        public String FiscalYear { get; set; }
 
     }
 }
