@@ -1,0 +1,64 @@
+﻿@model TaxCalculator.ViewModels.LandFormViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Citizen Land Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Save", "CitizenLand"))
+{
+
+
+    @*@Html.ValidationSummary()*@
+    @Html.ValidationSummary(true, "Please fix the following errors.")
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.VDC)
+        @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.WardNo)
+        @Html.TextBoxFor(m => m.CitizenLand.WardNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.SheetNo)
+        @Html.TextBoxFor(m => m.CitizenLand.SheetNo, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.KittaNo)
+        @Html.TextBoxFor(m => m.CitizenLand.KittaNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.ValuationArea)
+        @Html.TextBoxFor(m => m.CitizenLand.ValuationArea, new { @class = "form-control" })
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.CitizenId)
+        @Html.DropDownListFor(m => m.CitizenLand.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control" })
+    </div>
+
+
+
+    @Html.HiddenFor(m => m.CitizenLand.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary"> Save</button>
+
+}
+
+@*<iframe src="http://nepalicalendar.rat32.com/addons/nepali-calendar-aja-ko-din.php" frameborder="0"
+    scrolling="no" marginwidth="0" marginheight="0" style="border:none; overflow:hidden; width:200px; height:217px;"
+    allowtransparency="true"></iframe>*@
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

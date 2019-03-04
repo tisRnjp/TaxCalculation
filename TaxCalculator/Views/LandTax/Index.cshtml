@@ -1,0 +1,77 @@
+﻿@model TaxCalculator.ViewModels.LandTaxViewModel
+@{
+    ViewBag.Title = "Land Tax Calculation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="container">
+    <div class="page-header">
+        <h2>जग्गा तर्फ को कर सुची</h2>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table id="landtax" class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">कित्ता नम्बर.</th>
+                    <th scope="col">शीट नम्बर</th>
+                    <th scope="col">वदा नम्बर</th>
+                    <th scope="col">मुल्यांकन हुने क्ष फ</th>
+                    <th scope="col">आ व</th>
+                    <th scope="col">प्रति व मी दर</th>
+                    <th scope="col">हालको जग्गा को मूल्य</th>
+                    <th scope="col">कार्यहरु</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var landtax in Model.LandTaxHistories)
+                {
+                    <tr>
+                        <th scope="row">@landtax.Id</th>
+                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.KittaNo)  </td>
+                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.SheetNo)  </td>
+                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.WardNo)  </td>
+
+                        <td>@landtax.ValuationArea</td>
+                        <td>@landtax.FY</td>
+                        <td>@landtax.CostPerUnitArea</td>
+                        <td>@landtax.TotalCost</td>
+                        <td>
+                            @Html.ActionLink("थप जानकारी (Details)", "Details", new { Id = landtax.Id }) /
+                            @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "LandTax", new { Id = landtax.Id }, null)
+
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#landtax").DataTable();
+        });
+    </script>
+
+
+}

@@ -1,0 +1,62 @@
+﻿@model TaxCalculator.ViewModels.HouseFormViewModel
+@*@model TaxCalculator.Models.CitizenHouse*@
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CitizenHouse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenHouse.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Width)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenHouse.Width)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenHouse.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenHouse.Floor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenHouse.Floor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenHouse.citizen.CitizenshipNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenHouse.citizen.CitizenshipNo)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CitizenHouse.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

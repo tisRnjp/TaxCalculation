@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TaxCalculator.Models.Zone>
+
+@{
+    ViewBag.Title = "अञ्चल";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>अञ्चल</h2>
+
+<br />
+<p>
+    @Html.ActionLink("नयाँ अञ्चल थप्नुहोस", "New", "HouseValuation", null, new { @class = "btn btn-primary" })
+</p>
+<br />
+<table class="table" id="zones">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#zones").DataTable();
+        });
+    </script>
+
+
+}

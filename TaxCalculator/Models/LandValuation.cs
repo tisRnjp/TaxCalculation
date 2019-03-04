@@ -1,0 +1,23 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TaxCalculator.Models
+{
+    public class LandValuation
+    {
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "जग्गा को किसिम")]
+        public string Description { get; set; }
+
+        [Required]
+        [Display(Name = "जग्गा को प्रकार")]
+        public string LandType { get; set; }
+
+        [Required]
+        [Display(Name = "प्रति आना को दर")]
+        public string CostPerAnna { get; set; }
+
+    }
+}

@@ -1,0 +1,43 @@
+﻿@model TaxCalculator.Models.LandValuation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LandValuation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LandType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LandType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostPerAnna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostPerAnna)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

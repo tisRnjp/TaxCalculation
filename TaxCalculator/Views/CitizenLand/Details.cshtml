@@ -1,0 +1,70 @@
+﻿@model TaxCalculator.ViewModels.LandFormViewModel
+@*@model TaxCalculator.Models.CitizenLand*@
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Citizen Land</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenLand.VDC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenLand.VDC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenLand.WardNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenLand.WardNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenLand.SheetNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenLand.SheetNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenLand.KittaNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenLand.KittaNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenLand.ValuationArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenLand.ValuationArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CitizenLand.citizen.CitizenshipNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CitizenLand.citizen.CitizenshipNo)
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CitizenLand.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
