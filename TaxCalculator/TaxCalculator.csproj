@@ -184,6 +184,7 @@
       <DependentUpon>CitizenDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -563,6 +564,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

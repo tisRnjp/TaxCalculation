@@ -12,6 +12,7 @@ using TaxCalculator.ViewModels;
 
 namespace TaxCalculator.Controllers
 {
+    [Authorize]
     public class HouseTaxController : Controller
     {
         private CitizenDbContext db = new CitizenDbContext();

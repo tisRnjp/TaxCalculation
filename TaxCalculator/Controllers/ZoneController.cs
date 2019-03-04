@@ -10,6 +10,7 @@ using TaxCalculator.Models;
 
 namespace TaxCalculator.Controllers
 {
+    [Authorize]
     public class ZoneController : Controller
     {
 
