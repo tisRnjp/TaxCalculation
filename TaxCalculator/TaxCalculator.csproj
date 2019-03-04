@@ -157,8 +157,9 @@
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LandValuationController.cs" />
     <Compile Include="Controllers\HouseValuationController.cs" />
+    <Compile Include="Controllers\LandValuationController.cs" />
+    <Compile Include="Controllers\HouseLandTaxSlabController.cs" />
     <Compile Include="Controllers\LandTaxController.cs" />
     <Compile Include="Controllers\HouseTaxController.cs" />
     <Compile Include="Controllers\ZoneController.cs" />
@@ -478,6 +479,9 @@
     <Content Include="Views\LandValuation\Index.cshtml" />
     <Content Include="Views\LandValuation\LandValuationForm.cshtml" />
     <Content Include="Views\LandValuation\Details.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\HouseLandTaxSlabForm.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\Index.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
