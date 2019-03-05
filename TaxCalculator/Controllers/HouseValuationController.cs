@@ -6,6 +6,7 @@ using TaxCalculator.Models;
 
 namespace TaxCalculator.Controllers
 {
+    [Authorize]
     public class HouseValuationController : Controller
     {
         private CitizenDbContext db = new CitizenDbContext();

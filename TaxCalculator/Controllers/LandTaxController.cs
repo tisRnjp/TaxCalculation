@@ -11,6 +11,7 @@ using Microsoft.Reporting.WebForms;
 
 namespace TaxCalculator.Controllers
 {
+    [Authorize]
     public class LandTaxController : Controller
     {
 

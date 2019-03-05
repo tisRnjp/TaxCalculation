@@ -21,6 +21,8 @@ namespace TaxCalculator.Models
         [Display(Name = "वर्ग फु")]
         public decimal TotalArea { get; set; }
 
+        public string HouseCategory { get; set; }
+
         //[Display(Name = "")]
         //public decimal LastYearCost { get; set; }
         //[Required]
