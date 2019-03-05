@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace TaxCalculator.Models
 {
@@ -26,8 +23,12 @@ namespace TaxCalculator.Models
         public decimal TaxAmount { get; set; }
 
         [Required]
-        [Display(Name = "करको प्रतिशत")]
+        [Display(Name = "करको रकम")]
         public decimal TaxPercent { get; set; }
+
+        [Required]
+        [Display(Name = "Range")]
+        public decimal Range { get; set; }
 
         public Boolean FirstSlab { get; set; }
 

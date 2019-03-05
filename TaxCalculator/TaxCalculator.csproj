@@ -217,6 +217,14 @@
     <Compile Include="Migrations\201903041745205_Added house category in HouseTax.Designer.cs">
       <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903050646338_Range added to Tax Slab.cs" />
+    <Compile Include="Migrations\201903050646338_Range added to Tax Slab.Designer.cs">
+      <DependentUpon>201903050646338_Range added to Tax Slab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903050818163_annotation added to citizenland.cs" />
+    <Compile Include="Migrations\201903050818163_annotation added to citizenland.Designer.cs">
+      <DependentUpon>201903050818163_annotation added to citizenland.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -601,6 +609,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903041745205_Added house category in HouseTax.resx">
       <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903050646338_Range added to Tax Slab.resx">
+      <DependentUpon>201903050646338_Range added to Tax Slab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903050818163_annotation added to citizenland.resx">
+      <DependentUpon>201903050818163_annotation added to citizenland.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

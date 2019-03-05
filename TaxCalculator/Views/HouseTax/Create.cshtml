@@ -49,10 +49,15 @@
         </div>
     </div>
 
+    @*<div class="form-group">
+        @Html.LabelFor(m => m.Citizen.ZoneId)
+        @Html.DropDownListFor(m => m.Citizen.ZoneId, new SelectList(Model.Zones, "Id", "Code"), "Select Zone", new { @class = "form-control" })
+    </div>*@
+
     <div class="form-group">
         @Html.LabelFor(model => model.HouseValuations, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), new { htmlAttributes = new { @class = "form-control", id = "house-category" } })
+            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), new { @class = "form-control", id = "house-category" } )
             @Html.ValidationMessageFor(model => model.CitizenHouse.Area, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -60,7 +65,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.CostPerUnitArea, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea", @readonly = true } })
+            @Html.EditorFor(model => model.HouseTax.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea" } })
             @Html.ValidationMessageFor(model => model.HouseTax.CostPerUnitArea, "", new { @class = "text-danger" })
         </div>
     </div>

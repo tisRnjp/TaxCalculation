@@ -21,7 +21,6 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -36,11 +35,29 @@
                         </ul>
                     </li>
 
-                    
-                    <li>@Html.ActionLink("Citizen Houses", "Index", "CitizenHouse")</li>
-                    <li>@Html.ActionLink("House Tax", "Index", "HouseTax")</li>
-                    <li>@Html.ActionLink("Citizen Lands", "Index", "CitizenLand")</li>
-                    <li>@Html.ActionLink("Land Tax", "Index", "LandTax")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Masters
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+
+                            <li>@Html.ActionLink("Citizen Houses", "Index", "CitizenHouse")</li>
+                            <li>@Html.ActionLink("Citizen Lands", "Index", "CitizenLand")</li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Tax Histories
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("House Tax", "Index", "HouseTax")</li>
+                            <li>@Html.ActionLink("Land Tax", "Index", "LandTax")</li>
+                        </ul>
+                    </li>
+                
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
