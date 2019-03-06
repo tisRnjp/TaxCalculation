@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using TaxCalculator.Models;
 
 namespace TaxCalculator.ViewModels
@@ -14,13 +12,14 @@ namespace TaxCalculator.ViewModels
 
         public LandTaxHistory LandTaxHistory { get; set; }
         
-
         public LandTaxHistory LastLandTaxHistory { get; set; }
 
         public  IEnumerable<LandTaxHistory> LandTaxHistories { get; set; }
         public IEnumerable<CitizenLand> CitizenLands { get; set; }
         public IEnumerable<Citizen> Citizens { get; set; }
 
+        [Display(Name = "जग्गाको बनावट")]
+        public List<LandValuation> LandValuations { get; set; }
 
 
     }

@@ -2,9 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
     using TaxCalculator.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TaxCalculator.DAL.CitizenDbContext>
@@ -25,7 +23,7 @@
                 new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
                 new Zone{ Id = 6, Code="भेरी", Description="भेरी"}
             };
-            zones.ForEach(z => context.Zones.Add(z));
+            zones.ForEach(z => context.Zones.AddOrUpdate(z));
             context.SaveChanges();
 
             var citizens = new List<Citizen>
@@ -36,27 +34,27 @@
             };
 
 
-            citizens.ForEach(c => context.Citizens.Add(c));
+            citizens.ForEach(c => context.Citizens.AddOrUpdate(c));
             context.SaveChanges();
 
             var lands = new List<CitizenLand>
             {
-                new CitizenLand{ Id= 1 , VDC = "Kapan" , WardNo = "3", SheetNo = "552", KittaNo = "118", ValuationArea = 145.90m},
-                new CitizenLand{ Id= 2 , VDC = "Kapan" , WardNo = "4", SheetNo = "44", KittaNo = "271", ValuationArea = 89.43m},
-                new CitizenLand{ Id= 3 , VDC = "Kapan" , WardNo = "7", SheetNo = "34", KittaNo = "101", ValuationArea = 85},
+                new CitizenLand{ Id= 1 , VDC = "Kapan" , WardNo = "3", SheetNo = "552", KittaNo = "118", ValuationArea = 145.90m,CitizenId=1},
+                new CitizenLand{ Id= 2 , VDC = "Kapan" , WardNo = "4", SheetNo = "44", KittaNo = "271", ValuationArea = 89.43m,CitizenId=2},
+                new CitizenLand{ Id= 3 , VDC = "Kapan" , WardNo = "7", SheetNo = "34", KittaNo = "101", ValuationArea = 85,CitizenId=3},
             };
 
-            lands.ForEach(z => context.CitizenLands.Add(z));
+            lands.ForEach(z => context.CitizenLands.AddOrUpdate(z));
             context.SaveChanges();
 
             var citizenHouse = new List<CitizenHouse>
             {
-                new CitizenHouse{ Area=2923.31m, Floor=2.5m},
-                new CitizenHouse{ Area=1285.11m, Floor=5},
-                new CitizenHouse{ Area=1156.12m, Floor=1}
+                new CitizenHouse{ Area=2923.31m, Floor=2.5m,CitizenId=1},
+                new CitizenHouse{ Area=1285.11m, Floor=5,CitizenId=2},
+                new CitizenHouse{ Area=1156.12m, Floor=1,CitizenId=3}
             };
 
-            citizenHouse.ForEach(h => context.CitizenHouses.Add(h));
+            citizenHouse.ForEach(h => context.CitizenHouses.AddOrUpdate(h));
             context.SaveChanges();
 
 
@@ -70,7 +68,7 @@
                 new HouseValuation{ Description="स्टील फ्रेम स्तरकचर, फ्रविङत्रास, फाईवर वा यस्तै संग्रचना ",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="ङ"}
             };
 
-            houseValuation.ForEach(h => context.HouseValuations.Add(h));
+            houseValuation.ForEach(h => context.HouseValuations.AddOrUpdate(h));
             context.SaveChanges();
 
             var landValuation = new List<LandValuation>
@@ -79,6 +77,28 @@
                 new LandValuation{ Description="कच्ची / ग्राभेल सडक प्रति आना",LandType= "आ",CostPerAnna=300000},
                 new LandValuation{ Description="भित्रि सहायक पिच सडक प्रति आना",LandType= "इ",CostPerAnna=400000},
                 new LandValuation{ Description="मूल पिच सडक प्रति आना",LandType="ई",CostPerAnna=800000},
+                
+            };
+
+            landValuation.ForEach(l => context.LandValuations.AddOrUpdate(l));
+            context.SaveChanges();
+
+            var houseLandTaxSlabs = new List<HouseLandTaxSlab>
+            {
+                new HouseLandTaxSlab{ Sequence=1,LowerLimit=0,UpperLimit=3000000,Range=3000000,TaxAmount=500,TaxPercent=0,FirstSlab=true,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{ Sequence=2,LowerLimit=3000001,UpperLimit=5000000,Range=2000000,TaxAmount=0,TaxPercent=0.08m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{ Sequence=3,LowerLimit=5000001,UpperLimit=10000000,Range=5000000,TaxAmount=500,TaxPercent=0.15m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{ Sequence=4,LowerLimit=10000001,UpperLimit=20000000,Range=10000000,TaxAmount=500,TaxPercent=0.25m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{ Sequence=5,LowerLimit=20000000,UpperLimit=0,Range=0,TaxAmount=500,TaxPercent=0.35m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+
+            };
+
+            houseLandTaxSlabs.ForEach(l => context.HouseLandTaxSlabs.AddOrUpdate(l));
+            context.SaveChanges();
+
+
+
+
 
             };
 

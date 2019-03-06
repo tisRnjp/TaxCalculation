@@ -6,8 +6,8 @@
 }
 
 <h2> House Land Tax Slab</h2>
-<br/>
-<p> 
+<br />
+<p>
     @Html.ActionLink("नयाँ मुल्यांकन थप्नुहोस", "New", "HouseLandTaxSlab", null, new { @class = "btn btn-primary" })
 </p>
 <br />
@@ -22,6 +22,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UpperLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Range)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TaxAmount)
@@ -47,6 +50,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UpperLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Range)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TaxAmount)

@@ -17,61 +17,93 @@
 
 
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.CitizenLand.VDC)
-        @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.VDC)
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenLand.VDC, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control", id= "land-vdc", @readonly = true })
+            @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.VDC)
+        </div>
     </div>
 
-    <div>
-        @Html.LabelFor(m => m.CitizenLand.WardNo)
-        @Html.TextBoxFor(m => m.CitizenLand.WardNo, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenLand.WardNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CitizenLand.WardNo, new { @class = "form-control", id = "land-wardno", @readonly = true })
+            @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+        </div>
     </div>
 
-    <div>
-        @Html.LabelFor(m => m.CitizenLand.SheetNo)
-        @Html.TextBoxFor(m => m.CitizenLand.SheetNo, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenLand.SheetNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CitizenLand.SheetNo, new { @class = "form-control", id = "land-sheetno", @readonly = true })
+            @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+        </div>
     </div>
 
-    <div>
-        @Html.LabelFor(m => m.CitizenLand.KittaNo)
-        @Html.TextBoxFor(m => m.CitizenLand.KittaNo, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.KittaNo)
-    </div>
-
-
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.LandTaxHistory.FY)
-        @Html.TextBoxFor(m => m.LandTaxHistory.FY, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.LandTaxHistory.FY)
-    </div>
-
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.LandTaxHistory.ValuationArea)
-        @Html.TextBoxFor(m => m.LandTaxHistory.ValuationArea, new { @class = "form-control", id = "area" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenLand.KittaNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CitizenLand.KittaNo, new { @class = "form-control", id = "land-kittano", @readonly = true })
+            @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.KittaNo)
+        </div>
     </div>
 
 
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.LandTaxHistory.CostPerUnitArea)
-        @Html.TextBoxFor(m => m.LandTaxHistory.CostPerUnitArea, new { @class = "form-control", id = "cost" })
-
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LandTaxHistory.FY, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LandTaxHistory.FY, new { @class = "form-control", id = "land-FY" })
+            @Html.ValidationMessageFor(m => m.LandTaxHistory.FY)
+        </div>
     </div>
 
-    <div class="form-group">
-        नागरिक को नाम
-        @Html.DropDownListFor(m => m.LandTaxHistory.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control", @Readonly = true })
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LandTaxHistory.ValuationArea, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LandTaxHistory.ValuationArea, new { @class = "form-control", id = "land-area", @readonly = true })
+        </div>
     </div>
 
-    <div class="form-group">
 
-        @Html.LabelFor(m => m.LandTaxHistory.TotalCost)
-        @Html.TextBoxFor(m => m.LandTaxHistory.TotalCost, new { @class = "form-control", id = "total" })
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.HouseValuations, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), " ", new { @class = "form-control", id = "house-category" })
+            @Html.ValidationMessageFor(model => model.HouseTax.HouseCategory, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.LandValuations, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.LandTaxHistory.LandCategory, new SelectList(Model.LandValuations, "LandType", "Description"), " ", new { @class = "form-control", id = "land-category" })
+            @Html.ValidationMessageFor(model => model.LandTaxHistory.LandCategory, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LandTaxHistory.CostPerUnitArea, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LandTaxHistory.CostPerUnitArea, new { @class = "form-control", id = "land-cost", @readonly = true })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LandTaxHistory.CitizenId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LandTaxHistory.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control", @Readonly = true })
+        </div>
+    </div>
+
+    <div class="form-group row">
+
+        @Html.LabelFor(m => m.LandTaxHistory.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.LandTaxHistory.TotalCost, new { @class = "form-control", id = "land-total", @readonly = true })
+        </div>
 
     </div>
 
@@ -101,6 +133,26 @@
                 $("#total").val($("#cost").val() * $("#area").val());
 
             });
+
+               $("#land-category").on("change", function () {
+                    console.log('change event fired ' + $("#land-category").val());
+                    var selectedCategory = $("#land-category").val();
+                    console.log('a');
+                    $.getJSON('@Url.Action("GetLandValuation","LandTax")', { category: selectedCategory }, function (landValuation) {
+                        console.log('ajax call');
+                        console.log(landValuation);
+                    
+                        if (landValuation != null && !jQuery.isEmptyObject(landValuation)) {
+                            $("#land-cost").val(landValuation.CostPerAnna);
+                            //Calculate total cost
+                            if ($("#land-area").val() !== null && $("#land-cost").val() !== null)
+                                $("#land-total").val($("#land-area").val() * $("#land-cost").val());
+
+                        }
+                    });
+
+               });
+
         });
 
     </script>

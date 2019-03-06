@@ -217,9 +217,23 @@
     <Compile Include="Migrations\201903041745205_Added house category in HouseTax.Designer.cs">
       <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\201903060219539_changes in land valuation.cs" />
     <Compile Include="Migrations\201903060219539_changes in land valuation.Designer.cs">
       <DependentUpon>201903060219539_changes in land valuation.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\201903050646338_Range added to Tax Slab.cs" />
+    <Compile Include="Migrations\201903050646338_Range added to Tax Slab.Designer.cs">
+      <DependentUpon>201903050646338_Range added to Tax Slab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903050818163_annotation added to citizenland.cs" />
+    <Compile Include="Migrations\201903050818163_annotation added to citizenland.Designer.cs">
+      <DependentUpon>201903050818163_annotation added to citizenland.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903060603293_landtype added to land tax history.cs" />
+    <Compile Include="Migrations\201903060603293_landtype added to land tax history.Designer.cs">
+      <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
+>>>>>>> reportbranch
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -572,6 +586,12 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\HouseTaxSlab\Details.cshtml" />
+    <Content Include="Views\HouseTaxSlab\HouseLandTaxSlabForm.cshtml" />
+    <Content Include="Views\HouseTaxSlab\Index.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\Index.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\HouseLandTaxSlabForm.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -608,6 +628,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903060219539_changes in land valuation.resx">
       <DependentUpon>201903060219539_changes in land valuation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903050646338_Range added to Tax Slab.resx">
+      <DependentUpon>201903050646338_Range added to Tax Slab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903050818163_annotation added to citizenland.resx">
+      <DependentUpon>201903050818163_annotation added to citizenland.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060603293_landtype added to land tax history.resx">
+      <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />
