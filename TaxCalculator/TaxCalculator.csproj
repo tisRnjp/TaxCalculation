@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201903041745205_Added house category in HouseTax.Designer.cs">
       <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903060219539_changes in land valuation.cs" />
+    <Compile Include="Migrations\201903060219539_changes in land valuation.Designer.cs">
+      <DependentUpon>201903060219539_changes in land valuation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -601,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903041745205_Added house category in HouseTax.resx">
       <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060219539_changes in land valuation.resx">
+      <DependentUpon>201903060219539_changes in land valuation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

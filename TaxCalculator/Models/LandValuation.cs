@@ -17,7 +17,7 @@ namespace TaxCalculator.Models
 
         [Required]
         [Display(Name = "प्रति आना को दर")]
-        public string CostPerAnna { get; set; }
+        public decimal CostPerAnna { get; set; }
 
     }
 }

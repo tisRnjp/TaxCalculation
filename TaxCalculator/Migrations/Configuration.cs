@@ -73,9 +73,17 @@
             houseValuation.ForEach(h => context.HouseValuations.Add(h));
             context.SaveChanges();
 
+            var landValuation = new List<LandValuation>
+            {
+                new LandValuation{ Description="गोरेटो बाटो भएको प्रति आना",LandType="अ",CostPerAnna=100000},
+                new LandValuation{ Description="कच्ची / ग्राभेल सडक प्रति आना",LandType= "आ",CostPerAnna=300000},
+                new LandValuation{ Description="भित्रि सहायक पिच सडक प्रति आना",LandType= "इ",CostPerAnna=400000},
+                new LandValuation{ Description="मूल पिच सडक प्रति आना",LandType="ई",CostPerAnna=800000},
 
+            };
 
-
+            landValuation.ForEach(l => context.LandValuations.Add(l));
+            context.SaveChanges();
         }
     }
 }
