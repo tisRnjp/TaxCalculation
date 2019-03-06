@@ -79,9 +79,17 @@ namespace TaxCalculator.Controllers
             };
 
             return View("~/Views/LandTax/LandTaxCalculationForm.cshtml", landTaxViewModel);
+        }
 
-          
-          
+        public ActionResult GetHouseValuation(string category)
+        {
+            if (!string.IsNullOrWhiteSpace(category) && category.Length == 1)
+            {
+                var houseValuation = db.HouseValuations.Single(m => m.HouseType == category);
+
+                return Json(houseValuation, JsonRequestBehavior.AllowGet);
+            }
+            return null;
         }
 
         protected override void Dispose(bool disposing)

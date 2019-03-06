@@ -49,16 +49,11 @@
         </div>
     </div>
 
-    @*<div class="form-group">
-        @Html.LabelFor(m => m.Citizen.ZoneId)
-        @Html.DropDownListFor(m => m.Citizen.ZoneId, new SelectList(Model.Zones, "Id", "Code"), "Select Zone", new { @class = "form-control" })
-    </div>*@
-
     <div class="form-group">
         @Html.LabelFor(model => model.HouseValuations, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), new { @class = "form-control", id = "house-category" } )
-            @Html.ValidationMessageFor(model => model.CitizenHouse.Area, "", new { @class = "text-danger" })
+            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), " ", new { @class = "form-control", id = "house-category" })
+            @Html.ValidationMessageFor(model => model.HouseTax.HouseCategory, "", new { @class = "text-danger" })
         </div>
     </div>
 
@@ -95,6 +90,7 @@
         </div>
     </div>
 
+
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.DepreciationAmount, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -102,6 +98,7 @@
             @Html.ValidationMessageFor(model => model.HouseTax.DepreciationAmount, "", new { @class = "text-danger" })
         </div>
     </div>
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -111,42 +108,9 @@
         </div>
     </div>
 
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.LastHouseTax.DepreciationRate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastHouseTax.DepreciationRate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.LastHouseTax.DepreciationRate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastHouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastHouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                @Html.ValidationMessageFor(model => model.LastHouseTax.GrossCost, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-    @*<div class="form-group">
-            @Html.LabelFor(model => model.HouseTax.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.HouseTax.GrossCost, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-grossCost" } })
-                @Html.ValidationMessageFor(model => model.HouseTax.GrossCost, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
     @Html.HiddenFor(model => model.HouseTax.TotalArea)
     @Html.HiddenFor(model => model.HouseTax.CitizenHouseId)
     @Html.HiddenFor(model => model.CitizenHouse.Id)
-
-    <p>Select a new car from the list.</p>
-
-    <select id="mySelect" onchange="myFunction()">
-        <option value="Audi">Audi
-        <option value="BMW">BMW
-        <option value="Mercedes">Mercedes
-        <option value="Volvo">Volvo
-    </select>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -183,18 +147,28 @@
             });
 
             $("#house-category").on("change", function () {
-                console.log('change event fired');
-                alert('haha');
+                console.log('change event fired' + $("#house-category").val());
+                var selectedCategory = $("#house-category").val();
+                $.getJSON('@Url.Action("GetHouseValuation")', { category: selectedCategory }, function (houseValuation) {
+                    console.log('ajax call');
+                    console.log(houseValuation);
+                    if (houseValuation != null && !jQuery.isEmptyObject(houseValuation)) {
+                        $("#house-costPerUnitArea").val(houseValuation.CostPerArea);
+                        $("#house-depreciationRate").val(houseValuation.DepreciationRate);
+
+                        //Calculate total cost
+                        if ($("#house-area").val() !== null && $("#house-costPerUnitArea").val() !== null)
+                            $("#house-totalCost").val($("#house-costPerUnitArea").val() * $("#house-area").val());
+
+                        //Calculate depreciation amount and gross cost
+                        if ($("#house-totalCost").val() !== null && $("#house-depreciationRate").val() !== null) {
+                            $("#house-grossCost").val($("#house-totalCost").val() - ($("#house-depreciationRate").val() * $("#house-totalCost").val() * 0.01));
+                            $("#depreciationamount").val(($("#house-depreciationRate").val() * $("#house-totalCost").val() * 0.01));
+                        }
+                    }
+                });
+
             });
-
-            function myFunction() {
-                var x = document.getElementById("mySelect").value;
-                document.getElementById("demo").innerHTML = "You selected: " + x;
-            }
-
-            function categoryChanged() {
-                console.log("alsdfjalskasf");
-            }
         });
 
     </script>
