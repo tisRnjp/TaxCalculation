@@ -12,8 +12,6 @@
             AutomaticMigrationsEnabled = false;
         }
 
-        
-
         protected override void Seed(TaxCalculator.DAL.CitizenDbContext context)
         {
             var zones = new List<Zone>
@@ -25,7 +23,7 @@
                 new Zone{ Id = 5, Code="Mahakali", Description="Mahakali"},
                 new Zone{ Id = 6, Code="भेरी", Description="भेरी"}
             };
-            zones.ForEach(z => context.Zones.Add(z));
+            zones.ForEach(z => context.Zones.AddOrUpdate(z));
             context.SaveChanges();
 
             var citizens = new List<Citizen>
@@ -36,7 +34,7 @@
             };
 
 
-            citizens.ForEach(c => context.Citizens.Add(c));
+            citizens.ForEach(c => context.Citizens.AddOrUpdate(c));
             context.SaveChanges();
 
             var lands = new List<CitizenLand>
@@ -46,17 +44,17 @@
                 new CitizenLand{ Id= 3 , VDC = "Kapan" , WardNo = "7", SheetNo = "34", KittaNo = "101", ValuationArea = 85,CitizenId=3},
             };
 
-            lands.ForEach(z => context.CitizenLands.Add(z));
+            lands.ForEach(z => context.CitizenLands.AddOrUpdate(z));
             context.SaveChanges();
 
             var citizenHouse = new List<CitizenHouse>
             {
-                new CitizenHouse{ Area=2923.31m, Floor=2.5m},
-                new CitizenHouse{ Area=1285.11m, Floor=5},
-                new CitizenHouse{ Area=1156.12m, Floor=1}
+                new CitizenHouse{ Area=2923.31m, Floor=2.5m,CitizenId=1},
+                new CitizenHouse{ Area=1285.11m, Floor=5,CitizenId=2},
+                new CitizenHouse{ Area=1156.12m, Floor=1,CitizenId=3}
             };
 
-            citizenHouse.ForEach(h => context.CitizenHouses.Add(h));
+            citizenHouse.ForEach(h => context.CitizenHouses.AddOrUpdate(h));
             context.SaveChanges();
 
 
@@ -70,7 +68,7 @@
                 new HouseValuation{ Description="स्टील फ्रेम स्तरकचर, फ्रविङत्रास, फाईवर वा यस्तै संग्रचना ",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="ङ"}
             };
 
-            houseValuation.ForEach(h => context.HouseValuations.Add(h));
+            houseValuation.ForEach(h => context.HouseValuations.AddOrUpdate(h));
             context.SaveChanges();
 
             var landValuation = new List<LandValuation>
@@ -82,7 +80,7 @@
                 
             };
 
-            landValuation.ForEach(l => context.LandValuations.Add(l));
+            landValuation.ForEach(l => context.LandValuations.AddOrUpdate(l));
             context.SaveChanges();
 
             var houseLandTaxSlabs = new List<HouseLandTaxSlab>
@@ -95,7 +93,7 @@
 
             };
 
-            houseLandTaxSlabs.ForEach(l => context.HouseLandTaxSlabs.Add(l));
+            houseLandTaxSlabs.ForEach(l => context.HouseLandTaxSlabs.AddOrUpdate(l));
             context.SaveChanges();
 
 

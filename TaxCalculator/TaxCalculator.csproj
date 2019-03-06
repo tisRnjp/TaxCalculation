@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201903050818163_annotation added to citizenland.Designer.cs">
       <DependentUpon>201903050818163_annotation added to citizenland.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903060603293_landtype added to land tax history.cs" />
+    <Compile Include="Migrations\201903060603293_landtype added to land tax history.Designer.cs">
+      <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -621,6 +625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903050818163_annotation added to citizenland.resx">
       <DependentUpon>201903050818163_annotation added to citizenland.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903060603293_landtype added to land tax history.resx">
+      <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />

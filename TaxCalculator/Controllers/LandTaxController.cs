@@ -34,18 +34,20 @@ namespace TaxCalculator.Controllers
         {
 
             var citizenLand = db.CitizenLands.First(c => c.CitizenId == CitizenId);
-            var landTaxViewModel = new LandTaxViewModel
+            var landTaxViewModel = new LandTaxViewModel();
+            if (citizenLand != null)
             {
-                
-                CitizenLand = db.CitizenLands.First(c => c.CitizenId == CitizenId),
-                LandTaxHistory = new LandTaxHistory { CitizenId = CitizenId,
-                                    ValuationArea = citizenLand.ValuationArea,
-                                    CitizenLandId = citizenLand.Id},
-                CitizenLands = db.CitizenLands.ToList(),
-                Citizens = db.Citizens.ToList()
-
-            };
-            
+                landTaxViewModel.CitizenLand = db.CitizenLands.First(c => c.CitizenId == CitizenId);
+                landTaxViewModel.LandTaxHistory = new LandTaxHistory
+                {
+                    CitizenId = CitizenId,
+                    ValuationArea = citizenLand.ValuationArea,
+                    CitizenLandId = citizenLand.Id
+                };
+                landTaxViewModel.CitizenLands = db.CitizenLands.ToList();
+                landTaxViewModel.Citizens = db.Citizens.ToList();
+                landTaxViewModel.LandValuations = db.LandValuations.ToList();
+            }
             return View("LandTaxCalculationForm",landTaxViewModel);
         }
 
@@ -54,15 +56,15 @@ namespace TaxCalculator.Controllers
         public ActionResult Save(LandTaxViewModel viewModel)
         {
 
-            if (!ModelState.IsValid)
-            {
-                var invalidViewModel = new LandTaxViewModel
-                {
-                    LandTaxHistory = viewModel.LandTaxHistory, 
-                };
-                return View("LandTaxCalculationForm", invalidViewModel);
+            //if (!ModelState.IsValid)
+            //{
+            //    var invalidViewModel = new LandTaxViewModel
+            //    {
+            //        LandTaxHistory = viewModel.LandTaxHistory, 
+            //    };
+            //    return View("LandTaxCalculationForm", invalidViewModel);
 
-            }
+            //}
 
 
             if (viewModel.LandTaxHistory.Id == 0)
@@ -182,5 +184,20 @@ namespace TaxCalculator.Controllers
 
             //return View();
         }
+
+        public ActionResult GetLandValuation(string category)
+        {
+            if (!string.IsNullOrWhiteSpace(category) && category.Length == 1)
+            {
+                var landValuation = db.LandValuations.Single(m => m.LandType == category);
+
+                return Json(landValuation, JsonRequestBehavior.AllowGet);
+            }
+            return null;
+        }
+
+
+
+
     }
 }

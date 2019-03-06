@@ -35,7 +35,7 @@ namespace TaxCalculator.Controllers
             {
                 return RedirectToAction("Index", "CitizenHouse");
             }
-
+            //Needs Working CitienHouse Must have citizen ID...................................................................
             var citizenHouse = db.CitizenHouses.Single(h => h.Id == id);
             var houseTax = new HouseTaxViewModel();
             if(citizenHouse != null)
@@ -54,29 +54,35 @@ namespace TaxCalculator.Controllers
         {
             
             db.HouseTaxHistories.Add(model.HouseTax);
+
+            
             var citizenHouse = db.CitizenHouses.First(c => c.Id == model.HouseTax.CitizenHouseId);
 
             db.SaveChanges();
 
-            
-            //Move to land calculations
-            var citizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId);
-            var landTaxViewModel = new LandTaxViewModel
-            {
 
-                CitizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId),
-                LandTaxHistory = new LandTaxHistory
+            //Move to land calculations
+
+            //Needs Working Must be obtained from citizen ID...................................................................
+            var citizenLand = db.CitizenLands.First(c => c.Id == citizenHouse.Id);
+            var landTaxViewModel = new LandTaxViewModel();
+            if (citizenLand != null)
+            {
+                landTaxViewModel.CitizenLand = citizenLand;
+                landTaxViewModel.LandTaxHistory = new LandTaxHistory
                 {
                     CitizenId = citizenHouse.CitizenId,
                     ValuationArea = citizenLand.ValuationArea,
                     CitizenLandId = citizenLand.Id,
                     HouseTaxHistoryId = model.HouseTax.Id
 
-                },
-                CitizenLands = db.CitizenLands.ToList(),
-                Citizens = db.Citizens.ToList()
+                };
+                landTaxViewModel.CitizenLands = db.CitizenLands.ToList();
+                landTaxViewModel.Citizens = db.Citizens.ToList();
+                landTaxViewModel.LandValuations = db.LandValuations.ToList();
+            }
+            
 
-            };
 
             return View("~/Views/LandTax/LandTaxCalculationForm.cshtml", landTaxViewModel);
         }

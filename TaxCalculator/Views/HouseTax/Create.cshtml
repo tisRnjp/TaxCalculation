@@ -60,7 +60,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.HouseTax.CostPerUnitArea, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.HouseTax.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea" } })
+            @Html.EditorFor(model => model.HouseTax.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea", @readonly = true} })
             @Html.ValidationMessageFor(model => model.HouseTax.CostPerUnitArea, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -146,13 +146,17 @@
                 }
             });
 
+            
             $("#house-category").on("change", function () {
-                console.log('change event fired' + $("#house-category").val());
+                console.log('change event fired ' + $("#house-category").val());
                 var selectedCategory = $("#house-category").val();
+                console.log('a');
                 $.getJSON('@Url.Action("GetHouseValuation")', { category: selectedCategory }, function (houseValuation) {
                     console.log('ajax call');
                     console.log(houseValuation);
+                    
                     if (houseValuation != null && !jQuery.isEmptyObject(houseValuation)) {
+                        
                         $("#house-costPerUnitArea").val(houseValuation.CostPerArea);
                         $("#house-depreciationRate").val(houseValuation.DepreciationRate);
 

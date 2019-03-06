@@ -21,6 +21,8 @@ namespace TaxCalculator.Models
         [Display(Name = "प्रति व मी दर")]
         public decimal CostPerUnitArea { get; set; }
 
+        public string LandCategory { get; set; }
+
         [Display(Name = "कायम मूल्य")]
         public decimal TotalCost
         {
