@@ -217,11 +217,6 @@
     <Compile Include="Migrations\201903041745205_Added house category in HouseTax.Designer.cs">
       <DependentUpon>201903041745205_Added house category in HouseTax.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Migrations\201903060219539_changes in land valuation.cs" />
-    <Compile Include="Migrations\201903060219539_changes in land valuation.Designer.cs">
-      <DependentUpon>201903060219539_changes in land valuation.cs</DependentUpon>
-=======
     <Compile Include="Migrations\201903050646338_Range added to Tax Slab.cs" />
     <Compile Include="Migrations\201903050646338_Range added to Tax Slab.Designer.cs">
       <DependentUpon>201903050646338_Range added to Tax Slab.cs</DependentUpon>
@@ -233,7 +228,6 @@
     <Compile Include="Migrations\201903060603293_landtype added to land tax history.cs" />
     <Compile Include="Migrations\201903060603293_landtype added to land tax history.Designer.cs">
       <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
->>>>>>> reportbranch
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
