@@ -1,0 +1,92 @@
+﻿@model IEnumerable<TaxCalculator.Models.HouseLandTaxSlab>
+
+@{
+    ViewBag.Title = "घरको बनावट अनुसारको मुल्यांकन";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> House Land Tax Slab</h2>
+<br />
+<p>
+    @Html.ActionLink("नयाँ मुल्यांकन थप्नुहोस", "New", "HouseLandTaxSlab", null, new { @class = "btn btn-primary" })
+</p>
+<br />
+<table class="table" id="houseLandTaxSlabs">
+    <thead class="thead-light">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LowerLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpperLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Range)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxPercent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstSlab)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sequence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowerLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpperLimit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Range)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxPercent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstSlab)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#houseLandTaxSlabs").DataTable();
+
+
+
+
+        });
+
+
+
+    </script>
+
+
+}

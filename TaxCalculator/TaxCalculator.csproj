@@ -576,6 +576,12 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\HouseTaxSlab\Details.cshtml" />
+    <Content Include="Views\HouseTaxSlab\HouseLandTaxSlabForm.cshtml" />
+    <Content Include="Views\HouseTaxSlab\Index.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\Index.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\HouseLandTaxSlabForm.cshtml" />
+    <Content Include="Views\HouseLandTaxSlab\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
