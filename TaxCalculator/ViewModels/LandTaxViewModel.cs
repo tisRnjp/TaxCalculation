@@ -21,6 +21,9 @@ namespace TaxCalculator.ViewModels
         [Display(Name = "जग्गाको बनावट")]
         public List<LandValuation> LandValuations { get; set; }
 
+        [Display(Name = "Fiscal Year")]
+        public List<FiscalYear> FiscalYears { get; set; }
+
 
     }
 }

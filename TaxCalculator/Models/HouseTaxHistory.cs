@@ -34,15 +34,35 @@ namespace TaxCalculator.Models
         //[Required]
         [Display(Name = "ह्रासकट्टी प्रतिशत")]
         public decimal DepreciationRate { get; set; }
+
         //[Required]
         [Display(Name = "ह्रासकट्टी रकम")]
         public decimal DepreciationAmount { get; set; }
 
+        [Display(Name = "गत आ व को कायम मूल्य")]
+        public decimal? LastFYGrossCost { get; set; }
+
+        [Display(Name = "गत वर्ष सम्म को ह्रासकट्टी प्रतिशत")]
+        public decimal? LastFYDepreciationRate { get; set; }
+
+        [Display(Name = "गत वर्ष सम्म को ह्रासकट्टी प्रतिशत")]
+        public decimal? LastFYDepreciationAmount { get; set; }
 
         //public int? CitizenId { get; set; }
         //public Citizen Citizen { get; set; }
 
         public int? CitizenHouseId{ get; set; }
         public CitizenHouse CitizenHouse { get; set; }
+
+
+        [Display(Name = "आ व देखि")]
+        public int? FromFiscalYearId { get; set; }
+        [Display(Name = "आ व देखि")]
+        public FiscalYear FromFiscalYear { get; set; }
+
+        [Display(Name = "आ व सम्म")]
+        public int? ToFiscalYearId { get; set; }
+        [Display(Name = "आ व देखि")]
+        public FiscalYear ToFiscalYear { get; set; }
     }
 }

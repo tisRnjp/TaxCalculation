@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -22,8 +23,12 @@ namespace TaxCalculator.Models
         [Display(Name = "तल्ला")]
         public decimal Floor { get; set; }
 
-        //public String BatoKoPrakar { get; set; }
+        [NotMapped]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Choose File")]
+        public HttpPostedFileBase ImageUpload { get; set; }
 
+        public string Image { get; set; }
 
         [Display(Name = "नागरिकता नम्बर")]
         public int? CitizenId { get; set; }

@@ -92,7 +92,7 @@ namespace TaxCalculator.Controllers
         }
 
         // GET: Zone/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
 
             if (id == null)

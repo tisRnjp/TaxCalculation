@@ -38,6 +38,7 @@ namespace TaxCalculator.Controllers
             if (citizenLand != null)
             {
                 landTaxViewModel.CitizenLand = db.CitizenLands.First(c => c.CitizenId == CitizenId);
+                landTaxViewModel.FiscalYears = db.FiscalYears.ToList();
                 landTaxViewModel.LandTaxHistory = new LandTaxHistory
                 {
                     CitizenId = CitizenId,

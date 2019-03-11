@@ -22,7 +22,7 @@ namespace TaxCalculator.DAL
         public DbSet<HouseValuation> HouseValuations { get; set; }
         public DbSet<LandValuation> LandValuations { get; set; }
         public DbSet<HouseLandTaxSlab> HouseLandTaxSlabs { get; set; }
-
+        public DbSet<FiscalYear> FiscalYears { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

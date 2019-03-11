@@ -19,5 +19,10 @@ namespace TaxCalculator.Models
         [Display(Name = "प्रति आना को दर")]
         public decimal CostPerAnna { get; set; }
 
+
+        
+        public int? FiscalYearId { get; set; }
+        public FiscalYear FiscalYear { get; set; }
+
     }
 }

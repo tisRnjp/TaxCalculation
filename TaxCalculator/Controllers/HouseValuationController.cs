@@ -2,6 +2,7 @@
 using System.Net;
 using System.Web.Mvc;
 using TaxCalculator.DAL;
+using System.Data.Entity;
 using TaxCalculator.Models;
 
 namespace TaxCalculator.Controllers
@@ -14,7 +15,7 @@ namespace TaxCalculator.Controllers
         // GET: HouseValuation
         public ActionResult Index()
         {
-            var houseValuations = db.HouseValuations.ToList();
+            var houseValuations = db.HouseValuations.Include(h => h.FiscalYear);
 
             return View(houseValuations);
         }
@@ -22,7 +23,7 @@ namespace TaxCalculator.Controllers
         public ActionResult New()
         {
             var houseValuation = new HouseValuation();
-
+            ViewBag.FiscalYears = new SelectList(db.FiscalYears.ToList(), "Id", "FY");
             return View("HouseValuationForm",houseValuation);
         }
 
@@ -50,15 +51,32 @@ namespace TaxCalculator.Controllers
                 houseValuationInDB.CostPerArea = model.CostPerArea;
                 houseValuationInDB.DepreciationRate = model.DepreciationRate;
                 houseValuationInDB.DepreciationPeriod = model.DepreciationPeriod;
+                houseValuationInDB.FiscalYearId = model.FiscalYearId;
+                houseValuationInDB.LastFYCostPerArea = model.LastFYCostPerArea;
+                houseValuationInDB.LastFYDepreciationRate = model.LastFYDepreciationRate;
+                houseValuationInDB.LastFYDepreciationPeriod = model.LastFYDepreciationPeriod;
+
             }
 
             db.SaveChanges();
             return RedirectToAction("Index", "HouseValuation");
         }
 
+        // POST: PersonalDetails/Delete/5
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
+        {
+            HouseValuation houseValuation = db.HouseValuations.Find(id);
+            db.HouseValuations.Remove(houseValuation);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         public ActionResult Edit(int? Id)
         {
+
             if (Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -74,8 +92,8 @@ namespace TaxCalculator.Controllers
 
            
 
-            ViewBag.title = "Edit";
-
+            ViewBag.title = "घर को मुल्यांकन";
+            ViewBag.FiscalYears = new SelectList(db.FiscalYears.ToList(), "Id", "FY");
             return View("HouseValuationForm", houseValuation);
         }
 

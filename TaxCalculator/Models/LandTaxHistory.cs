@@ -41,5 +41,11 @@ namespace TaxCalculator.Models
         public int? HouseTaxHistoryId { get; set; }
         public HouseTaxHistory HouseTaxHistory { get; set; }
 
+        public int? FromFiscalYearId { get; set; }
+        public FiscalYear FromFiscalYear { get; set; }
+
+        public int? ToFiscalYearId { get; set; }
+        public FiscalYear ToFiscalYear { get; set; }
+
     }
 }

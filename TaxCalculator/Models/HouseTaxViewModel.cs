@@ -21,5 +21,8 @@ namespace TaxCalculator.Models
         [Display(Name = "घरको बनावट")]
         public List<HouseValuation> HouseValuations { get; set; }
 
+        [Display(Name = "Fiscal Year")]
+        public List<FiscalYear> FiscalYears { get; set; }
+
     }
 }

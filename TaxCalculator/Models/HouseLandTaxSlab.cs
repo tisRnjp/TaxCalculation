@@ -23,8 +23,16 @@ namespace TaxCalculator.Models
         public decimal TaxAmount { get; set; }
 
         [Required]
-        [Display(Name = "करको रकम")]
+        [Display(Name = "करको प्रतिसत")]
         public decimal TaxPercent { get; set; }
+
+        
+        [Display(Name = "बक्यौता करको रकम")]
+        public decimal LastFYTaxAmount { get; set; }
+
+        
+        [Display(Name = "बक्यौता करको प्रतिसत")]
+        public decimal LastFYTaxPercent { get; set; }
 
         [Required]
         [Display(Name = "Range")]

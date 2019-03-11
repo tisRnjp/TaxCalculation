@@ -187,6 +187,7 @@
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\FiscalYearController.cs" />
     <Compile Include="Controllers\HouseValuationController.cs" />
     <Compile Include="Controllers\LandValuationController.cs" />
     <Compile Include="Controllers\HouseLandTaxSlabController.cs" />
@@ -229,6 +230,38 @@
     <Compile Include="Migrations\201903060603293_landtype added to land tax history.Designer.cs">
       <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903070716072_Image added to citizen house model.cs" />
+    <Compile Include="Migrations\201903070716072_Image added to citizen house model.Designer.cs">
+      <DependentUpon>201903070716072_Image added to citizen house model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903080647518_Fiscal Year Model added.cs" />
+    <Compile Include="Migrations\201903080647518_Fiscal Year Model added.Designer.cs">
+      <DependentUpon>201903080647518_Fiscal Year Model added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903081011032_sequence added to fiscal year.cs" />
+    <Compile Include="Migrations\201903081011032_sequence added to fiscal year.Designer.cs">
+      <DependentUpon>201903081011032_sequence added to fiscal year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903100638186_addition of from and to fiscal year.cs" />
+    <Compile Include="Migrations\201903100638186_addition of from and to fiscal year.Designer.cs">
+      <DependentUpon>201903100638186_addition of from and to fiscal year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903100820054_addition of fiscal year from and to to land tax.cs" />
+    <Compile Include="Migrations\201903100820054_addition of fiscal year from and to to land tax.Designer.cs">
+      <DependentUpon>201903100820054_addition of fiscal year from and to to land tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903110223089_addition of fiscal year to valuation tables.cs" />
+    <Compile Include="Migrations\201903110223089_addition of fiscal year to valuation tables.Designer.cs">
+      <DependentUpon>201903110223089_addition of fiscal year to valuation tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903110341209_last fiscal year field added to hous valuation and tax slab.cs" />
+    <Compile Include="Migrations\201903110341209_last fiscal year field added to hous valuation and tax slab.Designer.cs">
+      <DependentUpon>201903110341209_last fiscal year field added to hous valuation and tax slab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs" />
+    <Compile Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.Designer.cs">
+      <DependentUpon>201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -236,6 +269,7 @@
     <Compile Include="Models\CitizenHouse.cs" />
     <Compile Include="Models\CitizenLand.cs" />
     <Compile Include="Models\CitizenProperty.cs" />
+    <Compile Include="Models\FiscalYear.cs" />
     <Compile Include="Models\HouseLandTaxSlab.cs" />
     <Compile Include="Models\HouseValuation.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -247,6 +281,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
     <Compile Include="Models\Zone.cs" />
+    <Compile Include="OnlyCitizenDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OnlyCitizenDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="TaxDetail.Designer.cs">
@@ -405,8 +444,20 @@
     </Content>
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="OnlyCitizenDBDataSet.xsc">
+      <DependentUpon>OnlyCitizenDBDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="OnlyCitizenDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OnlyCitizenDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="OnlyCitizenDBDataSet.xss">
+      <DependentUpon>OnlyCitizenDBDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -586,6 +637,9 @@
     <Content Include="Views\HouseLandTaxSlab\Index.cshtml" />
     <Content Include="Views\HouseLandTaxSlab\HouseLandTaxSlabForm.cshtml" />
     <Content Include="Views\HouseLandTaxSlab\Details.cshtml" />
+    <Content Include="Views\FiscalYear\Details.cshtml" />
+    <Content Include="Views\FiscalYear\FiscalYearForm.cshtml" />
+    <Content Include="Views\FiscalYear\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -629,6 +683,31 @@
     <EmbeddedResource Include="Migrations\201903060603293_landtype added to land tax history.resx">
       <DependentUpon>201903060603293_landtype added to land tax history.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903070716072_Image added to citizen house model.resx">
+      <DependentUpon>201903070716072_Image added to citizen house model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903080647518_Fiscal Year Model added.resx">
+      <DependentUpon>201903080647518_Fiscal Year Model added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903081011032_sequence added to fiscal year.resx">
+      <DependentUpon>201903081011032_sequence added to fiscal year.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903100638186_addition of from and to fiscal year.resx">
+      <DependentUpon>201903100638186_addition of from and to fiscal year.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903100820054_addition of fiscal year from and to to land tax.resx">
+      <DependentUpon>201903100820054_addition of fiscal year from and to to land tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903110223089_addition of fiscal year to valuation tables.resx">
+      <DependentUpon>201903110223089_addition of fiscal year to valuation tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903110341209_last fiscal year field added to hous valuation and tax slab.resx">
+      <DependentUpon>201903110341209_last fiscal year field added to hous valuation and tax slab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.resx">
+      <DependentUpon>201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />
   </ItemGroup>

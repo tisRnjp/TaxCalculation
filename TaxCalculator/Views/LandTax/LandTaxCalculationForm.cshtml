@@ -1,10 +1,12 @@
 ﻿@model TaxCalculator.ViewModels.LandTaxViewModel
 
 @{
-    /**/
+                /**/
 
-    ViewBag.Title = "Land Tax Calculation";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Land Tax Calculation";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>जग्गा तर्फ</h2>
@@ -20,7 +22,7 @@
     <div class="form-group row">
         @Html.LabelFor(m => m.CitizenLand.VDC, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control", id= "land-vdc", @readonly = true })
+            @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control", id = "land-vdc", @readonly = true })
             @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.VDC)
         </div>
     </div>
@@ -61,6 +63,21 @@
 
 
     <div class="form-group row">
+        @Html.LabelFor(m => m.LandTaxHistory.FromFiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LandTaxHistory.FromFiscalYearId, new SelectList(Model.FiscalYears, "Id", "FY"), "Select From Fiscal Year", new { @class = "form-control", @Readonly = true })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.LandTaxHistory.ToFiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.LandTaxHistory.ToFiscalYearId, new SelectList(Model.FiscalYears, "Id", "FY"), "Select From Fiscal Year", new { @class = "form-control", @Readonly = true })
+        </div>
+    </div>
+
+
+    <div class="form-group row">
         @Html.LabelFor(m => m.LandTaxHistory.ValuationArea, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.LandTaxHistory.ValuationArea, new { @class = "form-control", id = "land-area", @readonly = true })
@@ -69,12 +86,12 @@
 
 
     @*<div class="form-group">
-        @Html.LabelFor(model => model.HouseValuations, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), " ", new { @class = "form-control", id = "house-category" })
-            @Html.ValidationMessageFor(model => model.HouseTax.HouseCategory, "", new { @class = "text-danger" })
-        </div>
-    </div>*@
+            @Html.LabelFor(model => model.HouseValuations, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.HouseTax.HouseCategory, new SelectList(Model.HouseValuations, "HouseType", "Description"), " ", new { @class = "form-control", id = "house-category" })
+                @Html.ValidationMessageFor(model => model.HouseTax.HouseCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
     <div class="form-group row">
         @Html.LabelFor(model => model.LandValuations, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -141,7 +158,7 @@
                     $.getJSON('@Url.Action("GetLandValuation","LandTax")', { category: selectedCategory }, function (landValuation) {
                         console.log('ajax call');
                         console.log(landValuation);
-                    
+
                         if (landValuation != null && !jQuery.isEmptyObject(landValuation)) {
                             $("#land-cost").val(landValuation.CostPerAnna);
                             //Calculate total cost

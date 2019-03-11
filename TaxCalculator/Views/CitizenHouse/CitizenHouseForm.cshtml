@@ -1,37 +1,47 @@
 ﻿@model TaxCalculator.ViewModels.HouseFormViewModel
 @{
-    ViewBag.Title = "Citizen House Form";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+                /**/
+
+                ViewBag.Title = "Citizen House Form";
+                Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm("Save", "CitizenHouse"))
+@using (Html.BeginForm("Save", "CitizenHouse",new { enctype = "multipart/form-data"}))
 {
-
-
     @*@Html.ValidationSummary()*@
     @Html.ValidationSummary(true, "Please fix the following errors.")
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenHouse.Area, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CitizenHouse.Area, new { @class = "form-control" })
+        </div>
+    </div>
     
-    <div class="form-group">
-        @Html.LabelFor(m => m.CitizenHouse.Area)
-        @Html.TextBoxFor(m => m.CitizenHouse.Area, new { @class = "form-control" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenHouse.Floor, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CitizenHouse.Floor, new { @class = "form-control" })
+        </div>
     </div>
 
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.CitizenHouse.Floor)
-        @Html.TextBoxFor(m => m.CitizenHouse.Floor, new { @class = "form-control" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenHouse.CitizenId, new { @class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CitizenHouse.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control" })
+        </div>
     </div>
 
-
-
-    <div class="form-group">
-        @Html.LabelFor(m => m.CitizenHouse.CitizenId)
-        @Html.DropDownListFor(m => m.CitizenHouse.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CitizenHouse.ImageUpload, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*<input type="file" name="CitizenHouse.ImageUpload" required/>*@
+            @Html.TextBoxFor(m => m.CitizenHouse.ImageUpload, new { type = "file", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.CitizenHouse.ImageUpload, "", new { @class = "text-danger" })
+        </div>
     </div>
-
- 
 
     @Html.HiddenFor(m => m.CitizenHouse.Id)
     @Html.AntiForgeryToken()

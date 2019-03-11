@@ -178,6 +178,45 @@ namespace TaxCalculator.Controllers
             
         }
 
+        
+
+        public ActionResult RajanKoReport(string ReportType)
+        {
+            LocalReport localReport = new LocalReport();
+            localReport.ReportPath = Server.MapPath("~/Reports/CitizenList.rdlc");
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            reportDataSource.Name = "CitizenOnly";
+            reportDataSource.Value = db.Citizens.ToList();
+            localReport.DataSources.Add(reportDataSource);
+            string reportType = ReportType;
+            string mimeType;
+            string encoding;
+            string fileNameExtension;
+            if (ReportType == "Excel")
+            {
+                fileNameExtension = "xlsx";
+            }
+            else if (ReportType == "PDF")
+            {
+                fileNameExtension = "pdf";
+            }
+            else
+            {
+                fileNameExtension = "docx";
+            }
+            string[] streams;
+            Warning[] warnings;
+            byte[] renderByte;
+            renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
+                                    out fileNameExtension, out streams, out warnings);
+            Response.AddHeader("content-disposition", "attachment:filename= citizen_report." + fileNameExtension);
+            return File(renderByte, fileNameExtension);
+
+            //return View();
+        }
+
+
         public ActionResult Reports(string ReportType)
         {
             LocalReport localReport = new LocalReport();

@@ -43,6 +43,7 @@ namespace TaxCalculator.Controllers
                 houseTax.CitizenHouse = citizenHouse;
                 houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id, TotalArea = citizenHouse.Area};
                 houseTax.HouseValuations = db.HouseValuations.ToList();
+                houseTax.FiscalYears = db.FiscalYears.ToList();
             }
 
             return View(houseTax);
@@ -51,15 +52,12 @@ namespace TaxCalculator.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(HouseTaxViewModel model)
-        {
-            
+        {   
             db.HouseTaxHistories.Add(model.HouseTax);
 
-            
             var citizenHouse = db.CitizenHouses.First(c => c.Id == model.HouseTax.CitizenHouseId);
 
             db.SaveChanges();
-
 
             //Move to land calculations
 
@@ -72,18 +70,23 @@ namespace TaxCalculator.Controllers
                 landTaxViewModel.LandTaxHistory = new LandTaxHistory
                 {
                     CitizenId = citizenHouse.CitizenId,
-                    ValuationArea = citizenLand.ValuationArea,
+                    //ValuationArea = citizenLand.ValuationArea,
+                    ValuationArea = model.HouseTax.TotalArea / 1.75m / 342.25m,
                     CitizenLandId = citizenLand.Id,
-                    HouseTaxHistoryId = model.HouseTax.Id
+                    HouseTaxHistoryId = model.HouseTax.Id,
+                    FromFiscalYearId = model.HouseTax.FromFiscalYearId,
+                    ToFiscalYearId = model.HouseTax.ToFiscalYearId
+                    
+
 
                 };
                 landTaxViewModel.CitizenLands = db.CitizenLands.ToList();
                 landTaxViewModel.Citizens = db.Citizens.ToList();
                 landTaxViewModel.LandValuations = db.LandValuations.ToList();
+                landTaxViewModel.FiscalYears = db.FiscalYears.ToList();
+
             }
             
-
-
             return View("~/Views/LandTax/LandTaxCalculationForm.cshtml", landTaxViewModel);
         }
 
