@@ -83,7 +83,7 @@
             //    new LandValuation{ Description="कच्ची / ग्राभेल सडक प्रति आना",LandType= "आ",CostPerAnna=300000,FiscalYearId=5},
             //    new LandValuation{ Description="भित्रि सहायक पिच सडक प्रति आना",LandType= "इ",CostPerAnna=400000,FiscalYearId=5},
             //    new LandValuation{ Description="मूल पिच सडक प्रति आना",LandType="ई",CostPerAnna=800000,FiscalYearId=5},
-                
+
             //};
 
             //landValuation.ForEach(l => context.LandValuations.AddOrUpdate(l));
@@ -102,24 +102,24 @@
             //houseLandTaxSlabs.ForEach(l => context.HouseLandTaxSlabs.AddOrUpdate(l));
             //context.SaveChanges();
 
-            //var fiscalYears = new List<FiscalYear>
-            //{
-            //    new FiscalYear{ Id=1, FY="70/71",Sequence = 1},
-            //    new FiscalYear{ Id=2, FY="71/72",Sequence = 2 },
-            //    new FiscalYear{ Id=3, FY="72/73",Sequence = 3 },
-            //    new FiscalYear{ Id=4, FY="73/74",Sequence = 4 },
-            //    new FiscalYear{ Id=5, FY="74/75",Sequence = 5 },
-            //    new FiscalYear{ Id=6, FY="75/76",Sequence = 6 },
-            //    new FiscalYear{ Id=7, FY="76/77",Sequence = 7 }, 
-            //    new FiscalYear{ Id=8, FY="77/78",Sequence = 8 },
-            //    new FiscalYear{ Id=9, FY="78/79",Sequence = 9 },
-            //    new FiscalYear{ Id=10, FY="79/80",Sequence = 10 },
+            var fiscalYears = new List<FiscalYear>
+            {
+                new FiscalYear{ Id=1, FY="70/71",Sequence = 1},
+                new FiscalYear{ Id=2, FY="71/72",Sequence = 2 },
+                new FiscalYear{ Id=3, FY="72/73",Sequence = 3 },
+                new FiscalYear{ Id=4, FY="73/74",Sequence = 4 },
+                new FiscalYear{ Id=5, FY="74/75",Sequence = 5 },
+                new FiscalYear{ Id=6, FY="75/76",Sequence = 6 },
+                new FiscalYear{ Id=7, FY="76/77",Sequence = 7 },
+                new FiscalYear{ Id=8, FY="77/78",Sequence = 8 },
+                new FiscalYear{ Id=9, FY="78/79",Sequence = 9 },
+                new FiscalYear{ Id=10, FY="79/80",Sequence = 10 },
 
 
-            //};
+            };
 
-            //fiscalYears.ForEach(f => context.FiscalYears.AddOrUpdate(f));
-            //context.SaveChanges();
+            fiscalYears.ForEach(f => context.FiscalYears.AddOrUpdate(f));
+            context.SaveChanges();
 
 
 

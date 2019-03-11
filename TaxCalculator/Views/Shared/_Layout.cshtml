@@ -58,7 +58,7 @@
                             <li>@Html.ActionLink("Land Tax", "Index", "LandTax")</li>
                         </ul>
                     </li>
-                
+
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
@@ -68,11 +68,11 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year तारा डिजिटल सोलुशन प्रा. लि. </p>
-        </footer>
     </div>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year तारा डिजिटल सोलुशन प्रा. लि. </p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

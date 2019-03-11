@@ -262,6 +262,10 @@
     <Compile Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.Designer.cs">
       <DependentUpon>201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903111626059_removed FY from HouseTaxHistory.cs" />
+    <Compile Include="Migrations\201903111626059_removed FY from HouseTaxHistory.Designer.cs">
+      <DependentUpon>201903111626059_removed FY from HouseTaxHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -584,33 +588,6 @@
     <Content Include="Views\LandValuation\Index.cshtml" />
     <Content Include="Views\LandValuation\LandValuationForm.cshtml" />
     <Content Include="Views\LandValuation\Details.cshtml" />
-    <Content Include="Views\Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Views\Account\Login.cshtml" />
-    <Content Include="Views\Views\Account\Register.cshtml" />
-    <Content Include="Views\Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Views\Home\About.cshtml" />
-    <Content Include="Views\Views\Home\Contact.cshtml" />
-    <Content Include="Views\Views\Home\Index.cshtml" />
-    <Content Include="Views\Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Views\Manage\Index.cshtml" />
-    <Content Include="Views\Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Views\Shared\Error.cshtml" />
-    <Content Include="Views\Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Views\Web.config" />
-    <Content Include="Views\Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -640,6 +617,7 @@
     <Content Include="Views\FiscalYear\Details.cshtml" />
     <Content Include="Views\FiscalYear\FiscalYearForm.cshtml" />
     <Content Include="Views\FiscalYear\Index.cshtml" />
+    <Content Include="Views\Home\_CitizenDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -706,6 +684,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.resx">
       <DependentUpon>201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903111626059_removed FY from HouseTaxHistory.resx">
+      <DependentUpon>201903111626059_removed FY from HouseTaxHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />

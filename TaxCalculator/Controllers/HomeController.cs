@@ -303,5 +303,25 @@ namespace TaxCalculator.Controllers
             //return View();
         }
        
+        public ActionResult _CitizenDetails(int? citizenID)
+        {
+            if (citizenID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var citizens = db.Citizens.ToList();
+            Citizen citizen = db.Citizens.Find(citizenID);
+            if (citizen == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new CitizenViewModel
+            {
+                Citizen = citizen
+            };
+            return PartialView(viewModel);
+        }
     }
 }
