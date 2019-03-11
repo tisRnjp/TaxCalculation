@@ -48,9 +48,9 @@ namespace TaxCalculator.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "ईमेल अनिवार्य छ। ")]
         [Display(Name = "Email")]
-        [EmailAddress]
+        [EmailAddress(ErrorMessage = "ईमेल मिलेको छैन।")]
         public string Email { get; set; }
 
         [Required]

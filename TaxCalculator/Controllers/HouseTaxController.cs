@@ -35,7 +35,7 @@ namespace TaxCalculator.Controllers
             {
                 return RedirectToAction("Index", "CitizenHouse");
             }
-            //Needs Working CitienHouse Must have citizen ID...................................................................
+            //Needs Working CitienHouse Must have citizen ID
             var citizenHouse = db.CitizenHouses.Single(h => h.Id == id);
             var houseTax = new HouseTaxViewModel();
             if(citizenHouse != null)

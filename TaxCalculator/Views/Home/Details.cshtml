@@ -1,79 +1,10 @@
-﻿@*@model TaxCalculator.Models.Citizen*@
-@model TaxCalculator.ViewModels.CitizenViewModel
+﻿@model TaxCalculator.ViewModels.CitizenViewModel
 
 @{
     ViewBag.Title = "नागरिक को थप जानकारी";
 }
 
-<h2>नागरिक को थप जानकारी</h2>
-
-<div>
-
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.FirstName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.FirstName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.ZoneId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.Zone.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.District)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.District)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.StreetName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.StreetName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.Wardno)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.Wardno)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Citizen.Municipality)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Citizen.Municipality)
-        </dd>
-
-    </dl>
-   
-
-
-</div>
-
-
+@Html.Partial("_CitizenDetail", Model)
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { citizenID = Model.Citizen.CitizenId }) |
