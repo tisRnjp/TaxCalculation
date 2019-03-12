@@ -262,6 +262,14 @@
     <Compile Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.Designer.cs">
       <DependentUpon>201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903120646292_actual valuation area and remarks added to land tax valuation.cs" />
+    <Compile Include="Migrations\201903120646292_actual valuation area and remarks added to land tax valuation.Designer.cs">
+      <DependentUpon>201903120646292_actual valuation area and remarks added to land tax valuation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903120823328_last fiscal year fields added to land tax valuation.cs" />
+    <Compile Include="Migrations\201903120823328_last fiscal year fields added to land tax valuation.Designer.cs">
+      <DependentUpon>201903120823328_last fiscal year fields added to land tax valuation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -707,8 +715,15 @@
     <EmbeddedResource Include="Migrations\201903110639099_last fiscal year amount and depreciation field added to hous valuation.resx">
       <DependentUpon>201903110639099_last fiscal year amount and depreciation field added to hous valuation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903120646292_actual valuation area and remarks added to land tax valuation.resx">
+      <DependentUpon>201903120646292_actual valuation area and remarks added to land tax valuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903120823328_last fiscal year fields added to land tax valuation.resx">
+      <DependentUpon>201903120823328_last fiscal year fields added to land tax valuation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
+    <EmbeddedResource Include="Reports\TaxReportMultiYear.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>

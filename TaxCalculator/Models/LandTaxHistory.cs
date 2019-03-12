@@ -15,8 +15,14 @@ namespace TaxCalculator.Models
 
         public decimal MyProperty { get; set; }
 
-        [Display(Name = "मुल्यांकन हुने क्ष फ")]
+        [Display(Name = "FAR अनुसार को क्ष फ")]  //x /1.75/342.25
         public decimal ValuationArea { get; set; }
+
+        [Display(Name = "मुल्यांकन हुने क्ष फ")]  //x /1.75/342.25
+        public decimal ActualValuationArea { get; set; }
+
+        [Display(Name = "कैफियत")]  //x /1.75/342.25
+        public string Remarks { get; set; }
 
         [Display(Name = "प्रति व मी दर")]
         public decimal CostPerUnitArea { get; set; }
@@ -28,6 +34,14 @@ namespace TaxCalculator.Models
         {
             get;set;
         }
+
+
+        [Display(Name = "गत आ व को प्रति व मी दर")]
+        public decimal? LastFYCostPerUnitArea { get; set; }
+
+        [Display(Name = "गत आ व को कायम मूल्य")]
+        public decimal? LastFYTotalCost { get; set; }
+
 
         [Display(Name = "Citizen ")]
         public int? CitizenId { get; set; }
@@ -41,10 +55,12 @@ namespace TaxCalculator.Models
         public int? HouseTaxHistoryId { get; set; }
         public HouseTaxHistory HouseTaxHistory { get; set; }
 
+        [Display(Name = "आ व देखि")]
         public int? FromFiscalYearId { get; set; }
         public FiscalYear FromFiscalYear { get; set; }
 
         public int? ToFiscalYearId { get; set; }
+        [Display(Name = "आ व सम्म")]
         public FiscalYear ToFiscalYear { get; set; }
 
     }

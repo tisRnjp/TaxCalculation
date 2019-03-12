@@ -72,6 +72,7 @@ namespace TaxCalculator.Controllers
                     CitizenId = citizenHouse.CitizenId,
                     //ValuationArea = citizenLand.ValuationArea,
                     ValuationArea = model.HouseTax.TotalArea / 1.75m / 342.25m,
+                    ActualValuationArea = model.HouseTax.TotalArea / 1.75m / 342.25m,
                     CitizenLandId = citizenLand.Id,
                     HouseTaxHistoryId = model.HouseTax.Id,
                     FromFiscalYearId = model.HouseTax.FromFiscalYearId,
