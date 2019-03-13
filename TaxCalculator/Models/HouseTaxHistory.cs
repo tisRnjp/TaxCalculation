@@ -11,16 +11,14 @@ namespace TaxCalculator.Models
         public int Id { get; set; }
 
         [Display(Name = "प्रति वर्ग फु दर")]
+        [Required(ErrorMessage = "प्रति वर्ग फु दर अनिवार्य छ।")]
         public decimal CostPerUnitArea { get; set; }
-
-        ////[Required]
-        //[Display(Name = "आ व")]
-        //public string FY { get; set; }
 
         //[Required]
         [Display(Name = "वर्ग फु")]
         public decimal TotalArea { get; set; }
 
+        [Required(ErrorMessage = "घरको बनावट अनिवार्य छ।")]
         public string HouseCategory { get; set; }
 
         //[Display(Name = "")]

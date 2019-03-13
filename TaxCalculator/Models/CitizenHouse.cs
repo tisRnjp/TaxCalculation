@@ -18,6 +18,7 @@ namespace TaxCalculator.Models
         public decimal Width { get; set; }
 
         [Display(Name = "वर्ग फूट")]
+        [Required(ErrorMessage = "वर्ग फूट अनिवार्य छ।")]
         public decimal Area { get; set; }
 
         [Display(Name = "तल्ला")]
