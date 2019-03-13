@@ -6,27 +6,27 @@ namespace TaxCalculator.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="VDC is required to proceed.")]
+        [Required(ErrorMessage = "गा वि स अनिवार्य छ।")]
         [Display(Name = "गा वि स")]
         public string VDC { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "वदा नम्बर अनिवार्य छ।")]
         [Display(Name = "वदा नम्बर")]
         public string WardNo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "शीट नम्बर अनिवार्य छ।")]
         [Display(Name = "शीट नम्बर")]
         public string SheetNo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "कित्ता नम्बर अनिवार्य छ।")]
         [Display(Name = "कित्ता नम्बर")]
         public string KittaNo { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "मुल्यांकन हुने क्ष फ अनिवार्य छ।")]
         [Display(Name = "मुल्यांकन हुने क्ष फ")]
         public decimal ValuationArea { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "नागरिकता नम्बर अनिवार्य छ।")]
         [Display(Name = "नागरिकता नम्बर")]
         public int? CitizenId { get; set; }
 

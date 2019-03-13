@@ -270,6 +270,10 @@
     <Compile Include="Migrations\201903121631391_Added validation in login model and citizen model.Designer.cs">
       <DependentUpon>201903121631391_Added validation in login model and citizen model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903131639080_new.cs" />
+    <Compile Include="Migrations\201903131639080_new.Designer.cs">
+      <DependentUpon>201903131639080_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -694,6 +698,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903121631391_Added validation in login model and citizen model.resx">
       <DependentUpon>201903121631391_Added validation in login model and citizen model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903131639080_new.resx">
+      <DependentUpon>201903131639080_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />

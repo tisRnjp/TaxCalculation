@@ -23,17 +23,22 @@ namespace TaxCalculator.Models
 
         //[Display(Name = "")]
         //public decimal LastYearCost { get; set; }
-        //[Required]
+        [Required(ErrorMessage = "कायमी मुल्य गणना गर्न सकिएन।")]
         [Display(Name = "कायमी मुल्य")]
         public decimal TotalCost { get; set; }
-        //[Required]
+
+        [Required(ErrorMessage = "चालु आ व को कायम मूल्य गणना गर्न सकिएन।")]
         [Display(Name = "चालु आ व को कायम मूल्य")]
         public decimal GrossCost { get; set; }
-        //[Required]
+        
+        [Required(ErrorMessage = "ह्रासकट्टी प्रतिशत अनिवार्य छ।")]
         [Display(Name = "ह्रासकट्टी प्रतिशत")]
+        [Range(1, 100.00, ErrorMessage = "ह्रासकट्टी प्रतिशत गलत भयो।")]
+        [RegularExpression(@"((\d+)+(\.\d+))$", ErrorMessage = "ह्रासकट्टी प्रतिशत गलत भयो।")]
+        [DataType(DataType.Currency, ErrorMessage = "ह्रासकट्टी प्रतिशत गलत भयो।")]
         public decimal DepreciationRate { get; set; }
 
-        //[Required]
+        [Required(ErrorMessage = "ह्रासकट्टी रकम गणना गर्न सकिएन।")]
         [Display(Name = "ह्रासकट्टी रकम")]
         public decimal DepreciationAmount { get; set; }
 
@@ -54,13 +59,16 @@ namespace TaxCalculator.Models
 
 
         [Display(Name = "आ व देखि")]
+        //[Required(ErrorMessage = "आ व अनिवार्य छ।")]
         public int? FromFiscalYearId { get; set; }
         [Display(Name = "आ व देखि")]
         public FiscalYear FromFiscalYear { get; set; }
 
         [Display(Name = "आ व सम्म")]
+        //[Required(ErrorMessage = "आ व अनिवार्य छ।")]
         public int? ToFiscalYearId { get; set; }
         [Display(Name = "आ व देखि")]
+        [Required(ErrorMessage = "आ व गणना गर्न सकिएन।")]
         public FiscalYear ToFiscalYear { get; set; }
     }
 }
