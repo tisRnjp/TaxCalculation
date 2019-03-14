@@ -52,7 +52,14 @@ namespace TaxCalculator.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(HouseTaxViewModel model)
-        {   
+        {
+
+            var fiscalYear = db.FiscalYears.First(c => c.Id == model.HouseTax.FromFiscalYearId);
+            model.HouseTax.FromFY = fiscalYear.FY;
+            model.HouseTax.TotalYears = fiscalYear.Sequence;
+            fiscalYear = db.FiscalYears.First(c => c.Id == model.HouseTax.ToFiscalYearId);
+            model.HouseTax.ToFY = fiscalYear.FY;
+            model.HouseTax.TotalYears = fiscalYear.Sequence - model.HouseTax.TotalYears + 1;
             db.HouseTaxHistories.Add(model.HouseTax);
 
             var citizenHouse = db.CitizenHouses.First(c => c.Id == model.HouseTax.CitizenHouseId);
@@ -101,6 +108,8 @@ namespace TaxCalculator.Controllers
             }
             return null;
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

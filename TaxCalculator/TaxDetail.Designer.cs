@@ -784,6 +784,12 @@ namespace TaxCalculator {
             
             private global::System.Data.DataColumn columnLastFYDepreciationAmount;
             
+            private global::System.Data.DataColumn columnFromFY;
+            
+            private global::System.Data.DataColumn columnToFY;
+            
+            private global::System.Data.DataColumn columnTotalYears;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public HouseTaxHistoryDataTable() {
@@ -915,6 +921,30 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FromFYColumn {
+                get {
+                    return this.columnFromFY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ToFYColumn {
+                get {
+                    return this.columnToFY;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TotalYearsColumn {
+                get {
+                    return this.columnTotalYears;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -950,7 +980,7 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HouseTaxHistoryRow AddHouseTaxHistoryRow(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, int CitizenHouseId, decimal LastFYGrossCost, decimal LastFYDepreciationRate, decimal LastFYDepreciationAmount) {
+            public HouseTaxHistoryRow AddHouseTaxHistoryRow(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, int CitizenHouseId, decimal LastFYGrossCost, decimal LastFYDepreciationRate, decimal LastFYDepreciationAmount, string FromFY, string ToFY, int TotalYears) {
                 HouseTaxHistoryRow rowHouseTaxHistoryRow = ((HouseTaxHistoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -964,7 +994,10 @@ namespace TaxCalculator {
                         CitizenHouseId,
                         LastFYGrossCost,
                         LastFYDepreciationRate,
-                        LastFYDepreciationAmount};
+                        LastFYDepreciationAmount,
+                        FromFY,
+                        ToFY,
+                        TotalYears};
                 rowHouseTaxHistoryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHouseTaxHistoryRow);
                 return rowHouseTaxHistoryRow;
@@ -1006,6 +1039,9 @@ namespace TaxCalculator {
                 this.columnLastFYGrossCost = base.Columns["LastFYGrossCost"];
                 this.columnLastFYDepreciationRate = base.Columns["LastFYDepreciationRate"];
                 this.columnLastFYDepreciationAmount = base.Columns["LastFYDepreciationAmount"];
+                this.columnFromFY = base.Columns["FromFY"];
+                this.columnToFY = base.Columns["ToFY"];
+                this.columnTotalYears = base.Columns["TotalYears"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1035,6 +1071,12 @@ namespace TaxCalculator {
                 base.Columns.Add(this.columnLastFYDepreciationRate);
                 this.columnLastFYDepreciationAmount = new global::System.Data.DataColumn("LastFYDepreciationAmount", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLastFYDepreciationAmount);
+                this.columnFromFY = new global::System.Data.DataColumn("FromFY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromFY);
+                this.columnToFY = new global::System.Data.DataColumn("ToFY", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToFY);
+                this.columnTotalYears = new global::System.Data.DataColumn("TotalYears", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalYears);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1050,6 +1092,8 @@ namespace TaxCalculator {
                 this.columnGrossCost.AllowDBNull = false;
                 this.columnDepreciationRate.AllowDBNull = false;
                 this.columnDepreciationAmount.AllowDBNull = false;
+                this.columnFromFY.MaxLength = 2147483647;
+                this.columnToFY.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2049,6 +2093,54 @@ namespace TaxCalculator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string FromFY {
+                get {
+                    try {
+                        return ((string)(this[this.tableHouseTaxHistory.FromFYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromFY\' in table \'HouseTaxHistory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHouseTaxHistory.FromFYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ToFY {
+                get {
+                    try {
+                        return ((string)(this[this.tableHouseTaxHistory.ToFYColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToFY\' in table \'HouseTaxHistory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHouseTaxHistory.ToFYColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int TotalYears {
+                get {
+                    try {
+                        return ((int)(this[this.tableHouseTaxHistory.TotalYearsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalYears\' in table \'HouseTaxHistory\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHouseTaxHistory.TotalYearsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsFYNull() {
                 return this.IsNull(this.tableHouseTaxHistory.FYColumn);
             }
@@ -2105,6 +2197,42 @@ namespace TaxCalculator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetLastFYDepreciationAmountNull() {
                 this[this.tableHouseTaxHistory.LastFYDepreciationAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFromFYNull() {
+                return this.IsNull(this.tableHouseTaxHistory.FromFYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFromFYNull() {
+                this[this.tableHouseTaxHistory.FromFYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsToFYNull() {
+                return this.IsNull(this.tableHouseTaxHistory.ToFYColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetToFYNull() {
+                this[this.tableHouseTaxHistory.ToFYColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTotalYearsNull() {
+                return this.IsNull(this.tableHouseTaxHistory.TotalYearsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTotalYearsNull() {
+                this[this.tableHouseTaxHistory.TotalYearsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3059,6 +3187,9 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             tableMapping.ColumnMappings.Add("LastFYGrossCost", "LastFYGrossCost");
             tableMapping.ColumnMappings.Add("LastFYDepreciationRate", "LastFYDepreciationRate");
             tableMapping.ColumnMappings.Add("LastFYDepreciationAmount", "LastFYDepreciationAmount");
+            tableMapping.ColumnMappings.Add("FromFY", "FromFY");
+            tableMapping.ColumnMappings.Add("ToFY", "ToFY");
+            tableMapping.ColumnMappings.Add("TotalYears", "TotalYears");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3067,7 +3198,7 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [HouseTaxHistory] ([CostPerUnitArea], [FY], [TotalArea], [TotalCost], [GrossCost], [DepreciationRate], [DepreciationAmount], [CitizenHouseId], [LastFYGrossCost], [LastFYDepreciationRate], [LastFYDepreciationAmount]) VALUES (@CostPerUnitArea, @FY, @TotalArea, @TotalCost, @GrossCost, @DepreciationRate, @DepreciationAmount, @CitizenHouseId, @LastFYGrossCost, @LastFYDepreciationRate, @LastFYDepreciationAmount)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [HouseTaxHistory] ([CostPerUnitArea], [FY], [TotalArea], [TotalCost], [GrossCost], [DepreciationRate], [DepreciationAmount], [CitizenHouseId], [LastFYGrossCost], [LastFYDepreciationRate], [LastFYDepreciationAmount], [FromFY], [ToFY], [TotalYears]) VALUES (@CostPerUnitArea, @FY, @TotalArea, @TotalCost, @GrossCost, @DepreciationRate, @DepreciationAmount, @CitizenHouseId, @LastFYGrossCost, @LastFYDepreciationRate, @LastFYDepreciationAmount, @FromFY, @ToFY, @TotalYears)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPerUnitArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CostPerUnitArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3080,9 +3211,12 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastFYGrossCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "LastFYGrossCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastFYDepreciationRate", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "LastFYDepreciationRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastFYDepreciationAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "LastFYDepreciationAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FromFY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FromFY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ToFY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ToFY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalYears", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalYears", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [HouseTaxHistory] SET [CostPerUnitArea] = @CostPerUnitArea, [FY] = @FY, [TotalArea] = @TotalArea, [TotalCost] = @TotalCost, [GrossCost] = @GrossCost, [DepreciationRate] = @DepreciationRate, [DepreciationAmount] = @DepreciationAmount, [CitizenHouseId] = @CitizenHouseId, [LastFYGrossCost] = @LastFYGrossCost, [LastFYDepreciationRate] = @LastFYDepreciationRate, [LastFYDepreciationAmount] = @LastFYDepreciationAmount WHERE (([Id] = @Original_Id))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [HouseTaxHistory] SET [CostPerUnitArea] = @CostPerUnitArea, [FY] = @FY, [TotalArea] = @TotalArea, [TotalCost] = @TotalCost, [GrossCost] = @GrossCost, [DepreciationRate] = @DepreciationRate, [DepreciationAmount] = @DepreciationAmount, [CitizenHouseId] = @CitizenHouseId, [LastFYGrossCost] = @LastFYGrossCost, [LastFYDepreciationRate] = @LastFYDepreciationRate, [LastFYDepreciationAmount] = @LastFYDepreciationAmount, [FromFY] = @FromFY, [ToFY] = @ToFY, [TotalYears] = @TotalYears WHERE (([Id] = @Original_Id))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPerUnitArea", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "CostPerUnitArea", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3095,6 +3229,9 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastFYGrossCost", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "LastFYGrossCost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastFYDepreciationRate", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "LastFYDepreciationRate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastFYDepreciationAmount", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 2, "LastFYDepreciationAmount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FromFY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FromFY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ToFY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ToFY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TotalYears", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TotalYears", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -3113,7 +3250,8 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Id, CostPerUnitArea, FY, TotalArea, TotalCost, GrossCost, Depreciat" +
                 "ionRate, DepreciationAmount, CitizenHouseId, LastFYGrossCost, LastFYDepreciation" +
-                "Rate, LastFYDepreciationAmount\r\nFROM            HouseTaxHistory";
+                "Rate, LastFYDepreciationAmount, FromFY, ToFY, TotalYears\r\nFROM            HouseT" +
+                "axHistory";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3196,7 +3334,7 @@ namespace TaxCalculator.TaxDetailTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId, global::System.Nullable<decimal> LastFYGrossCost, global::System.Nullable<decimal> LastFYDepreciationRate, global::System.Nullable<decimal> LastFYDepreciationAmount) {
+        public virtual int Insert(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId, global::System.Nullable<decimal> LastFYGrossCost, global::System.Nullable<decimal> LastFYDepreciationRate, global::System.Nullable<decimal> LastFYDepreciationAmount, string FromFY, string ToFY, global::System.Nullable<int> TotalYears) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((decimal)(CostPerUnitArea));
             if ((FY == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -3233,6 +3371,24 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
+            if ((FromFY == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(FromFY));
+            }
+            if ((ToFY == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(ToFY));
+            }
+            if ((TotalYears.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(TotalYears.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3253,7 +3409,7 @@ namespace TaxCalculator.TaxDetailTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId, global::System.Nullable<decimal> LastFYGrossCost, global::System.Nullable<decimal> LastFYDepreciationRate, global::System.Nullable<decimal> LastFYDepreciationAmount, int Original_Id) {
+        public virtual int Update(decimal CostPerUnitArea, string FY, decimal TotalArea, decimal TotalCost, decimal GrossCost, decimal DepreciationRate, decimal DepreciationAmount, global::System.Nullable<int> CitizenHouseId, global::System.Nullable<decimal> LastFYGrossCost, global::System.Nullable<decimal> LastFYDepreciationRate, global::System.Nullable<decimal> LastFYDepreciationAmount, string FromFY, string ToFY, global::System.Nullable<int> TotalYears, int Original_Id) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(CostPerUnitArea));
             if ((FY == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -3290,7 +3446,25 @@ namespace TaxCalculator.TaxDetailTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Id));
+            if ((FromFY == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(FromFY));
+            }
+            if ((ToFY == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(ToFY));
+            }
+            if ((TotalYears.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(TotalYears.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

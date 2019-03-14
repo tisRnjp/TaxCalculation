@@ -10,8 +10,11 @@ namespace TaxCalculator.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "आ व")]
-        public string  FY { get; set; }
+        [Display(Name = "आ व देखि")]
+        public string  FromFY { get; set; }
+
+        [Display(Name = "आ व सम्म")]
+        public string ToFY { get; set; }
 
         public decimal MyProperty { get; set; }
 

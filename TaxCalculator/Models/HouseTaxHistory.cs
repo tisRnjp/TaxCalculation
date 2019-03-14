@@ -23,8 +23,7 @@ namespace TaxCalculator.Models
 
         public string HouseCategory { get; set; }
 
-        //[Display(Name = "")]
-        //public decimal LastYearCost { get; set; }
+      
         //[Required]
         [Display(Name = "कायमी मुल्य")]
         public decimal TotalCost { get; set; }
@@ -54,11 +53,21 @@ namespace TaxCalculator.Models
         public int? CitizenHouseId{ get; set; }
         public CitizenHouse CitizenHouse { get; set; }
 
+        [Display(Name = "आ व देखि")]
+        public string FromFY { get; set; }
+
+        [Display(Name = "आ व सम्म")]
+        public string ToFY { get; set; }
+
+        [Display(Name = "आ व देखि")]
+        public int? TotalYears { get; set; }
 
         [Display(Name = "आ व देखि")]
         public int? FromFiscalYearId { get; set; }
         [Display(Name = "आ व देखि")]
         public FiscalYear FromFiscalYear { get; set; }
+
+
 
         [Display(Name = "आ व सम्म")]
         public int? ToFiscalYearId { get; set; }

@@ -270,6 +270,14 @@
     <Compile Include="Migrations\201903120823328_last fiscal year fields added to land tax valuation.Designer.cs">
       <DependentUpon>201903120823328_last fiscal year fields added to land tax valuation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903130543406_Fiscal year strings added to house taxhistory.cs" />
+    <Compile Include="Migrations\201903130543406_Fiscal year strings added to house taxhistory.Designer.cs">
+      <DependentUpon>201903130543406_Fiscal year strings added to house taxhistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903130724107_total year added to house tax.cs" />
+    <Compile Include="Migrations\201903130724107_total year added to house tax.Designer.cs">
+      <DependentUpon>201903130724107_total year added to house tax.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -720,6 +728,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903120823328_last fiscal year fields added to land tax valuation.resx">
       <DependentUpon>201903120823328_last fiscal year fields added to land tax valuation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903130543406_Fiscal year strings added to house taxhistory.resx">
+      <DependentUpon>201903130543406_Fiscal year strings added to house taxhistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903130724107_total year added to house tax.resx">
+      <DependentUpon>201903130724107_total year added to house tax.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
