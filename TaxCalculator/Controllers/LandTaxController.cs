@@ -78,7 +78,7 @@ namespace TaxCalculator.Controllers
             string ReportType = "pdf";
 
             LocalReport localReport = new LocalReport();
-            localReport.ReportPath = Server.MapPath("~/Reports/TaxReport.rdlc");
+            localReport.ReportPath = Server.MapPath("~/Reports/TaxReportMultiYear.rdlc");
 
             localReport.DataSources.Add(new ReportDataSource
             {

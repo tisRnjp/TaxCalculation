@@ -21,8 +21,6 @@ namespace TaxCalculator.Models
         [Required(ErrorMessage = "घरको बनावट अनिवार्य छ।")]
         public string HouseCategory { get; set; }
 
-        //[Display(Name = "")]
-        //public decimal LastYearCost { get; set; }
         [Required(ErrorMessage = "कायमी मुल्य गणना गर्न सकिएन।")]
         [Display(Name = "कायमी मुल्य")]
         public decimal TotalCost { get; set; }
@@ -57,12 +55,22 @@ namespace TaxCalculator.Models
         public int? CitizenHouseId{ get; set; }
         public CitizenHouse CitizenHouse { get; set; }
 
+        [Display(Name = "आ व देखि")]
+        public string FromFY { get; set; }
+
+        [Display(Name = "आ व सम्म")]
+        public string ToFY { get; set; }
+
+        [Display(Name = "आ व देखि")]
+        public int? TotalYears { get; set; }
 
         [Display(Name = "आ व देखि")]
         //[Required(ErrorMessage = "आ व अनिवार्य छ।")]
         public int? FromFiscalYearId { get; set; }
         [Display(Name = "आ व देखि")]
         public FiscalYear FromFiscalYear { get; set; }
+
+
 
         [Display(Name = "आ व सम्म")]
         //[Required(ErrorMessage = "आ व अनिवार्य छ।")]

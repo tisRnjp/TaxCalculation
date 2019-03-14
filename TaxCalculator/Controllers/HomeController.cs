@@ -152,7 +152,7 @@ namespace TaxCalculator.Controllers
                 Zones = db.Zones.ToList()
             };
 
-            //return View(citizen);
+
             return View(viewModel);
         }
 
