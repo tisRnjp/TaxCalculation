@@ -476,8 +476,6 @@
       <DependentUpon>OnlyCitizenDBDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
-    <None Include="Properties\PublishProfiles\CustomProfile2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -583,7 +581,6 @@
     <Content Include="Views\CitizenLand\CitizenLandForm.cshtml" />
     <Content Include="Views\CitizenLand\Details.cshtml" />
     <Content Include="Views\CitizenLand\Index.cshtml" />
-    <Content Include="Views\LandTax\Index.cshtml" />
     <Content Include="Views\LandTax\LandTaxCalculationForm.cshtml" />
     <Content Include="Views\HouseTax\Create.cshtml" />
     <Content Include="Views\HouseTax\Index.cshtml" />
@@ -624,9 +621,6 @@
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\HouseTaxSlab\Details.cshtml" />
-    <Content Include="Views\HouseTaxSlab\HouseLandTaxSlabForm.cshtml" />
-    <Content Include="Views\HouseTaxSlab\Index.cshtml" />
     <Content Include="Views\HouseLandTaxSlab\Index.cshtml" />
     <Content Include="Views\HouseLandTaxSlab\HouseLandTaxSlabForm.cshtml" />
     <Content Include="Views\HouseLandTaxSlab\Details.cshtml" />
@@ -634,6 +628,7 @@
     <Content Include="Views\FiscalYear\FiscalYearForm.cshtml" />
     <Content Include="Views\FiscalYear\Index.cshtml" />
     <Content Include="Views\Home\_CitizenDetails.cshtml" />
+    <Content Include="Views\LandTax\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

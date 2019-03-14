@@ -25,7 +25,7 @@ namespace TaxCalculator.Controllers
                 LandTaxHistories = landTaxHistories
             };
 
-            return View(landTaxViewModel);
+            return View(landTaxViewModel.LandTaxHistories);
         }
 
      

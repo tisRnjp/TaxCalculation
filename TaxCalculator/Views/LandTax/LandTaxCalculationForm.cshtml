@@ -95,6 +95,14 @@
                     </div>
 
                     <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.Remarks, new { @class = "form-control", id = "land-remark"})
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
                         @Html.LabelFor(model => model.LandValuations, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.DropDownListFor(model => model.LandTaxHistory.LandCategory, new SelectList(Model.LandValuations, "LandType", "Description"), " ", new { @class = "form-control", id = "land-category" })

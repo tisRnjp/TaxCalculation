@@ -83,8 +83,9 @@ namespace TaxCalculator.Controllers
                     CitizenLandId = citizenLand.Id,
                     HouseTaxHistoryId = model.HouseTax.Id,
                     FromFiscalYearId = model.HouseTax.FromFiscalYearId,
-                    ToFiscalYearId = model.HouseTax.ToFiscalYearId
-                    
+                    ToFiscalYearId = model.HouseTax.ToFiscalYearId,
+                    ToFY = model.HouseTax.ToFY,
+                    FromFY = model.HouseTax.FromFY
 
 
                 };

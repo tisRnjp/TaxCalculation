@@ -1,77 +1,106 @@
-﻿@model TaxCalculator.ViewModels.LandTaxViewModel
+﻿@model IEnumerable<TaxCalculator.Models.LandTaxHistory>
+
 @{
-    ViewBag.Title = "Land Tax Calculation";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Index</h2>
 
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Citizen.CitizenshipNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CitizenLand.VDC)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.HouseTaxHistory.HouseCategory)
+        </th>
+ 
+        <th>
+            @Html.DisplayNameFor(model => model.FromFY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToFY)
+        </th>
+    
+        <th>
+            @Html.DisplayNameFor(model => model.ValuationArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActualValuationArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CostPerUnitArea)
+        </th>
+    
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastFYCostPerUnitArea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastFYTotalCost)
+        </th>
+        @*<th></th>*@
+    </tr>
 
-<div class="container">
-    <div class="page-header">
-        <h2>जग्गा तर्फ को कर सुची</h2>
-    </div>
-</div>
-
-
-
-<div class="row">
-    <div class="col-md-12">
-        <table id="landtax" class="table">
-            <thead class="thead-light">
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">कित्ता नम्बर.</th>
-                    <th scope="col">शीट नम्बर</th>
-                    <th scope="col">वदा नम्बर</th>
-                    <th scope="col">मुल्यांकन हुने क्ष फ</th>
-                    <th scope="col">आ व</th>
-                    <th scope="col">प्रति व मी दर</th>
-                    <th scope="col">हालको जग्गा को मूल्य</th>
-                    <th scope="col">कार्यहरु</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var landtax in Model.LandTaxHistories)
-                {
-                    <tr>
-                        <th scope="row">@landtax.Id</th>
-                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.KittaNo)  </td>
-                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.SheetNo)  </td>
-                        <td> @(landtax.CitizenLand == null ? "" : landtax.CitizenLand.WardNo)  </td>
-
-                        <td>@landtax.ValuationArea</td>
-                        <td>@landtax.FY</td>
-                        <td>@landtax.CostPerUnitArea</td>
-                        <td>@landtax.TotalCost</td>
-                        <td>
-                            @Html.ActionLink("थप जानकारी (Details)", "Details", new { Id = landtax.Id }) /
-                            @Html.ActionLink("सम्पादन गर्नुहोस् (Edit)", "Edit", "LandTax", new { Id = landtax.Id }, null)
-
-                        </td>
-                    </tr>
-
-                }
-
-            </tbody>
-        </table>
-
-
-    </div>
-
-
-
-</div>
-
-
-
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            $("#landtax").DataTable();
-        });
-    </script>
-
-
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Citizen.CitizenshipNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CitizenLand.VDC)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.HouseTaxHistory.HouseCategory)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.FromFY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToFY)
+        </td>
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.ValuationArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActualValuationArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CostPerUnitArea)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastFYCostPerUnitArea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastFYTotalCost)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>*@
+    </tr>
 }
+
+</table>

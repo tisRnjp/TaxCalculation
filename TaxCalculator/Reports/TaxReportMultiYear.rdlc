@@ -1322,7 +1322,7 @@
         <DataSetName>HouseTax</DataSetName>
         <Top>0.605in</Top>
         <Height>1.01041in</Height>
-        <Width>7.04155in</Width>
+        <Width>7.04152in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2550,14 +2550,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox178">
+                    <Textbox Name="Remarks">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Fields!Remarks.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                               </Style>
@@ -2566,7 +2566,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox178</rd:DefaultName>
+                      <rd:DefaultName>Remarks</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2578,6 +2578,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -3193,7 +3194,7 @@
         </TablixRowHierarchy>
         <DataSetName>LandTax</DataSetName>
         <Top>1.6925in</Top>
-        <Height>1.20833in</Height>
+        <Height>1.20834in</Height>
         <Width>7.04465in</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -6583,7 +6584,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -6736,7 +6736,7 @@
         <DataSetName>HouseTax</DataSetName>
         <Top>2.97391in</Top>
         <Height>2.19277in</Height>
-        <Width>7.05194in</Width>
+        <Width>7.05195in</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
