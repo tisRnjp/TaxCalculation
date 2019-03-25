@@ -36,7 +36,7 @@ namespace TaxCalculator.Controllers
                 return RedirectToAction("Index", "CitizenHouse");
             }
             //Needs Working CitienHouse Must have citizen ID...................................................................
-            var citizenHouse = db.CitizenHouses.Single(h => h.Id == id);
+            var citizenHouse = db.CitizenHouses.Single(h => h.CitizenId == id);
             var houseTax = new HouseTaxViewModel();
             if(citizenHouse != null)
             {
@@ -69,7 +69,7 @@ namespace TaxCalculator.Controllers
             //Move to land calculations
 
             //Needs Working Must be obtained from citizen ID...................................................................
-            var citizenLand = db.CitizenLands.First(c => c.Id == citizenHouse.Id);
+            var citizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId);
             var landTaxViewModel = new LandTaxViewModel();
             if (citizenLand != null)
             {

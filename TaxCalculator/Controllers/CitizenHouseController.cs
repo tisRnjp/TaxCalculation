@@ -140,20 +140,20 @@ namespace TaxCalculator.Controllers
 
             if (viewModel.CitizenHouse.Id == 0)
             {
-                // Save image to folder and get path
-                var imageName = String.Format("{0:yyyyMMdd-HHmmssfff}", DateTime.Now);
-                var extension = System.IO.Path.GetExtension(viewModel.CitizenHouse.ImageUpload.FileName).ToLower();
-                using (var img = System.Drawing.Image.FromStream(viewModel.CitizenHouse.ImageUpload.InputStream))
-                {
-                    viewModel.CitizenHouse.Image = String.Format("/CitizenHouseImages/{0}{1}", imageName, extension);
-                    //product.Thumb = String.Format("/ProductImages/{0}_thumb{1}", imageName, extension);
+                //// Save image to folder and get path
+                //var imageName = String.Format("{0:yyyyMMdd-HHmmssfff}", DateTime.Now);
+                //var extension = System.IO.Path.GetExtension(viewModel.CitizenHouse.ImageUpload.FileName).ToLower();
+                //using (var img = System.Drawing.Image.FromStream(viewModel.CitizenHouse.ImageUpload.InputStream))
+                //{
+                //    viewModel.CitizenHouse.Image = String.Format("/CitizenHouseImages/{0}{1}", imageName, extension);
+                //    //product.Thumb = String.Format("/ProductImages/{0}_thumb{1}", imageName, extension);
 
-                    //// Save thumbnail size image, 100 x 100
-                    //SaveToFolder(img, extension, new Size(100, 100), product.Thumb);
+                //    //// Save thumbnail size image, 100 x 100
+                //    //SaveToFolder(img, extension, new Size(100, 100), product.Thumb);
 
-                    // Save large size image, 600 x 600
-                    SaveToFolder(img, extension, new Size(600, 600), viewModel.CitizenHouse.Image);
-                }
+                //    // Save large size image, 600 x 600
+                //    SaveToFolder(img, extension, new Size(600, 600), viewModel.CitizenHouse.Image);
+                //}
 
                 db.CitizenHouses.Add(viewModel.CitizenHouse);
 

@@ -10,8 +10,8 @@ namespace TaxCalculator.Models
         [Display(Name = "गा वि स")]
         public string VDC { get; set; }
 
-        [Required(ErrorMessage = "वदा नम्बर अनिवार्य छ।")]
-        [Display(Name = "वदा नम्बर")]
+        [Required(ErrorMessage = "वडा नम्बर अनिवार्य छ।")]
+        [Display(Name = "वडा नम्बर")]
         public string WardNo { get; set; }
 
         [Required(ErrorMessage = "शीट नम्बर अनिवार्य छ।")]

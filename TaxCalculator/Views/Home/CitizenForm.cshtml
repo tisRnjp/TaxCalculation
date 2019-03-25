@@ -12,63 +12,201 @@
 @using (Html.BeginForm("Save", "Home"))
 {
     <div class="form-horizontal">
+        <hr/>
+        <div class="container">
+            <div class="panel-group">
 
-        @*@Html.ValidationSummary()*@
-        @Html.ValidationSummary(true, "Please fix the following errors.")
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.FirstName)
-            @Html.TextBoxFor(m => m.Citizen.FirstName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.FirstName)
+                @*@Html.ValidationSummary()*@
+                @*@Html.ValidationSummary(true, "Please fix the following errors.")*@
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#CitizenDetail">नागरिकको विवरण</a>
+                        </h4>
+                    </div>
+                    
+                    <div id="CitizenDetail" class="panel-collapse collapse">
+                        <hr />
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.FirstName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.FirstName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.LastName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.CitizenshipNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.CitizenshipNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.CitizenshipNo)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.KittaNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.KittaNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.KittaNo)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.ZoneId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(m => m.Citizen.ZoneId, new SelectList(Model.Zones, "Id", "Code"), "Select Zone", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.ZoneId)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.District, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.District, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.District)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.StreetName, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.StreetName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.StreetName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.Wardno, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.Wardno, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.Wardno)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Citizen.Municipality, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Citizen.Municipality)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#HouseDetail">नागरिकको घरको विवरण</a>
+                        </h4>
+                    </div>
+                    
+                    <div id="HouseDetail" class="panel-collapse collapse">
+                        <hr />
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenHouse.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenHouse.Area, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CitizenHouse.Area)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenHouse.Floor, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenHouse.Floor, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CitizenHouse.Floor)
+                            </div>
+                        </div>
+
+                        @*<div class="form-group row">
+        @Html.LabelFor(m => m.CitizenHouse.CitizenId, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.CitizenHouse.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control" })
+        </div>
+         </div>*@
+
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#LandDetail">नागरिकको जग्गाको विवरण</a>
+                        </h4>
+                    </div>
+                    
+                    <div id="LandDetail" class="panel-collapse collapse">
+                        <hr />
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenLand.VDC, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.VDC, new { @class = "form-control", @id = "land-vdc" })
+                                @Html.ValidationMessageFor(m => m.CitizenLand.VDC)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenLand.WardNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.WardNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CitizenLand.WardNo)
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenLand.SheetNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.SheetNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CitizenLand.SheetNo)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenLand.KittaNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.KittaNo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CitizenLand.KittaNo)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CitizenLand.ValuationArea, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.ValuationArea, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.CitizenLand.ValuationArea)
+                            </div>
+                        </div>
+
+
+                        @*<div class="form-group">
+        @Html.LabelFor(m => m.CitizenLand.CitizenId)
+        @Html.DropDownListFor(m => m.CitizenLand.CitizenId, new SelectList(Model.Citizens, "CitizenId", "FirstName"), "Select Citizen", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CitizenLand.CitizenId)
+        </div>*@
+
+                    </div>
+                </div>
+
+                @Html.HiddenFor(m => m.CitizenLand.Id)
+                @Html.HiddenFor(m => m.CitizenHouse.Id)
+                @Html.HiddenFor(m => m.Citizen.CitizenId)
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-primary"> Save</button>
+            </div>
 
         </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.LastName)
-            @Html.TextBoxFor(m => m.Citizen.LastName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.LastName)
-        </div>
-
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.CitizenshipNo)
-            @Html.TextBoxFor(m => m.Citizen.CitizenshipNo, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.CitizenshipNo)
-        </div>
-
-
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.ZoneId)
-            @Html.DropDownListFor(m => m.Citizen.ZoneId, new SelectList(Model.Zones, "Id", "Code"), "Select Zone", new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.ZoneId)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.District)
-            @Html.TextBoxFor(m => m.Citizen.District, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.District)
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.StreetName)
-            @Html.TextBoxFor(m => m.Citizen.StreetName, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.StreetName)
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.Wardno)
-            @Html.TextBoxFor(m => m.Citizen.Wardno, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.Wardno)
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Citizen.Municipality)
-            @Html.TextBoxFor(m => m.Citizen.Municipality, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Citizen.Municipality)
-        </div>
-
-        @Html.HiddenFor(m => m.Citizen.CitizenId)
-        @Html.AntiForgeryToken()
-        <button type="submit" class="btn btn-primary"> Save</button>
     </div>
- }
+}
 
 
         @*<iframe src="http://nepalicalendar.rat32.com/addons/nepali-calendar-aja-ko-din.php" frameborder="0"
@@ -80,4 +218,3 @@
 
         }
 
-    

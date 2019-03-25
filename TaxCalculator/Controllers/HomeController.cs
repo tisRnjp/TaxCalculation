@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
 using TaxCalculator.ViewModels;
+using System.Data.Entity.Validation;
+using System;
 
 namespace TaxCalculator.Controllers
 {
@@ -71,21 +73,22 @@ namespace TaxCalculator.Controllers
         public ActionResult Save(CitizenViewModel viewModel) 
         {
 
-            if (!ModelState.IsValid)
-            {
-                var invalidViewModel = new CitizenViewModel
-                {
-                    Citizen = viewModel.Citizen,
-                    Zones = db.Zones.ToList()
-                };
-                return View("CitizenForm",invalidViewModel);
+            //if (!ModelState.IsValid)
+            //{
+            //    var invalidViewModel = new CitizenViewModel
+            //    {
+            //        Citizen = viewModel.Citizen,
+            //        Zones = db.Zones.ToList()
+            //    };
+            //    return View("CitizenForm",invalidViewModel);
 
-            }
+            //}
 
 
             if (viewModel.Citizen.CitizenId == 0)
             {
                 db.Citizens.Add(viewModel.Citizen);
+                db.SaveChanges();
             }
             else
             {
@@ -98,10 +101,71 @@ namespace TaxCalculator.Controllers
                 citizenInDB.Wardno = viewModel.Citizen.Wardno;
                 citizenInDB.CitizenshipNo = viewModel.Citizen.CitizenshipNo;
                 citizenInDB.Municipality = viewModel.Citizen.Municipality;
+                citizenInDB.KittaNo = viewModel.Citizen.KittaNo;
+
+                db.SaveChanges();
+            }
+
+
+            if (viewModel.CitizenHouse.Id == 0)
+            {
+                viewModel.CitizenHouse.CitizenId = viewModel.Citizen.CitizenId;
+                db.CitizenHouses.Add(viewModel.CitizenHouse);
+                
+                db.SaveChanges();
+            }
+            else
+            {
+                
+
+                var citizenHouseInDB = db.CitizenHouses.Single(c => c.Id == viewModel.CitizenHouse.Id);
+                citizenHouseInDB.Length = viewModel.CitizenHouse.Length;
+                citizenHouseInDB.Width = viewModel.CitizenHouse.Width;
+                citizenHouseInDB.Area = viewModel.CitizenHouse.Area;
+                citizenHouseInDB.Floor = viewModel.CitizenHouse.Floor;
+                citizenHouseInDB.CitizenId = viewModel.Citizen.CitizenId;
+                db.SaveChanges();
+              
+            }
+
+            if (viewModel.CitizenLand.Id == 0)
+            {
+                viewModel.CitizenLand.CitizenId = viewModel.Citizen.CitizenId;
+                db.CitizenLands.Add(viewModel.CitizenLand);
+                db.SaveChanges();
+            }
+            else
+            {
+                var citizenLandInDB = db.CitizenLands.Single(c => c.Id == viewModel.CitizenLand.Id);
+                citizenLandInDB.VDC = viewModel.CitizenLand.VDC;
+                citizenLandInDB.WardNo = viewModel.CitizenLand.WardNo;
+                citizenLandInDB.SheetNo = viewModel.CitizenLand.SheetNo;
+                citizenLandInDB.KittaNo = viewModel.CitizenLand.KittaNo;
+                citizenLandInDB.ValuationArea = viewModel.CitizenLand.ValuationArea;
+                citizenLandInDB.CitizenId = viewModel.Citizen.CitizenId;
+                db.SaveChanges();
 
             }
+
+            //try
+            //{
+                
+            //}
+            //catch(DbEntityValidationException e)
+            //{
+            //    foreach (var eve in e.EntityValidationErrors)
+            //    {
+            //        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+            //            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+            //        foreach (var ve in eve.ValidationErrors)
+            //        {
+            //            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+            //                ve.PropertyName, ve.ErrorMessage);
+            //        }
+            //    }
+            //    throw;
+            //}
             
-            db.SaveChanges();
             return RedirectToAction("Index","Home");
         }
 
@@ -114,6 +178,8 @@ namespace TaxCalculator.Controllers
 
             var citizens = db.Citizens.ToList();
             var citizen = db.Citizens.Find(citizenID);
+            var citizenHouse = db.CitizenHouses.FirstOrDefault(c => c.CitizenId == citizenID);
+            var citizenLand = db.CitizenLands.FirstOrDefault(c => c.CitizenId == citizenID);
 
             if (citizen == null)
             {
@@ -123,7 +189,9 @@ namespace TaxCalculator.Controllers
             var viewModel = new CitizenViewModel
             {
                 Citizen = citizen,
-                Zones = db.Zones.ToList()
+                Zones = db.Zones.ToList(),
+                CitizenHouse = citizenHouse,
+                CitizenLand = citizenLand
             };
 
             ViewBag.title = "Edit";
