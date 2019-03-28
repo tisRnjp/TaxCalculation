@@ -8,6 +8,7 @@ using TaxCalculator.DAL;
 using TaxCalculator.Models;
 using TaxCalculator.ViewModels;
 using Microsoft.Reporting.WebForms;
+using System.IO;
 
 namespace TaxCalculator.Controllers
 {
@@ -66,13 +67,38 @@ namespace TaxCalculator.Controllers
             //    return View("LandTaxCalculationForm", invalidViewModel);
 
             //}
-
+        //     [Display(Name = "चारकिल्ला प्रमाणित गरिएको बारे")]
+        //public HttpPostedFileBase File { get; set; }
+        //[Display(Name = "घर बाटो खुलाई पठाएको बारे")]
+        //public HttpPostedFileBase File1 { get; set; }
+        //[Display(Name = "नाता प्रमाण")]
+        //public HttpPostedFileBase File2 { get; set; }
+        //[Display(Name = "विवाह प्रमाण")]
+        //public HttpPostedFileBase File3 { get; set; }
 
             if (viewModel.LandTaxHistory.Id == 0)
             {
                 db.LandTaxHistories.Add(viewModel.LandTaxHistory);
+                db.SaveChanges();
+
+                var fileName = "CharKilla-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File.FileName);// Path.GetFileName(viewModel.File.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                viewModel.File.SaveAs(path);
+
+                fileName = "RoadOpening-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File1.FileName);// Path.GetFileName(viewModel.File.FileName);
+                path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                viewModel.File.SaveAs(path);
+
+                fileName = "RelationshipCertificate-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File2.FileName);// Path.GetFileName(viewModel.File.FileName);
+                path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                viewModel.File.SaveAs(path);
+
+                fileName = "MarriageCertificate-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File3.FileName);// Path.GetFileName(viewModel.File.FileName);
+                path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                viewModel.File.SaveAs(path);
+
             }
-            db.SaveChanges();
+            
 
 
             string ReportType = "pdf";
@@ -133,9 +159,18 @@ namespace TaxCalculator.Controllers
             renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
                                     out fileNameExtension, out streams, out warnings);
             Response.AddHeader("content-disposition", "attachment:filename= TaxReport." + fileNameExtension);
+            //Writing to File
+            var reportName = "LandTaxHistory-" + viewModel.LandTaxHistory.Id + "KittaNo-TaxReport"  + viewModel.CitizenLand.KittaNo + "." +  fileNameExtension;// Path.GetFileName(viewModel.File.FileName);
+            var reportPath = Path.Combine(Server.MapPath("~/App_Data"), reportName);
+           
+            using (FileStream fileStream = System.IO.File.Create(reportPath, renderByte.Length))
+            {
+                fileStream.Write(renderByte, 0, renderByte.Length);
+            }
+
             return File(renderByte, fileNameExtension);
 
-            //return RedirectToAction("Index", "LandTax");
+            //return RedirectToAction("Index", "Home");
         }
 
 

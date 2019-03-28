@@ -11,8 +11,9 @@
 
 <h2>जग्गा तर्फ</h2>
 
+@*@using (Html.BeginForm("Save", "LandTax", new { @enctype = "multipart/form-data" }))*@
+@using (Html.BeginForm("Save", "LandTax", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 
-@using (Html.BeginForm("Save", "LandTax"))
 {
     <div class="form-horizontal">
         <hr />
@@ -97,7 +98,7 @@
                     <div class="form-group row">
                         @Html.LabelFor(m => m.LandTaxHistory.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.LandTaxHistory.Remarks, new { @class = "form-control", id = "land-remark"})
+                            @Html.TextBoxFor(m => m.LandTaxHistory.Remarks, new { @class = "form-control", id = "land-remark" })
                         </div>
                     </div>
 
@@ -156,37 +157,92 @@
                     </div>
 
                     <div class="form-group row">
-
                         @Html.LabelFor(m => m.LandTaxHistory.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
                             @Html.TextBoxFor(m => m.LandTaxHistory.TotalCost, new { @class = "form-control", id = "land-total", @readonly = true })
                         </div>
+                    </div>
 
+                    <div class="form-group row">
+                        @Html.LabelFor(x => x.File, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="File" class="form-control" />
+                            @*@Html.TextBoxFor(m => m.File, new { type = "file", @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(x => x.File)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(x => x.File1, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="File1" class="form-control" />
+                            @*@Html.TextBoxFor(m => m.File, new { type = "file", @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(x => x.File)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(x => x.File2, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="File2" class="form-control" />
+                            @*@Html.TextBoxFor(m => m.File, new { type = "file", @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(x => x.File)*@
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(x => x.File3, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="file" name="File3" class="form-control" />
+                            @*@Html.TextBoxFor(m => m.File, new { type = "file", @class = "form-control" })*@
+                            @*@Html.ValidationMessageFor(x => x.File)*@
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Button</button>
+                        </div>
+                    </div>
+
+                    <label class="btn btn-default btn-file">
+                        Browse <input type="file" style="display: none;">
+                    </label>
+
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                            <span class="btn btn-primary">
+                                Browse&hellip; <input type="file" style="display: none;" multiple>
+                            </span>
+                        </label>
+                        <input type="text" class="form-control" readonly>
                     </div>
 
                 </div>
-
-
+                @Html.HiddenFor(m => m.LandTaxHistory.FromFY)
+                @Html.HiddenFor(m => m.LandTaxHistory.ToFY)
+                @Html.HiddenFor(m => m.LandTaxHistory.KittaNo)
                 @Html.HiddenFor(m => m.LandTaxHistory.HouseTaxHistoryId)
                 @Html.HiddenFor(m => m.LandTaxHistory.CitizenLandId)
                 @Html.HiddenFor(m => m.LandTaxHistory.Id)
                 @Html.AntiForgeryToken()
-                <button type="submit" class="btn btn-primary">Save and Print</button>
-
-
-                @*<button type="submit" name="save" class="btn btn-primary" formaction="LandTax/Save" >Save</button>
-                    <button type="submit" name="print" class="btn btn-primary" formaction="LandTax/TaxReport">Print</button>*@
-
-                @*@Html.ActionLink("Save", "Save", "LandTax", new { @class = "btn btn-primary" } )*@
+                <button type="submit" class="btn btn-primary" @((Model.LandTaxHistory.Id > 0) ? "disabled" : "")>Save and Print</button>
+                <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+                    <span>Done</span>
+                </a>
             </div>
         </div>
     </div>
 }
 
-    @section scripts{
-        @Scripts.Render("~/bundles/jqueryval")
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
 
-        <script>
+    <script>
         $(document).ready(function () {
             $("#cost").change(function () {
                 console.log($("#cost").val() * $("#area").val());
@@ -230,6 +286,6 @@
 
         });
 
-        </script>
+    </script>
 
-    }
+}

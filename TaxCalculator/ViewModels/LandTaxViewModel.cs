@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web;
 using TaxCalculator.Models;
 
 namespace TaxCalculator.ViewModels
@@ -23,6 +24,16 @@ namespace TaxCalculator.ViewModels
 
         [Display(Name = "Fiscal Year")]
         public List<FiscalYear> FiscalYears { get; set; }
+
+        [Display(Name = "चारकिल्ला प्रमाणित गरिएको बारे")]
+        public HttpPostedFileBase File { get; set; }
+        [Display(Name = "घर बाटो खुलाई पठाएको बारे")]
+        public HttpPostedFileBase File1 { get; set; }
+        [Display(Name = "नाता प्रमाण")]
+        public HttpPostedFileBase File2 { get; set; }
+        [Display(Name = "विवाह प्रमाण")]
+        public HttpPostedFileBase File3 { get; set; }
+
 
 
     }

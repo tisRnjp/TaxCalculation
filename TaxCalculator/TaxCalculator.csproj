@@ -302,6 +302,10 @@
     <Compile Include="Migrations\201903250809521_removed required for citizen.Designer.cs">
       <DependentUpon>201903250809521_removed required for citizen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903280636542_kitta no added to land tax history.cs" />
+    <Compile Include="Migrations\201903280636542_kitta no added to land tax history.Designer.cs">
+      <DependentUpon>201903280636542_kitta no added to land tax history.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -733,6 +737,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903250809521_removed required for citizen.resx">
       <DependentUpon>201903250809521_removed required for citizen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903280636542_kitta no added to land tax history.resx">
+      <DependentUpon>201903280636542_kitta no added to land tax history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />

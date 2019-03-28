@@ -5,22 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>जग्गा तर्फ को कर सुची</h2>
 
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Citizen.CitizenshipNo)
-        </th>
+      
         <th>
             @Html.DisplayNameFor(model => model.CitizenLand.VDC)
         </th>
      
-        <th>
-            @Html.DisplayNameFor(model => model.HouseTaxHistory.HouseCategory)
-        </th>
- 
+       
         <th>
             @Html.DisplayNameFor(model => model.FromFY)
         </th>
@@ -55,17 +50,12 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Citizen.CitizenshipNo)
-        </td>
+      
         <td>
             @Html.DisplayFor(modelItem => item.CitizenLand.VDC)
         </td>
        
-        <td>
-            @Html.DisplayFor(modelItem => item.HouseTaxHistory.HouseCategory)
-        </td>
-      
+       
         <td>
             @Html.DisplayFor(modelItem => item.FromFY)
         </td>

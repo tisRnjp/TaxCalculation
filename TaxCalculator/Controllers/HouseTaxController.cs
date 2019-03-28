@@ -68,7 +68,7 @@ namespace TaxCalculator.Controllers
 
             //Move to land calculations
 
-            //Needs Working Must be obtained from citizen ID...................................................................
+            
             var citizenLand = db.CitizenLands.First(c => c.CitizenId == citizenHouse.CitizenId);
             var landTaxViewModel = new LandTaxViewModel();
             if (citizenLand != null)
@@ -85,7 +85,8 @@ namespace TaxCalculator.Controllers
                     FromFiscalYearId = model.HouseTax.FromFiscalYearId,
                     ToFiscalYearId = model.HouseTax.ToFiscalYearId,
                     ToFY = model.HouseTax.ToFY,
-                    FromFY = model.HouseTax.FromFY
+                    FromFY = model.HouseTax.FromFY,
+                    KittaNo = citizenLand.KittaNo
 
 
                 };
