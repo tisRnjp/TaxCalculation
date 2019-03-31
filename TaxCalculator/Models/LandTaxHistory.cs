@@ -69,5 +69,16 @@ namespace TaxCalculator.Models
         [Display(Name = "आ व सम्म")]
         public FiscalYear ToFiscalYear { get; set; }
 
+        [Display(Name = "चारकिल्ला प्रमाणित गरिएको बारे")]
+        public string File { get; set; }
+
+        [Display(Name = "घर बाटो खुलाई पठाएको बारे")]
+        public string File1 { get; set; }
+
+        [Display(Name = "नाता प्रमाण")]
+        public string File2 { get; set; }
+
+        [Display(Name = "विवाह प्रमाण")]
+        public string File3 { get; set; }
     }
 }

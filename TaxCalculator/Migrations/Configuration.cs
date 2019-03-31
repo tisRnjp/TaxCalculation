@@ -50,9 +50,9 @@
 
             var citizenHouse = new List<CitizenHouse>
             {
-                new CitizenHouse{ Area=2923.31m, Floor=2.5m,CitizenId=1},
-                new CitizenHouse{ Area=1285.11m, Floor=5,CitizenId=2},
-                new CitizenHouse{ Area=1156.12m, Floor=1,CitizenId=3}
+                new CitizenHouse{Id=1, Area=2923.31m, Floor=2.5m,CitizenId=1},
+                new CitizenHouse{Id=2, Area=1285.11m, Floor=5,CitizenId=2},
+                new CitizenHouse{Id=3, Area=1156.12m, Floor=1,CitizenId=3}
             };
 
             citizenHouse.ForEach(h => context.CitizenHouses.AddOrUpdate(h));
@@ -62,11 +62,11 @@
 
             var houseValuation = new List<HouseValuation>
             {
-                new HouseValuation{ Description="भित्र काँचो बाहिर पाको ईट्टामा माटोको जोडाई भएको वा काठै काठबाट बनेको र जस्ता, झिङ्गति, टायल, एसवेसतसको छाना भएको घर",CostPerArea=600,DepreciationRate=3,DepreciationPeriod=25,HouseType="क",FiscalYearId=5},
-                new HouseValuation{ Description="भित्र बाहिर सिमेन्ट प्लास्टर गरि छाना ढलान वा आर वि सि गरिएको वा जस्ता, टायल, जिङ्गति, एसवेसटसको छाना भएको",CostPerArea=750,DepreciationRate=2,DepreciationPeriod=30,HouseType="ख",FiscalYearId=5},
-                new HouseValuation{ Description="भित्र बाहिर पाको ईट्टा वा ढुंगामा सिमेन्ट प्लास्टर गरि छाना ढलान (आर सी सी वा आर वि सी ) गरिएको घर",CostPerArea=1750,DepreciationRate=1,DepreciationPeriod=70,HouseType="ग",FiscalYearId=5},
-                new HouseValuation{ Description="आर सी सी फ्रेम स्तरकचरमा लिफ्ट / एस्कलेटर जडान भएको घर",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="घ",FiscalYearId=5},
-                new HouseValuation{ Description="स्टील फ्रेम स्तरकचर, फ्रविङत्रास, फाईवर वा यस्तै संग्रचना ",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="ङ",FiscalYearId=5}
+                new HouseValuation{Id =1, Description="भित्र काँचो बाहिर पाको ईट्टामा माटोको जोडाई भएको वा काठै काठबाट बनेको र जस्ता, झिङ्गति, टायल, एसवेसतसको छाना भएको घर",CostPerArea=600,DepreciationRate=3,DepreciationPeriod=25,HouseType="क",FiscalYearId=5},
+                new HouseValuation{Id =2, Description="भित्र बाहिर सिमेन्ट प्लास्टर गरि छाना ढलान वा आर वि सि गरिएको वा जस्ता, टायल, जिङ्गति, एसवेसटसको छाना भएको",CostPerArea=750,DepreciationRate=2,DepreciationPeriod=30,HouseType="ख",FiscalYearId=5},
+                new HouseValuation{Id =3, Description="भित्र बाहिर पाको ईट्टा वा ढुंगामा सिमेन्ट प्लास्टर गरि छाना ढलान (आर सी सी वा आर वि सी ) गरिएको घर",CostPerArea=1750,DepreciationRate=1,DepreciationPeriod=70,HouseType="ग",FiscalYearId=5},
+                new HouseValuation{Id =4, Description="आर सी सी फ्रेम स्तरकचरमा लिफ्ट / एस्कलेटर जडान भएको घर",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="घ",FiscalYearId=5},
+                new HouseValuation{Id =5, Description="स्टील फ्रेम स्तरकचर, फ्रविङत्रास, फाईवर वा यस्तै संग्रचना ",CostPerArea=1800,DepreciationRate=0.75m,DepreciationPeriod=100,HouseType="ङ",FiscalYearId=5}
             };
 
             houseValuation.ForEach(h => context.HouseValuations.AddOrUpdate(h));
@@ -79,10 +79,10 @@
                 //new LandValuation{ Description="भित्रि सहायक पिच सडक प्रति आना",LandType= "इ",CostPerAnna=400000,FiscalYearId=4},
                 //new LandValuation{ Description="मूल पिच सडक प्रति आना",LandType="ई",CostPerAnna=800000,FiscalYearId=4},
 
-                new LandValuation{ Description="गोरेटो बाटो भएको प्रति आना",LandType="अ",CostPerAnna=100000,FiscalYearId=5},
-                new LandValuation{ Description="कच्ची / ग्राभेल सडक प्रति आना",LandType= "आ",CostPerAnna=300000,FiscalYearId=5},
-                new LandValuation{ Description="भित्रि सहायक पिच सडक प्रति आना",LandType= "इ",CostPerAnna=400000,FiscalYearId=5},
-                new LandValuation{ Description="मूल पिच सडक प्रति आना",LandType="ई",CostPerAnna=800000,FiscalYearId=5},
+                new LandValuation{Id =1, Description="गोरेटो बाटो भएको प्रति आना",LandType="अ",CostPerAnna=100000,FiscalYearId=5},
+                new LandValuation{Id =2, Description="कच्ची / ग्राभेल सडक प्रति आना",LandType= "आ",CostPerAnna=300000,FiscalYearId=5},
+                new LandValuation{Id =4, Description="मूल पिच सडक प्रति आना",LandType="ई",CostPerAnna=800000,FiscalYearId=5},
+                new LandValuation{Id =3, Description="भित्रि सहायक पिच सडक प्रति आना",LandType= "इ",CostPerAnna=400000,FiscalYearId=5},
 
             };
 
@@ -91,11 +91,11 @@
 
             var houseLandTaxSlabs = new List<HouseLandTaxSlab>
             {
-                new HouseLandTaxSlab{ Sequence=1,LowerLimit=0,UpperLimit=3000000,Range=3000000,TaxAmount=500,TaxPercent=0,FirstSlab=true,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
-                new HouseLandTaxSlab{ Sequence=2,LowerLimit=3000001,UpperLimit=5000000,Range=2000000,TaxAmount=0,TaxPercent=0.08m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
-                new HouseLandTaxSlab{ Sequence=3,LowerLimit=5000001,UpperLimit=10000000,Range=5000000,TaxAmount=500,TaxPercent=0.15m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
-                new HouseLandTaxSlab{ Sequence=4,LowerLimit=10000001,UpperLimit=20000000,Range=10000000,TaxAmount=500,TaxPercent=0.25m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
-                new HouseLandTaxSlab{ Sequence=5,LowerLimit=20000000,UpperLimit=0,Range=0,TaxAmount=500,TaxPercent=0.35m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{Id =1, Sequence=1,LowerLimit=0,UpperLimit=3000000,Range=3000000,TaxAmount=500,TaxPercent=0,FirstSlab=true,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{Id =2, Sequence=2,LowerLimit=3000001,UpperLimit=5000000,Range=2000000,TaxAmount=0,TaxPercent=0.08m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{Id =4, Sequence=3,LowerLimit=5000001,UpperLimit=10000000,Range=5000000,TaxAmount=500,TaxPercent=0.15m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{Id =3, Sequence=4,LowerLimit=10000001,UpperLimit=20000000,Range=10000000,TaxAmount=500,TaxPercent=0.25m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
+                new HouseLandTaxSlab{Id =5, Sequence=5,LowerLimit=20000000,UpperLimit=0,Range=0,TaxAmount=500,TaxPercent=0.35m,FirstSlab=false,StartDate=DateTime.Today,EndDate=DateTime.Today.AddDays(365),FiscalYear="74/75"},
 
             };
 

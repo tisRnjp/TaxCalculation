@@ -306,6 +306,10 @@
     <Compile Include="Migrations\201903280636542_kitta no added to land tax history.Designer.cs">
       <DependentUpon>201903280636542_kitta no added to land tax history.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903291130383_image paths added to landtax history.cs" />
+    <Compile Include="Migrations\201903291130383_image paths added to landtax history.Designer.cs">
+      <DependentUpon>201903291130383_image paths added to landtax history.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -653,6 +657,7 @@
     <Content Include="Views\FiscalYear\Index.cshtml" />
     <Content Include="Views\Home\_CitizenDetails.cshtml" />
     <Content Include="Views\LandTax\Index.cshtml" />
+    <Content Include="Views\LandTax\ReviewImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -740,6 +745,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903280636542_kitta no added to land tax history.resx">
       <DependentUpon>201903280636542_kitta no added to land tax history.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903291130383_image paths added to landtax history.resx">
+      <DependentUpon>201903291130383_image paths added to landtax history.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />

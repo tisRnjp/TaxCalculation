@@ -9,6 +9,8 @@ using TaxCalculator.Models;
 using TaxCalculator.ViewModels;
 using Microsoft.Reporting.WebForms;
 using System.IO;
+using System.Drawing;
+using System.Net;
 
 namespace TaxCalculator.Controllers
 {
@@ -81,21 +83,34 @@ namespace TaxCalculator.Controllers
                 db.LandTaxHistories.Add(viewModel.LandTaxHistory);
                 db.SaveChanges();
 
+                var history = db.LandTaxHistories.SingleOrDefault(l => l.Id == viewModel.LandTaxHistory.Id);
+
+
                 var fileName = "CharKilla-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File.FileName);// Path.GetFileName(viewModel.File.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                var path = Path.Combine(Server.MapPath("/Resources/Images"), fileName);
                 viewModel.File.SaveAs(path);
+                path = "/Resources/Images/" + fileName;
+                history.File = path;
 
                 fileName = "RoadOpening-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File1.FileName);// Path.GetFileName(viewModel.File.FileName);
-                path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
-                viewModel.File.SaveAs(path);
+                path = Path.Combine(Server.MapPath("/Resources/Images"), fileName); 
+                viewModel.File1.SaveAs(path);
+                path = "/Resources/Images/" + fileName;
+                history.File1 = path;
 
                 fileName = "RelationshipCertificate-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File2.FileName);// Path.GetFileName(viewModel.File.FileName);
-                path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
-                viewModel.File.SaveAs(path);
+                path = Path.Combine(Server.MapPath("/Resources/Images"), fileName);
+                viewModel.File2.SaveAs(path);
+                path = "/Resources/Images/" + fileName;
+                history.File2 = path;
 
                 fileName = "MarriageCertificate-" + viewModel.LandTaxHistory.Id + "-KittaNo-" + viewModel.CitizenLand.KittaNo + Path.GetExtension(viewModel.File3.FileName);// Path.GetFileName(viewModel.File.FileName);
-                path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
-                viewModel.File.SaveAs(path);
+                path = Path.Combine(Server.MapPath("/Resources/Images"), fileName);
+                viewModel.File3.SaveAs(path);
+                path = "/Resources/Images/" + fileName;
+                history.File3 = path;
+
+                db.SaveChanges();
 
             }
             
@@ -161,7 +176,7 @@ namespace TaxCalculator.Controllers
             Response.AddHeader("content-disposition", "attachment:filename= TaxReport." + fileNameExtension);
             //Writing to File
             var reportName = "LandTaxHistory-" + viewModel.LandTaxHistory.Id + "KittaNo-TaxReport"  + viewModel.CitizenLand.KittaNo + "." +  fileNameExtension;// Path.GetFileName(viewModel.File.FileName);
-            var reportPath = Path.Combine(Server.MapPath("~/App_Data"), reportName);
+            var reportPath = Path.Combine(Server.MapPath("~/Resources/Files"), reportName);
            
             using (FileStream fileStream = System.IO.File.Create(reportPath, renderByte.Length))
             {
@@ -173,6 +188,22 @@ namespace TaxCalculator.Controllers
             //return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult ReviewImages(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var history = db.LandTaxHistories.FirstOrDefault(l => l.Id == Id);
+
+            if (history == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            return View(history);
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]

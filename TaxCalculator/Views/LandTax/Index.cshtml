@@ -8,89 +8,125 @@
 <h2>जग्गा तर्फ को कर सुची</h2>
 
 
-<table class="table">
-    <tr>
-      
-        <th>
-            @Html.DisplayNameFor(model => model.CitizenLand.VDC)
-        </th>
-     
-       
-        <th>
-            @Html.DisplayNameFor(model => model.FromFY)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ToFY)
-        </th>
-    
-        <th>
-            @Html.DisplayNameFor(model => model.ValuationArea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActualValuationArea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remarks)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CostPerUnitArea)
-        </th>
-    
-        <th>
-            @Html.DisplayNameFor(model => model.TotalCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastFYCostPerUnitArea)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastFYTotalCost)
-        </th>
-        @*<th></th>*@
-    </tr>
+<table id="history" class="table">
+    <thead class="thead-light">
+        <tr>
 
-@foreach (var item in Model) {
-    <tr>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.CitizenLand.VDC)
-        </td>
-       
-       
-        <td>
-            @Html.DisplayFor(modelItem => item.FromFY)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ToFY)
-        </td>
-    
-        <td>
-            @Html.DisplayFor(modelItem => item.ValuationArea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActualValuationArea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remarks)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CostPerUnitArea)
-        </td>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalCost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastFYCostPerUnitArea)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastFYTotalCost)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
-    </tr>
-}
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
 
+            <th>
+                @Html.DisplayNameFor(model => model.KittaNo)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CitizenLand.VDC)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FromFY)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ToFY)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ValuationArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ActualValuationArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CostPerUnitArea)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastFYCostPerUnitArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastFYTotalCost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                  <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.KittaNo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CitizenLand.VDC)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromFY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToFY)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValuationArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualValuationArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostPerUnitArea)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastFYCostPerUnitArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastFYTotalCost)
+                </td>
+                <td>
+                    @Html.ActionLink("Preview Files", "ReviewImages", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#history").DataTable();
+
+
+
+
+        });
+
+
+
+    </script>
+
+
+}

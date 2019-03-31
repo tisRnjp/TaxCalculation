@@ -1,0 +1,80 @@
+﻿@model TaxCalculator.Models.LandTaxHistory
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Preview</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KittaNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KittaNo)
+        </dd>
+
+        <br\>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File)
+        </dt>
+
+        <dd>
+            @*<img src="@Url.Content(Model.File)" width="300" height="300" />*@
+            <a class="btn btn-primary" href="@Url.Content(Model.File)" target="_blank" role="button"><img src="\Resources\Images\preview.png" height="20" width="20"> फाइल खोल्नुहोस</a>
+            @*@Html.DisplayFor(model => model.File)*@
+        </dd>
+
+        <br\>
+
+        <dt>
+
+            @Html.DisplayNameFor(model => model.File1)
+        </dt>
+
+        <dd>
+            @*<img src="@Url.Content(Model.File1)" width="300" height="300" />*@
+            <a class="btn btn-primary" href="@Url.Content(Model.File1)" target="_blank" role="button"><img src="\Resources\Images\preview.png" height="20" width="20"> फाइल खोल्नुहोस</a>
+        </dd>
+
+        <br\>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.File2)
+        </dt>
+
+        <dd>
+            @*<img src="@Url.Content(Model.File2)" width="300" height="300" />*@
+            <a class="btn btn-primary" href="@Url.Content(Model.File2)" target="_blank" role="button"><img src="\Resources\Images\preview.png" height="20" width="20"> फाइल खोल्नुहोस</a>
+        </dd>
+
+        
+        <div class="form-group">
+                
+        </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.File3)
+        </dt>
+
+        <dd>
+            @*<img src="@Url.Content(Model.File3)" width="300" height="300" />*@
+            
+            <a class="btn btn-primary" href="@Url.Content(Model.File3)" target="_blank" role="button"><img src="\Resources\Images\preview.png" height="20" width="20"> फाइल खोल्नुहोस</a>
+        </dd>
+
+    </dl>
+    <!--http://127.0.0.1:8887/002.jpg-->
+    
+
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

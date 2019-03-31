@@ -249,7 +249,7 @@
                         }
 
                         //Current Year Calculation
-                        $("#house-depreciationRate").val($("#house-LastFYdepreciationRate").val() * 1 + houseValuation.DepreciationRate);
+                        $("#house-depreciationRate").val($("#house-LastFYdepreciationRate").val() * 1.00 + houseValuation.DepreciationRate);
                         //Calculate depreciation amount and gross cost
                         if ($("#house-totalCost").val() !== null && $("#house-depreciationRate").val() !== null) {
                             $("#house-grossCost").val($("#house-totalCost").val() - ($("#house-depreciationRate").val() * $("#house-totalCost").val() * 0.01));
