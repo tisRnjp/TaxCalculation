@@ -2,6 +2,6 @@ packages/
 bin/
 obj/
 .vs/
-
+TaxCalculator/Resources/
 *.lock
 web.config

@@ -11,6 +11,7 @@ using Microsoft.Reporting.WebForms;
 using System.IO;
 using System.Drawing;
 using System.Net;
+using System.Web.UI.WebControls;
 
 namespace TaxCalculator.Controllers
 {
@@ -156,36 +157,89 @@ namespace TaxCalculator.Controllers
             string encoding;
             string fileNameExtension;
 
-            //if (ReportType == "Excel")
-            //{
-            //    fileNameExtension = "xlsx";
-            //}
-            //else if (ReportType == "PDF")
-            //{
-            //    fileNameExtension = "pdf";
-            //}
-            //else
-            //{
-            //    fileNameExtension = "docx";
-            //}
+          
             string[] streams;
             Warning[] warnings;
             byte[] renderByte;
             renderByte = localReport.Render(reportType, "", out mimeType, out encoding,
                                     out fileNameExtension, out streams, out warnings);
             Response.AddHeader("content-disposition", "attachment:filename= TaxReport." + fileNameExtension);
+
             //Writing to File
             var reportName = "LandTaxHistory-" + viewModel.LandTaxHistory.Id + "KittaNo-TaxReport"  + viewModel.CitizenLand.KittaNo + "." +  fileNameExtension;// Path.GetFileName(viewModel.File.FileName);
             var reportPath = Path.Combine(Server.MapPath("~/Resources/Files"), reportName);
-           
             using (FileStream fileStream = System.IO.File.Create(reportPath, renderByte.Length))
             {
                 fileStream.Write(renderByte, 0, renderByte.Length);
             }
 
-            return File(renderByte, fileNameExtension);
 
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
+            reportViewer.Width = Unit.Percentage(900);
+            reportViewer.Height = Unit.Percentage(900);
+            reportViewer.LocalReport.ReportPath = localReport.ReportPath;
+            foreach(var dataSource in localReport.DataSources)
+            {
+                reportViewer.LocalReport.DataSources.Add(dataSource);
+            }
+            ViewBag.ReportViewer = reportViewer;
+
+            return View();
+
+            //return File(renderByte, fileNameExtension);
             //return RedirectToAction("Index", "Home");
+        }
+
+
+        public ActionResult ReportViewer(int? Id)
+        {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            var history = db.LandTaxHistories.FirstOrDefault(l => l.Id == Id);
+
+            if (history == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+            }
+
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.SizeToReportContent = true;
+            reportViewer.Width = Unit.Percentage(1000);
+            reportViewer.Height = Unit.Percentage(900);
+            if (history.FromFY == history.ToFY)
+            {
+                reportViewer.LocalReport.ReportPath = Server.MapPath("~/Reports/TaxReport.rdlc");
+            }
+            else
+                
+            {
+                reportViewer.LocalReport.ReportPath = Server.MapPath("~/Reports/TaxReportMultiYear.rdlc");
+            }
+
+            
+
+            ReportDataSource reportDataSource = new ReportDataSource();
+            
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource
+            {
+                Name = "HouseTax",
+                Value = db.HouseTaxHistories.Where(h => h.Id == history.HouseTaxHistoryId).ToList()
+            });
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = db.LandTaxHistories.Where(l => l.Id == history.Id).ToList() });
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = db.Citizens.Where(c => c.CitizenId == history.CitizenId).ToList() });
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "Lands", Value = db.CitizenLands.Where(l => l.CitizenId == history.CitizenId).ToList() });
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "houses", Value = db.CitizenHouses.Where(l => l.CitizenId == history.CitizenId).ToList() });
+
+
+            ViewBag.ReportViewer = reportViewer;
+            return View("Save");
+
         }
 
         public ActionResult ReviewImages(int? Id)

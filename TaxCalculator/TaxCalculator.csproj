@@ -658,6 +658,8 @@
     <Content Include="Views\Home\_CitizenDetails.cshtml" />
     <Content Include="Views\LandTax\Index.cshtml" />
     <Content Include="Views\LandTax\ReviewImages.cshtml" />
+    <Content Include="Views\LandTax\ReportViewer.cshtml" />
+    <Content Include="Views\LandTax\Save.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,14 +18,14 @@
     <div class="col-md-12">
         <section id="loginForm">
             @*@using (Html.BeginForm("Details", "Home", FormMethod.Get))
-                {
-                    <div class="form-group">
-                        <label for="CitizenSearchString">नागरिकता नं.</label>*@
+        {
+            <div class="form-group">
+                <label for="CitizenSearchString">नागरिकता नं.</label>*@
             @*<input type="number" class="form-control" id="CitizenSearchString" placeholder="नागरिकता नं. राख्नुहोस्।"/>*@
             @*@Html.TextBoxFor(m => m.citizenID, new { @class = "form-control", placeholder = "नागरिकता नं. राख्नुहोस्।" })*@
             @*</div>
-                    <input type="submit" class="btn btn-primary" value="खोजी गर्नुहोस्।" />
-                }*@
+            <input type="submit" class="btn btn-primary" value="खोजी गर्नुहोस्।" />
+        }*@
 
             <br />
             @Html.ActionLink("नयाँ करदाता थप्न्नुहोस् ", "New", "Home", null, new { @class = "btn btn-primary" })
@@ -33,17 +33,19 @@
             <br />
 
             @*@using (Html.BeginForm())
-                {
-                    <p>
-                        Search Name: @Html.TextBox("Search_Data")
-                        <input class="btn btn-primary" type="submit" value="खोजी गर्नुहोस्।" />
-                    </p>
+        {
+            <p>
+                Search Name: @Html.TextBox("Search_Data")
+                <input class="btn btn-primary" type="submit" value="खोजी गर्नुहोस्।" />
+            </p>
 
-                }*@
-
-
+        }*@
 
 
+
+
+            
+            @Html.ActionLink("Preview", "CitizensReportViewer") |
             @Html.ActionLink("Excel मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "Excel" }) |
             @Html.ActionLink("PDF मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "PDF" }) |
             @Html.ActionLink("Word मा सम्पेसन गर्नुहोस", "Reports", new { ReportType = "Word" })

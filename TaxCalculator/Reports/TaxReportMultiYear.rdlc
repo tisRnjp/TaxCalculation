@@ -2578,7 +2578,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -7102,6 +7101,7 @@
                 <TextRun>
                   <Value>१० न वडा कार्यालय</Value>
                   <Style>
+                    <FontFamily>preeti</FontFamily>
                     <FontSize>11pt</FontSize>
                   </Style>
                 </TextRun>
@@ -7117,9 +7117,7 @@
           <Height>0.29167in</Height>
           <Width>2.9375in</Width>
           <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
+            <Border />
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -7346,6 +7344,7 @@
                 <TextRun>
                   <Value>बुढानिलकण्ठ नगरपालिका कार्यालय</Value>
                   <Style>
+                    <FontFamily>Preeti</FontFamily>
                     <FontSize>12pt</FontSize>
                   </Style>
                 </TextRun>
@@ -7378,7 +7377,9 @@
               <TextRuns>
                 <TextRun>
                   <Value> आकाशेधारा, कपन काठमाडौँ </Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>preeti</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>
@@ -7393,9 +7394,7 @@
           <Width>2.52084in</Width>
           <ZIndex>9</ZIndex>
           <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
+            <Border />
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>

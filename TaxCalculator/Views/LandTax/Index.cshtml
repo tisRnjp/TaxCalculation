@@ -106,7 +106,8 @@
                     @Html.DisplayFor(modelItem => item.LastFYTotalCost)
                 </td>
                 <td>
-                    @Html.ActionLink("Preview Files", "ReviewImages", new { id = item.Id })
+                    @Html.ActionLink("Preview Files", "ReviewImages", new { id = item.Id })|
+                    @Html.ActionLink("Preview Report", "ReportViewer", new { id = item.Id })
                 </td>
             </tr>
         }

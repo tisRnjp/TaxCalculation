@@ -237,13 +237,9 @@ namespace TaxCalculator.Controllers
             reportDataSource.Name = "DataSet1";
             reportDataSource.Value = db.Citizens.ToList();
             reportViewer.LocalReport.DataSources.Add(reportDataSource);
-
-
             ViewBag.ReportViewer = reportViewer;
+            return View();            
 
-            return View();
-
-            
         }
 
         
