@@ -1708,7 +1708,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -2443,7 +2442,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>घर जग्गा रहेको ठेगाना जिल्ला: काठमाडौँ न पा बुढानिलकण्ठ वडा न १० साविक गा वि स कपन वडा न ३ </Value>
+                              <Value>घर जग्गा रहेको ठेगाना जिल्ला: काठमाडौं न पा बुढानिलकण्ठ वडा न १० साविक गा. वि. स. कपन वडा नं. ३ </Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -4823,9 +4822,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>अचेरेपी रु </Value>
+                              <Value>अक्षेरेपी रु </Value>
                               <Style>
-                                <FontSize>8pt</FontSize>
+                                <FontSize>7pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -5251,8 +5250,9 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>१० न वडा कार्यालय</Value>
+                  <Value>१० नं. वडा कार्यालय</Value>
                   <Style>
+                    <FontFamily>preeti</FontFamily>
                     <FontSize>11pt</FontSize>
                   </Style>
                 </TextRun>
@@ -5284,7 +5284,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>३ न प्रदेश, नेपाल </Value>
+                  <Value>३ नं प्रदेश, नेपाल </Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -5330,7 +5330,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value EvaluationMode="Constant">प्र स :</Value>
+                  <Value>प. सं :</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                   </Style>
@@ -5361,7 +5361,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value EvaluationMode="Constant">च न:</Value>
+                  <Value>च. नं:</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                   </Style>
@@ -5528,8 +5528,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value> आकाशेधारा, कपन काठमाडौँ </Value>
-                  <Style />
+                  <Value> आकाशेधारा, कपन काठमाडौं </Value>
+                  <Style>
+                    <FontFamily>preeti</FontFamily>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style>

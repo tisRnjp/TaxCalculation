@@ -59,7 +59,7 @@ namespace TaxCalculator.Controllers
             model.HouseTax.TotalYears = fiscalYear.Sequence;
             fiscalYear = db.FiscalYears.First(c => c.Id == model.HouseTax.ToFiscalYearId);
             model.HouseTax.ToFY = fiscalYear.FY;
-            model.HouseTax.TotalYears = fiscalYear.Sequence - model.HouseTax.TotalYears + 1;
+            model.HouseTax.TotalYears = fiscalYear.Sequence - model.HouseTax.TotalYears;
             db.HouseTaxHistories.Add(model.HouseTax);
 
             var citizenHouse = db.CitizenHouses.First(c => c.Id == model.HouseTax.CitizenHouseId);

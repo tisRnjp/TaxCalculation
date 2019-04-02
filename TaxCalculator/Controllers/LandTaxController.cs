@@ -225,6 +225,7 @@ namespace TaxCalculator.Controllers
             
 
             ReportDataSource reportDataSource = new ReportDataSource();
+            reportViewer.ShowPrintButton = true;
             
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource
             {
