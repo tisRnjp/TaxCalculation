@@ -206,9 +206,9 @@
                 @Html.HiddenFor(m => m.LandTaxHistory.Id)
                 @Html.AntiForgeryToken()
                 <button type="submit" class="btn btn-primary" @((Model.LandTaxHistory.Id > 0) ? "disabled" : "")>Save and Print</button>
-                <a href="@Url.Action("Index", "Home")" class="btn btn-primary">
+                @*<a href="@Url.Action("Index", "Home")" class="btn btn-primary">
                     <span>Done</span>
-                </a>
+                </a>*@
             </div>
         </div>
     </div>
@@ -227,7 +227,7 @@
 
             });
 
-            $("#land-category").on("change", function () {
+            @*$("#land-category").on("change", function () {
                 console.log('change event fired ' + $("#land-category").val());
                 var selectedCategory = $("#land-category").val();
                 console.log('a');
@@ -244,7 +244,7 @@
                     }
                 });
 
-            });
+            });*@
 
             $("#land-cost").blur(function () {
                 //Calculate total cost

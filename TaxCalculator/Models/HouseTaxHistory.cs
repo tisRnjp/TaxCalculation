@@ -44,6 +44,9 @@ namespace TaxCalculator.Models
         public decimal? LastFYGrossCost { get; set; }
 
         [Display(Name = "गत वर्ष सम्म को ह्रासकट्टी प्रतिशत")]
+        [Range(1, 100.00, ErrorMessage = "ह्रासकट्टी प्रतिशत गलत भयो।")]
+        [RegularExpression(@"((\d+)+(\.\d+))$", ErrorMessage = "ह्रासकट्टी प्रतिशत गलत भयो।")]
+        [DataType(DataType.Currency, ErrorMessage = "ह्रासकट्टी प्रतिशत गलत भयो।")]
         public decimal? LastFYDepreciationRate { get; set; }
 
         [Display(Name = "गत वर्ष सम्म को ह्रासकट्टी प्रतिशत")]
