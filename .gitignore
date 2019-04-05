@@ -5,3 +5,4 @@ obj/
 TaxCalculator/Resources/
 *.lock
 web.config
+ignore/
