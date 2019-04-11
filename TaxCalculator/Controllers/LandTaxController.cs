@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Microsoft.Reporting.WebForms;
+using System;
 using System.Data.Entity;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using TaxCalculator.DAL;
 using TaxCalculator.Models;
 using TaxCalculator.ViewModels;
-using Microsoft.Reporting.WebForms;
-using System.IO;
-using System.Drawing;
-using System.Net;
-using System.Web.UI.WebControls;
 
 namespace TaxCalculator.Controllers
 {
@@ -113,8 +110,172 @@ namespace TaxCalculator.Controllers
 
                 db.SaveChanges();
 
+                //Updating TaxHistory
+                var houseTax = db.HouseTaxHistories
+                                    .FirstOrDefault(h => h.Id == viewModel.LandTaxHistory.HouseTaxHistoryId);
+
+                
+                var taxHistory = new TaxHistory {
+                    CitizenId = (int)viewModel.LandTaxHistory.CitizenId,
+                    HoustTaxId = (int)viewModel.LandTaxHistory.HouseTaxHistoryId,
+                    LandTaxId = viewModel.LandTaxHistory.Id,
+
+
+                    HousTotalArea = houseTax.TotalArea,
+                    HousGrossCost = houseTax.GrossCost,
+                    HousLastFYGrossCost = houseTax.LastFYGrossCost,
+                    ToFY = houseTax.ToFY,
+                    FromFY = houseTax.FromFY,
+                    TotalYears = houseTax.TotalYears,
+
+                    LandTaxKittaNo = viewModel.LandTaxHistory.KittaNo,
+                    LandTaxLastFYCost = viewModel.LandTaxHistory.LastFYTotalCost,
+                    LandTaxCost = viewModel.LandTaxHistory.TotalCost,
+                    LandTaxArea = viewModel.LandTaxHistory.ActualValuationArea,
+
+
+                    TotalValuation = houseTax.GrossCost + viewModel.LandTaxHistory.TotalCost,
+                    
+                    Date = DateTime.Now
+                };
+                if (taxHistory.FromFY != taxHistory.ToFY)
+                {
+                    taxHistory.LastFYTotalValuation = (decimal)(houseTax.LastFYGrossCost + viewModel.LandTaxHistory.LastFYTotalCost);
+                }
+                else
+                {
+                    taxHistory.LastFYTotalValuation = 0.00m;
+                }
+                
+                //LastFY Calculation
+                #region finalhistory
+                var Slab1 = new decimal();
+                var Slab2 = new decimal();
+                var Slab3 = new decimal();
+                var Slab4 = new decimal();
+                var Slab5 = new decimal();
+                var totalTax = 0.00m;
+                if (taxHistory.TotalYears > 1)
+                {
+                    //1st
+                    if (taxHistory.LastFYTotalValuation >= 3000000m)
+                    {
+                        totalTax = 500;
+                    }
+
+                    //2
+                    if (taxHistory.LastFYTotalValuation >= 5000000m)
+                    {
+                        Slab2 = 2000000m;
+                    }
+                    else
+                    {
+                        if ((taxHistory.LastFYTotalValuation - 3000000m) < 0)
+                        {
+                            Slab2 = 0;
+                        }
+                        else
+                        {
+                            Slab2 = (taxHistory.LastFYTotalValuation - 3000000m); 
+                        };
+                    }
+                    totalTax += (Slab2 * 0.0008m);
+
+                    //3
+                    if (taxHistory.LastFYTotalValuation >= 10000000m)
+                    {
+                        Slab3 = 5000000;
+                    }
+                    else
+                    {
+                        if ((taxHistory.LastFYTotalValuation - 5000000m) < 0)
+                        {
+                            Slab3 = 0;
+                        }
+                        else
+                        {
+                            Slab3 = (taxHistory.LastFYTotalValuation - 5000000m);
+                        };
+                    }
+                    totalTax += (Slab3 * 0.0015m);
+
+                    //4
+                    if ((taxHistory.LastFYTotalValuation - 10000000m) < 0)
+                    {
+                        Slab4 = 0;
+                    }
+                    else
+                    {
+                        Slab4 = (taxHistory.LastFYTotalValuation - 10000000m);
+                    };
+                    totalTax += (Slab4 * 0.0025m);
+
+                    totalTax *= (decimal)taxHistory.TotalYears;
+                }
+
+
+                //CurrentFY
+                //1st
+                if (taxHistory.TotalValuation >= 3000000m)
+                {
+                    totalTax += 500;
+                }
+
+                //2
+                if (taxHistory.TotalValuation >= 5000000m)
+                {
+                    Slab2 = 2000000m;
+                }
+                else
+                {
+                    if ((taxHistory.TotalValuation - 3000000m) < 0)
+                    {
+                        Slab2 = 0;
+                    }
+                    else
+                    {
+                        Slab2 = (taxHistory.TotalValuation - 3000000m);
+                    };
+                }
+                totalTax += (Slab2 * 0.0004m);
+
+                //3
+                if (taxHistory.TotalValuation >= 10000000m)
+                {
+                    Slab3 = 5000000;
+                }
+                else
+                {
+                    if ((taxHistory.TotalValuation - 5000000m) < 0)
+                    {
+                        Slab3 = 0;
+                    }
+                    else
+                    {
+                        Slab3 = (taxHistory.TotalValuation - 5000000m);
+                    };
+                }
+                totalTax += (Slab3 * 0.0008m);
+
+                //4
+                if ((taxHistory.TotalValuation - 10000000m) < 0)
+                {
+                    Slab4 = 0;
+                }
+                else
+                {
+                    Slab4 = (taxHistory.TotalValuation - 10000000m);
+                };
+                totalTax += (Slab4 * 0.0013m);
+
+
+                taxHistory.TotalTax = totalTax;
+                db.TaxHistories.Add(taxHistory);
+                db.SaveChanges();
+                #endregion
             }
-            
+
+
 
 
             string ReportType = "pdf";

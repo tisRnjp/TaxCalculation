@@ -98,14 +98,18 @@ namespace TaxCalculator.Controllers
             ReportDataSource reportDataSource = new ReportDataSource();
             reportViewer.ShowPrintButton = true;
 
+            var taxHistory = db.TaxHistories.Where(t => t.CitizenId == Id);
+
             var citizenHouse = db.CitizenHouses.FirstOrDefault(h => h.CitizenId == Id);
             var landTaxHistories = db.LandTaxHistories.Where(l => l.CitizenId == Id);
             var houseTaxHisories = db.HouseTaxHistories.Where(h => h.CitizenHouseId == citizenHouse.Id);
             var citizen = db.Citizens.Where(c => c.CitizenId == Id);
-
+            
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "LandTax", Value = landTaxHistories.ToList() });
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "HouseTax", Value = houseTaxHisories.ToList() });
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = citizen.ToList() });
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "Citizen", Value = citizen.ToList() });
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource { Name = "TaxHistoryDataset", Value = taxHistory.ToList() });
             ViewBag.ReportViewer = reportViewer;
             return View("ReportViewer");
         }

@@ -2327,7 +2327,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!ValuationArea.Value</Value>
+                              <Value>=Fields!ActualValuationArea.Value</Value>
                               <Style>
                                 <FontSize>7pt</FontSize>
                                 <Format>#,0.00;(#,0.00)</Format>
@@ -2349,6 +2349,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

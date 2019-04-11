@@ -315,6 +315,18 @@
     <Compile Include="Migrations\201904040055004_Adition of formating to lastFY depreciation rate in house tax.Designer.cs">
       <DependentUpon>201904040055004_Adition of formating to lastFY depreciation rate in house tax.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904110309260_taxhistoryadded.cs" />
+    <Compile Include="Migrations\201904110309260_taxhistoryadded.Designer.cs">
+      <DependentUpon>201904110309260_taxhistoryadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904110315453_specific 2 taxhistory id added.cs" />
+    <Compile Include="Migrations\201904110315453_specific 2 taxhistory id added.Designer.cs">
+      <DependentUpon>201904110315453_specific 2 taxhistory id added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904110402582_fields added to taxhistory.cs" />
+    <Compile Include="Migrations\201904110402582_fields added to taxhistory.Designer.cs">
+      <DependentUpon>201904110402582_fields added to taxhistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Citizen.cs" />
@@ -346,6 +358,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TaxDetail.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TaxHistoryDatasetValues.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TaxHistoryDatasetValues.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CitizenViewModel.cs" />
     <Compile Include="ViewModels\HistoryDetailViewModel.cs" />
@@ -669,6 +686,17 @@
     <Content Include="Views\LandTax\Save.cshtml" />
     <Content Include="Views\HistoryDetail\HistoryDetail.cshtml" />
     <Content Include="Views\HistoryDetail\ReportViewer.cshtml" />
+    <Content Include="TaxHistoryDatasetValues.xsc">
+      <DependentUpon>TaxHistoryDatasetValues.xsd</DependentUpon>
+    </Content>
+    <None Include="TaxHistoryDatasetValues.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TaxHistoryDatasetValues.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="TaxHistoryDatasetValues.xss">
+      <DependentUpon>TaxHistoryDatasetValues.xsd</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -762,6 +790,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904040055004_Adition of formating to lastFY depreciation rate in house tax.resx">
       <DependentUpon>201904040055004_Adition of formating to lastFY depreciation rate in house tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110309260_taxhistoryadded.resx">
+      <DependentUpon>201904110309260_taxhistoryadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110315453_specific 2 taxhistory id added.resx">
+      <DependentUpon>201904110315453_specific 2 taxhistory id added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904110402582_fields added to taxhistory.resx">
+      <DependentUpon>201904110402582_fields added to taxhistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
