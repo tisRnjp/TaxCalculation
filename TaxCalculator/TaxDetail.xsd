@@ -2,7 +2,7 @@
 <xs:schema id="TaxDetail" targetNamespace="http://tempuri.org/TaxDetail.xsd" xmlns:mstns="http://tempuri.org/TaxDetail.xsd" xmlns="http://tempuri.org/TaxDetail.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="CitizenDbContext" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CitizenDbContext (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.CitizenDbContext.ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -232,14 +232,26 @@ FROM            LandTaxHistory</CommandText>
             <Sources />
           </TableAdapter>
         </Tables>
-        <Sources />
+        <Sources>
+          <DbSource ConnectionRef="CitizenDbContext (Web.config)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="JoinQuery" MethodsParameterType="CLR" Modifier="Public" Name="JoinQuery" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="JoinQuery">
+            <SelectCommand>
+              <DbCommand CommandType="Text" ModifiedByUser="true">
+                <CommandText>SELECT        HouseTaxHistory.TotalArea, HouseTaxHistory.LastFYGrossCost, LandTaxHistory.KittaNo, LandTaxHistory.LastFYTotalCost, LandTaxHistory.TotalCost, LandTaxHistory.ActualValuationArea, LandTaxHistory.ValuationArea, 
+                         HouseTaxHistory.GrossCost, HouseTaxHistory.ToFY, HouseTaxHistory.FromFY
+FROM            HouseTaxHistory INNER JOIN
+                         LandTaxHistory ON HouseTaxHistory.Id = LandTaxHistory.HouseTaxHistoryId</CommandText>
+                <Parameters />
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="TaxDetail" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TaxDetail" msprop:Generator_UserDSName="TaxDetail">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Citizen" msprop:Generator_TableClassName="CitizenDataTable" msprop:Generator_TableVarName="tableCitizen" msprop:Generator_RowChangedName="CitizenRowChanged" msprop:Generator_TablePropName="Citizen" msprop:Generator_RowDeletingName="CitizenRowDeleting" msprop:Generator_RowChangingName="CitizenRowChanging" msprop:Generator_RowEvHandlerName="CitizenRowChangeEventHandler" msprop:Generator_RowDeletedName="CitizenRowDeleted" msprop:Generator_RowClassName="CitizenRow" msprop:Generator_UserTableName="Citizen" msprop:Generator_RowEvArgName="CitizenRowChangeEvent">
+        <xs:element name="Citizen" msprop:Generator_TableClassName="CitizenDataTable" msprop:Generator_TableVarName="tableCitizen" msprop:Generator_TablePropName="Citizen" msprop:Generator_RowDeletingName="CitizenRowDeleting" msprop:Generator_RowChangingName="CitizenRowChanging" msprop:Generator_RowEvHandlerName="CitizenRowChangeEventHandler" msprop:Generator_RowDeletedName="CitizenRowDeleted" msprop:Generator_UserTableName="Citizen" msprop:Generator_RowChangedName="CitizenRowChanged" msprop:Generator_RowEvArgName="CitizenRowChangeEvent" msprop:Generator_RowClassName="CitizenRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CitizenId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCitizenId" msprop:Generator_ColumnPropNameInRow="CitizenId" msprop:Generator_ColumnPropNameInTable="CitizenIdColumn" msprop:Generator_UserColumnName="CitizenId" type="xs:int" />
@@ -297,7 +309,7 @@ FROM            LandTaxHistory</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HouseTaxHistory" msprop:Generator_TableClassName="HouseTaxHistoryDataTable" msprop:Generator_TableVarName="tableHouseTaxHistory" msprop:Generator_RowChangedName="HouseTaxHistoryRowChanged" msprop:Generator_TablePropName="HouseTaxHistory" msprop:Generator_RowDeletingName="HouseTaxHistoryRowDeleting" msprop:Generator_RowChangingName="HouseTaxHistoryRowChanging" msprop:Generator_RowEvHandlerName="HouseTaxHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="HouseTaxHistoryRowDeleted" msprop:Generator_RowClassName="HouseTaxHistoryRow" msprop:Generator_UserTableName="HouseTaxHistory" msprop:Generator_RowEvArgName="HouseTaxHistoryRowChangeEvent">
+        <xs:element name="HouseTaxHistory" msprop:Generator_TableClassName="HouseTaxHistoryDataTable" msprop:Generator_TableVarName="tableHouseTaxHistory" msprop:Generator_TablePropName="HouseTaxHistory" msprop:Generator_RowDeletingName="HouseTaxHistoryRowDeleting" msprop:Generator_RowChangingName="HouseTaxHistoryRowChanging" msprop:Generator_RowEvHandlerName="HouseTaxHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="HouseTaxHistoryRowDeleted" msprop:Generator_UserTableName="HouseTaxHistory" msprop:Generator_RowChangedName="HouseTaxHistoryRowChanged" msprop:Generator_RowEvArgName="HouseTaxHistoryRowChangeEvent" msprop:Generator_RowClassName="HouseTaxHistoryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -336,7 +348,7 @@ FROM            LandTaxHistory</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LandTaxHistory" msprop:Generator_TableClassName="LandTaxHistoryDataTable" msprop:Generator_TableVarName="tableLandTaxHistory" msprop:Generator_RowChangedName="LandTaxHistoryRowChanged" msprop:Generator_TablePropName="LandTaxHistory" msprop:Generator_RowDeletingName="LandTaxHistoryRowDeleting" msprop:Generator_RowChangingName="LandTaxHistoryRowChanging" msprop:Generator_RowEvHandlerName="LandTaxHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="LandTaxHistoryRowDeleted" msprop:Generator_RowClassName="LandTaxHistoryRow" msprop:Generator_UserTableName="LandTaxHistory" msprop:Generator_RowEvArgName="LandTaxHistoryRowChangeEvent">
+        <xs:element name="LandTaxHistory" msprop:Generator_TableClassName="LandTaxHistoryDataTable" msprop:Generator_TableVarName="tableLandTaxHistory" msprop:Generator_TablePropName="LandTaxHistory" msprop:Generator_RowDeletingName="LandTaxHistoryRowDeleting" msprop:Generator_RowChangingName="LandTaxHistoryRowChanging" msprop:Generator_RowEvHandlerName="LandTaxHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="LandTaxHistoryRowDeleted" msprop:Generator_UserTableName="LandTaxHistory" msprop:Generator_RowChangedName="LandTaxHistoryRowChanged" msprop:Generator_RowEvArgName="LandTaxHistoryRowChangeEvent" msprop:Generator_RowClassName="LandTaxHistoryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -384,8 +396,8 @@ FROM            LandTaxHistory</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId" msdata:parent="Citizen" msdata:child="LandTaxHistory" msdata:parentkey="CitizenId" msdata:childkey="CitizenId" msprop:Generator_UserChildTable="LandTaxHistory" msprop:Generator_ChildPropName="GetLandTaxHistoryRows" msprop:Generator_UserRelationName="FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId" msprop:Generator_RelationVarName="_relationFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId" msprop:Generator_UserParentTable="Citizen" msprop:Generator_ParentPropName="CitizenRow" />
-      <msdata:Relationship name="FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId" msdata:parent="HouseTaxHistory" msdata:child="LandTaxHistory" msdata:parentkey="Id" msdata:childkey="HouseTaxHistoryId" msprop:Generator_UserChildTable="LandTaxHistory" msprop:Generator_ChildPropName="GetLandTaxHistoryRows" msprop:Generator_UserRelationName="FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId" msprop:Generator_RelationVarName="_relationFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId" msprop:Generator_UserParentTable="HouseTaxHistory" msprop:Generator_ParentPropName="HouseTaxHistoryRow" />
+      <msdata:Relationship name="FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId" msdata:parent="Citizen" msdata:child="LandTaxHistory" msdata:parentkey="CitizenId" msdata:childkey="CitizenId" msprop:Generator_UserChildTable="LandTaxHistory" msprop:Generator_ChildPropName="GetLandTaxHistoryRows" msprop:Generator_UserRelationName="FK_dbo.LandTaxHistory_dbo.Citizen_CitizenId" msprop:Generator_ParentPropName="CitizenRow" msprop:Generator_RelationVarName="_relationFK_dbo_LandTaxHistory_dbo_Citizen_CitizenId" msprop:Generator_UserParentTable="Citizen" />
+      <msdata:Relationship name="FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId" msdata:parent="HouseTaxHistory" msdata:child="LandTaxHistory" msdata:parentkey="Id" msdata:childkey="HouseTaxHistoryId" msprop:Generator_UserChildTable="LandTaxHistory" msprop:Generator_ChildPropName="GetLandTaxHistoryRows" msprop:Generator_UserRelationName="FK_dbo.LandTaxHistory_dbo.HouseTaxHistory_HouseTaxHistoryId" msprop:Generator_ParentPropName="HouseTaxHistoryRow" msprop:Generator_RelationVarName="_relationFK_dbo_LandTaxHistory_dbo_HouseTaxHistory_HouseTaxHistoryId" msprop:Generator_UserParentTable="HouseTaxHistory" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

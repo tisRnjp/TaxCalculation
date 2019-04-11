@@ -201,6 +201,7 @@
     <Compile Include="Controllers\API\CitizenHouseAPIController.cs" />
     <Compile Include="Controllers\CitizenLandController.cs" />
     <Compile Include="Controllers\CitizenHouseController.cs" />
+    <Compile Include="Controllers\HistoryDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FiscalYearController.cs" />
     <Compile Include="Controllers\HouseValuationController.cs" />
@@ -332,6 +333,7 @@
     <Compile Include="Models\LandValuation.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SearchCitizenViewModel.cs" />
+    <Compile Include="Models\TaxHistory.cs" />
     <Compile Include="Models\Zone.cs" />
     <Compile Include="OnlyCitizenDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -346,6 +348,7 @@
       <DependentUpon>TaxDetail.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CitizenViewModel.cs" />
+    <Compile Include="ViewModels\HistoryDetailViewModel.cs" />
     <Compile Include="ViewModels\LandFormViewModel.cs" />
     <Compile Include="ViewModels\HouseFormViewModel.cs" />
     <Compile Include="ViewModels\LandTaxViewModel.cs" />
@@ -664,6 +667,8 @@
     <Content Include="Views\LandTax\ReviewImages.cshtml" />
     <Content Include="Views\LandTax\ReportViewer.cshtml" />
     <Content Include="Views\LandTax\Save.cshtml" />
+    <Content Include="Views\HistoryDetail\HistoryDetail.cshtml" />
+    <Content Include="Views\HistoryDetail\ReportViewer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -760,6 +765,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CitizenList.rdlc" />
     <EmbeddedResource Include="Reports\CustomerList.rdlc" />
+    <EmbeddedResource Include="Reports\TaxHistory.rdlc" />
     <EmbeddedResource Include="Reports\TaxReportMultiYear.rdlc" />
     <EmbeddedResource Include="Reports\TaxReport.rdlc" />
   </ItemGroup>

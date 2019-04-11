@@ -1,0 +1,267 @@
+﻿@model TaxCalculator.ViewModels.HistoryDetailViewModel
+
+
+<h2>Latest Tax History</h2>
+<hr />
+@if (Model.LandTaxHistory.Id != 0)
+{
+    <div class="col-md-6">
+
+        <div class="form-horizontal">
+
+
+            @*<div class="container">*@
+
+            <div class="panel-group">
+
+
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">घर तर्फ </a>
+                        </h4>
+
+                    </div>
+                    <hr />
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.HouseTaxHistory.FromFiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.HouseTaxHistory.FromFY, new { htmlAttributes = new { @class = "form-control", id = "house-fromFY", @Readonly = true } })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.HouseTaxHistory.ToFiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.HouseTaxHistory.ToFY, new { htmlAttributes = new { @class = "form-control", id = "house-toFY", @Readonly = true } })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CitizenHouse.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CitizenHouse.Area, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-area" } })
+                            @Html.ValidationMessageFor(model => model.CitizenHouse.Area, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    @*<div class="form-group">
+                            @Html.LabelFor(model => model.HouseTaxHistory.HouseCategory, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.HouseTaxHistory.HouseCategory, new { @class = "form-control", @readonly = true, id = "house-category" })
+                                @Html.ValidationMessageFor(model => model.HouseTaxHistory.HouseCategory, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HouseTaxHistory.CostPerUnitArea, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HouseTaxHistory.CostPerUnitArea, new { htmlAttributes = new { @class = "form-control", id = "house-costPerUnitArea", @readonly = true } })
+                            @Html.ValidationMessageFor(model => model.HouseTaxHistory.CostPerUnitArea, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CitizenHouse.Floor, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CitizenHouse.Floor, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                            @Html.ValidationMessageFor(model => model.CitizenHouse.Floor, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HouseTaxHistory.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HouseTaxHistory.TotalCost, new { htmlAttributes = new { @class = "form-control", id = "house-totalCost", @readonly = true } })
+                            @Html.ValidationMessageFor(model => model.HouseTaxHistory.TotalCost, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HouseTaxHistory.DepreciationRate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HouseTaxHistory.DepreciationRate, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-depreciationRate" } })
+                            @Html.ValidationMessageFor(model => model.HouseTaxHistory.DepreciationRate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HouseTaxHistory.DepreciationAmount, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HouseTaxHistory.DepreciationAmount, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "depreciationamount" } })
+                            @Html.ValidationMessageFor(model => model.HouseTaxHistory.DepreciationAmount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.HouseTaxHistory.GrossCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.HouseTaxHistory.GrossCost, new { htmlAttributes = new { @class = "form-control", @readonly = true, id = "house-grossCost" } })
+                            @Html.ValidationMessageFor(model => model.HouseTaxHistory.GrossCost, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            @*</div>*@
+
+            @Html.HiddenFor(model => model.HouseTaxHistory.TotalArea)
+            @Html.HiddenFor(model => model.HouseTaxHistory.CitizenHouseId)
+            @Html.HiddenFor(model => model.CitizenHouse.Id)
+
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-horizontal">
+            <div class="panel-group">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Remaining Tax Detail</div>
+                    <div class="panel-body">
+                        @ViewBag.TaxNotification
+                        <button class="btn btn-basic">
+                            @Html.ActionLink("पुराना विवरणहरु", "HistoryReport", "HistoryDetail", new { id = Model.LandTaxHistory.CitizenId }, new { htmlAttributes = new { @class = "btn btn-default", target = "_blank" } })
+                        </button>
+                        <button class="btn btn-basic">
+                            @Html.ActionLink("कर विवरण निकाल्नुहोस", "Create", "HouseTax", new { id = Model.LandTaxHistory.CitizenId }, new { htmlAttributes = new { @class = "btn btn-default" } })
+                        </button>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" href="#collapse1">जग्गा तर्फ</a>
+                        </h4>
+                    </div>
+                    <hr />
+
+
+                    @*<div class="form-group row">
+                            @Html.LabelFor(m => m.CitizenLand.WardNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.WardNo, new { @class = "form-control", id = "land-wardno", @readonly = true })
+                                @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.WardNo)
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            @Html.LabelFor(m => m.CitizenLand.KittaNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.CitizenLand.KittaNo, new { @class = "form-control", id = "land-kittano", @readonly = true })
+                                @Html.ValidationMessageFor(m => m.LandTaxHistory.CitizenLand.KittaNo)
+                            </div>
+                        </div>*@
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.FromFiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.FromFY, new { @class = "form-control", @Readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @*@Html.LabelFor(m => m.LandTaxHistory.ToFiscalYearId, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                        <label class="control-label col-md-2">आ व सम्म</label>
+
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.ToFY, new { @class = "form-control", @Readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.ValuationArea, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.ValuationArea, new { @class = "form-control", id = "land-area", @readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.ActualValuationArea, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.ActualValuationArea, new { @class = "form-control", id = "land-actualarea", @Readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.Remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.Remarks, new { @class = "form-control", id = "land-remark", @Readonly = true })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.CostPerUnitArea, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.CostPerUnitArea, new { @class = "form-control", id = "land-cost", @Readonly = true })
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.LandTaxHistory.TotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.LandTaxHistory.TotalCost, new { @class = "form-control", id = "land-total", @readonly = true })
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                @*<div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Remaining Tax Detail</h5>
+                            <p class="card-text">Taxes for kitta no @ViewBag.KittaNo are due since, @ViewBag.NextDueFY till @ViewBag.CurrentFY</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>*@
+                @Html.HiddenFor(m => m.LandTaxHistory.FromFY)
+                @Html.HiddenFor(m => m.LandTaxHistory.ToFY)
+                @Html.HiddenFor(m => m.LandTaxHistory.KittaNo)
+                @Html.HiddenFor(m => m.LandTaxHistory.HouseTaxHistoryId)
+                @Html.HiddenFor(m => m.LandTaxHistory.CitizenLandId)
+                @Html.HiddenFor(m => m.LandTaxHistory.Id)
+
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="panel-group">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Remaining Tax Detail</div>
+            <div class="panel-body">
+                @ViewBag.TaxNotification
+                <button class="btn btn-basic">
+                    @Html.ActionLink("कर विवरण निकाल्नुहोस (Calculate Tax)", "Create", "HouseTax", new { id = Model.LandTaxHistory.CitizenId }, new { htmlAttributes = new { @class = "btn btn-default" } })
+                </button>
+            </div>
+        </div>
+    </div>
+}
+        @section scripts{
+            @Scripts.Render("~/bundles/jqueryval")
+            <script>
+                $(document).ready(function () {
+                    console.log()
+
+                }
+
+            </script>
+        }

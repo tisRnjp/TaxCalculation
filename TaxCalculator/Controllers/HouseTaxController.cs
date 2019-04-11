@@ -33,22 +33,50 @@ namespace TaxCalculator.Controllers
         {
             if (id == null)
             {
-                return RedirectToAction("Index", "CitizenHouse");
+                return RedirectToAction("Index", "Home");
             }
+            
+            var landTaxHistory = db.LandTaxHistories
+                                    .OrderByDescending(l => l.Id)
+                                    .FirstOrDefault(l => l.CitizenId == id);
+            if (landTaxHistory == null)
+            {
+                landTaxHistory = new LandTaxHistory();
+            }        
+
+            var fromFY = landTaxHistory.Id != 0 ? db.FiscalYears
+                                                    .OrderByDescending(l => l.Id)
+                                                    .FirstOrDefault(l => l.Id == (landTaxHistory.ToFiscalYearId + 1))
+                                                    : db.FiscalYears
+                                                        .OrderByDescending(l => l.Id)
+                                                        .FirstOrDefault(l => l.FY == "75/76");
+
+            var toFY = db.FiscalYears
+                            .OrderByDescending(l => l.Id)
+                            .FirstOrDefault(l => l.FY == "75/76");
+
             //Needs Working CitienHouse Must have citizen ID...................................................................
             var citizenHouse = db.CitizenHouses.Single(h => h.CitizenId == id);
             var houseTax = new HouseTaxViewModel();
-            if(citizenHouse != null)
+
+            if (citizenHouse != null)
             {
                 houseTax.CitizenHouse = citizenHouse;
-                houseTax.HouseTax = new HouseTaxHistory { CitizenHouseId = citizenHouse.Id, TotalArea = citizenHouse.Area};
+                houseTax.HouseTax = new HouseTaxHistory {
+                                                CitizenHouseId = citizenHouse.Id,
+                                                TotalArea = citizenHouse.Area,
+                                                FromFiscalYearId = fromFY.Id,
+                                                ToFiscalYearId = toFY.Id,
+
+                };
                 houseTax.HouseValuations = db.HouseValuations.ToList();
                 houseTax.FiscalYears = db.FiscalYears.ToList();
             }
-
+            
             return View(houseTax);
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(HouseTaxViewModel model)
@@ -62,10 +90,13 @@ namespace TaxCalculator.Controllers
             model.HouseTax.TotalYears = fiscalYear.Sequence - model.HouseTax.TotalYears;
             db.HouseTaxHistories.Add(model.HouseTax);
 
+           
+            
             var citizenHouse = db.CitizenHouses.First(c => c.Id == model.HouseTax.CitizenHouseId);
-
+            
             db.SaveChanges();
-
+            
+            
             //Move to land calculations
 
             
@@ -107,6 +138,32 @@ namespace TaxCalculator.Controllers
                 var houseValuation = db.HouseValuations.Single(m => m.HouseType == category);
 
                 return Json(houseValuation, JsonRequestBehavior.AllowGet);
+            }
+            return null;
+        }
+
+        public ActionResult GetDepreciationRate(string category,int? id)
+        {
+            var landTaxHistory = db.LandTaxHistories
+                                    .OrderByDescending(h => h.Id)
+                                    .FirstOrDefault(h => h.CitizenId == id);
+            var houseTaxHistory = db.HouseTaxHistories
+                                    .OrderByDescending(h => h.Id)
+                                    .FirstOrDefault(h => h.Id == landTaxHistory.HouseTaxHistoryId);
+            if (!string.IsNullOrWhiteSpace(category) && category.Length == 1)
+            {
+                var houseValuation = db.HouseValuations.Single(m => m.HouseType == category);
+                if (houseTaxHistory != null)
+                {
+                    var Rate = new { rate = houseValuation.DepreciationRate, lastRate = houseTaxHistory.DepreciationRate };
+                    return Json(Rate, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    var Rate = new { rate = 0, lastRate = 0 };
+                    return Json(Rate, JsonRequestBehavior.AllowGet);
+                }
+                
             }
             return null;
         }

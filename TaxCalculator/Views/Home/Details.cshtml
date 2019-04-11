@@ -6,7 +6,130 @@
 
 @Html.Partial("_CitizenDetails", Model)
 
+<table id="TaxHistory" class="table">
+    <thead class="thead-light">
+        <tr>
+          <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].KittaNo)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].CitizenLand.VDC)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].FromFY)
+            </th>
+
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].ToFY)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].ValuationArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].ActualValuationArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].Remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].CostPerUnitArea)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].TotalCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].LastFYCostPerUnitArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaxHistory[0].LastFYTotalCost)
+            </th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TaxHistory)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.KittaNo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CitizenLand.VDC)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromFY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToFY)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValuationArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualValuationArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Remarks)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostPerUnitArea)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastFYCostPerUnitArea)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastFYTotalCost)
+                </td>
+                <td>
+                    @Html.ActionLink("Preview Files", "ReviewImages", new { id = item.Id })|
+                    @Html.ActionLink("Preview Report", "ReportViewer", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { citizenID = Model.Citizen.CitizenId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#TaxHistory").DataTable();
+
+
+
+
+        });
+
+
+
+    </script>
+}

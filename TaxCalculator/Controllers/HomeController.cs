@@ -21,7 +21,9 @@ namespace TaxCalculator.Controllers
 
         public ActionResult Index(string Search_Data)
         {
-            var citizens = db.Citizens.Include(z => z.Zone).ToList();
+            var citizens = db.Citizens
+                                .Where(c => c.CitizenId >= 10)
+                                .Include(z => z.Zone).ToList();
             //var citizens = db.Citizens.Include();
             if (Search_Data != null)
             {
@@ -214,10 +216,16 @@ namespace TaxCalculator.Controllers
                 return HttpNotFound();
             }
 
+
+
             var viewModel = new CitizenViewModel
             {
                 Citizen = citizen,
-                Zones = db.Zones.ToList()
+                Zones = db.Zones.ToList(),
+                TaxHistory = db.LandTaxHistories
+                                .Where(h => h.CitizenId == citizenID)
+                                .OrderByDescending(h => h.Id)
+                                .ToList()
             };
 
 
