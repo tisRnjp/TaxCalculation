@@ -58,24 +58,6 @@ namespace TaxCalculator.Controllers
         public ActionResult Save(LandTaxViewModel viewModel)
         {
 
-            //if (!ModelState.IsValid)
-            //{
-            //    var invalidViewModel = new LandTaxViewModel
-            //    {
-            //        LandTaxHistory = viewModel.LandTaxHistory, 
-            //    };
-            //    return View("LandTaxCalculationForm", invalidViewModel);
-
-            //}
-        //     [Display(Name = "चारकिल्ला प्रमाणित गरिएको बारे")]
-        //public HttpPostedFileBase File { get; set; }
-        //[Display(Name = "घर बाटो खुलाई पठाएको बारे")]
-        //public HttpPostedFileBase File1 { get; set; }
-        //[Display(Name = "नाता प्रमाण")]
-        //public HttpPostedFileBase File2 { get; set; }
-        //[Display(Name = "विवाह प्रमाण")]
-        //public HttpPostedFileBase File3 { get; set; }
-
             if (viewModel.LandTaxHistory.Id == 0)
             {
                 db.LandTaxHistories.Add(viewModel.LandTaxHistory);
@@ -155,7 +137,7 @@ namespace TaxCalculator.Controllers
                 var Slab4 = new decimal();
                 var Slab5 = new decimal();
                 var totalTax = 0.00m;
-                if (taxHistory.TotalYears > 1)
+                if (taxHistory.TotalYears >= 1)
                 {
                     //1st
                     if (taxHistory.LastFYTotalValuation >= 3000000m)
